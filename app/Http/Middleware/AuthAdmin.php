@@ -19,7 +19,7 @@ class AuthAdmin
     {
         if(Auth::check()){
 
-            if(Auth::user()->utype=='ADM'){
+            if(Auth::user()->utype==='ADM'){
                 return $next($request);
             } else {
                 Session::flush();
