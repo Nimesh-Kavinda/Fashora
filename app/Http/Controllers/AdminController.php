@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 use Intervention\Image\Laravel\Facades\Image;
 
+
 class AdminController extends Controller
 {
     public function index(){
