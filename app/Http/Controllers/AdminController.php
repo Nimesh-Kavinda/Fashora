@@ -7,6 +7,7 @@ use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 use Intervention\Image\Laravel\Facades\Image;
+use Illuminate\Http\UploadedFile;
 
 
 class AdminController extends Controller
@@ -49,7 +50,7 @@ class AdminController extends Controller
 
     public function GenarateBrandThumbailsImage($image, $imageName){
         $destinationPath = public_path('uploads/brands');
-        $img = Image::read($image->path);
+        $img = Image::read($image->path());
         $img -> cover(124,124,"top");
         $img -> resize(124,124,function($constraint){
             $constraint -> aspectRatio();
