@@ -79,8 +79,8 @@
                 const photo = $("#myFile");
                 const [file] = this.files;
                 if(file){
-                    $("#imgpreview img").attr('src', URL.createObjectURL(file));
-                    $("#imgpreview img").show();
+                    $("#imgpreview img").attr('src',URL.createObjectURL(file));
+                    $("#imgpreview").show();
                 }
             });
 
