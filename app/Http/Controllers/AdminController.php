@@ -48,7 +48,7 @@ class AdminController extends Controller
 
         $brand->image = $file_name;
         $brand->save();
-        return redirect()->route('admin.brands')->with('status', 'Brand has been added succesfully');
+        return redirect()->route('admin.brands')->with('status', 'Brand has been added succesfully..!');
     }
 
     public function brand_edit($id)
@@ -83,7 +83,7 @@ class AdminController extends Controller
 
 
         $brand->save();
-        return redirect()->route('admin.brands')->with('status', 'Brand has been updated succesfully');
+        return redirect()->route('admin.brands')->with('status', 'Brand has been updated succesfully..!');
     }
 
     public function GenarateBrandThumbailsImage($image, $imageName)
@@ -103,7 +103,7 @@ class AdminController extends Controller
             File::delete(public_path('uploads/brands') . '/' . $brand->image);
         }
         $brand->delete();
-        return redirect()->route('admin.brands')->with('status', 'Brand has been deleted succesfully');
+        return redirect()->route('admin.brands')->with('status', 'Brand has been deleted succesfully..!');
     }
 
 
@@ -138,7 +138,7 @@ class AdminController extends Controller
 
         $category->image = $file_name;
         $category->save();
-        return redirect()->route('admin.categories')->with('status', 'Category has been added succesfully');
+        return redirect()->route('admin.categories')->with('status', 'Category has been added succesfully..!');
     }
 
     public function GenarateCategoryThumbailsImage($image, $imageName)
@@ -181,6 +181,6 @@ class AdminController extends Controller
 
 
         $category->save();
-        return redirect()->route('admin.categories')->with('status', 'Category has been updated succesfully');
+        return redirect()->route('admin.categories')->with('status', 'Category has been updated succesfully..!');
     }
 }
