@@ -31,7 +31,7 @@
                                 tabindex="2" value="" aria-required="true" required="">
                         </fieldset>
                         <div class="button-submit">
-                            <button class="" type="submit"><i class="icon-search"></i></button>
+                        <button class="" type="submit"><i class="icon-search"></i></button>
                         </div>
                     </form>
                 </div>
