@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Brand;
 use App\Models\Category;
+use App\Models\Product;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
@@ -17,6 +18,7 @@ class AdminController extends Controller
         return view('admin.index');
     }
 
+    // Admin Brand Page Functions
     public function brands()
     {
         $brands = Brand::orderBy('id', 'DESC')->paginate(10);
@@ -106,7 +108,7 @@ class AdminController extends Controller
         return redirect()->route('admin.brands')->with('status', 'Brand has been deleted succesfully..!');
     }
 
-
+    // Admin Category Page Functions
     public function categories()
     {
         $categories = Category::orderBy('id', 'DESC')->paginate(10);
@@ -151,12 +153,14 @@ class AdminController extends Controller
         })->save($destinationPath . '/' . $imageName);
     }
 
-    public function category_edit($id){
+    public function category_edit($id)
+    {
         $category = Category::find($id);
-        return view('admin.category-edit',compact('category'));
+        return view('admin.category-edit', compact('category'));
     }
 
-    public function category_update(Request $request){
+    public function category_update(Request $request)
+    {
         $request->validate([
             'name' => 'required',
             'slug' => 'required|unique:categories,slug,' . $request->id,
@@ -184,12 +188,19 @@ class AdminController extends Controller
         return redirect()->route('admin.categories')->with('status', 'Category has been updated succesfully..!');
     }
 
-    public function category_delete($id){
+    public function category_delete($id)
+    {
         $category = Category::find($id);
         if (File::exists(public_path('uploads/categories') . '/' . $category->image)) {
             File::delete(public_path('uploads/categories') . '/' . $category->image);
         }
         $category->delete();
         return redirect()->route('admin.categories')->with('status', 'Category has been deleted succesfully..!');
+    }
+    // Admin Product Page Functions
+    public function products()
+    {
+        $products = Product::orderBy('created_at', 'DESC')->paginate(10);
+        return view('admin.products',compact('products'));
     }
 }
