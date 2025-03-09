@@ -208,7 +208,12 @@ class AdminController extends Controller
     {
         $categories = Category::select('id', 'name')->orderBy('name')->get();
         $brands = Brand::select('id', 'name')->orderBy('name')->get();
-        return view('admin.product-add',compact('categories','brands'));
+        return view('admin.products-add',compact('categories','brands'));
 
+    }
+
+    public function product_store(Request $request)
+    {
+        
     }
 }
