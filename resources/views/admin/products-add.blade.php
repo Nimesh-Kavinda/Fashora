@@ -8,7 +8,7 @@
             <h3>Add Product</h3>
             <ul class="breadcrumbs flex items-center flex-wrap justify-start gap10">
                 <li>
-                    <a href="index-2.html">
+                    <a href="{{ route('admin.index') }}">
                         <div class="text-tiny">Dashboard</div>
                     </a>
                 </li>
@@ -29,8 +29,8 @@
             </ul>
         </div>
         <!-- form-add-product -->
-        <form class="tf-section-2 form-add-product" method="POST" enctype="multipart/form-data"
-            action="http://localhost:8000/admin/product/store">
+        <form class="tf-section-2 form-add-product" method="POST" enctype="multipart/form-data" action="">
+            @csrf
             <input type="hidden" name="_token" value="8LNRTO4LPXHvbK2vgRcXqMeLgqtqNGjzWSNru7Xx"
                 autocomplete="off">
             <div class="wg-box">
@@ -58,11 +58,9 @@
                         <div class="select">
                             <select class="" name="category_id">
                                 <option>Choose category</option>
-                                <option value="1">Category1</option>
-                                <option value="2">Category2</option>
-                                <option value="3">Category3</option>
-                                <option value="4">Category4</option>
-
+                                @foreach ($categories as $category)                    
+                                <option value="{{ $category->id }}">{{ $category->name }}</option>
+                                @endforeach
                             </select>
                         </div>
                     </fieldset>
@@ -72,11 +70,9 @@
                         <div class="select">
                             <select class="" name="brand_id">
                                 <option>Choose Brand</option>
-                                <option value="1">Brand1</option>
-                                <option value="2">Brand2</option>
-                                <option value="3">Brand3</option>
-                                <option value="4">Brand4</option>
-
+                                @foreach ($brands as $brand)
+                                <option value="{{ $brand->id }}">{{ $brand->name }}</option>
+                                @endforeach
                             </select>
                         </div>
                     </fieldset>
