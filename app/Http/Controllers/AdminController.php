@@ -215,7 +215,7 @@ class AdminController extends Controller
     {
         $request->validate([
             'name' => 'required',
-            'slug' => 'required|unique:product,slug',
+            'slug' => 'required|unique:products,slug',
             'short_description' => 'required',
             'description' => 'required',
             'regular_price' => 'required',
