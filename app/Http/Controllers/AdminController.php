@@ -214,6 +214,21 @@ class AdminController extends Controller
 
     public function product_store(Request $request)
     {
-        
+        $request->validate([
+            'name' => 'required',
+            'slug' => 'required|unique:product,slug',
+            'short_description' => 'required',
+            'description' => 'required',
+            'regular_price' => 'required',
+            'sale_price' => 'required',
+            'SKU' => 'required',
+            'stock_status' => 'required',
+            'featured' => 'required',
+            'quantity' => 'required',
+            'image' => 'required',
+            'images' => 'required',
+            'category_id' => 'required',
+            'brand_id' => 'required'
+        ]);
     }
 }
