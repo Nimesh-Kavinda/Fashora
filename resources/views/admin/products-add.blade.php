@@ -231,7 +231,7 @@
             const photo = $("#gFile");
             const gphotos = this.files;
             $.each(gphotos,function(key,val){
-                $("#galUpload").prepend(`<div class "item gitem"><img src="${URL.createObjectURL(val)}"/><div/>`);
+                $("#galUpload").prepend(`<div class ="item gitem"><img src="${URL.createObjectURL(val)}"/><div/>`);
             });           
         });
 
