@@ -39,7 +39,7 @@
             <div class="table-responsive">
                 @if (Session::has('status'))
                 <p class="alert alert-success">{{Session::get('status')}}</p>
-                @endif
+                @endif 
                 <table class="table table-striped table-bordered">
                     <thead>
                         <tr>
