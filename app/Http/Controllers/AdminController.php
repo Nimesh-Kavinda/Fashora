@@ -245,7 +245,8 @@ class AdminController extends Controller
 
         $current_timestamp = Carbon::now()->timestamp;
 
-        if ($request->hasFile('image')) {
+        if ($request->hasFile('image')) 
+        {
             $image = $request->file('image');
             $imageName = $current_timestamp . '.' . $image->extension();
             $this -> GenerateProductThumbnailImage($image, $imageName);
