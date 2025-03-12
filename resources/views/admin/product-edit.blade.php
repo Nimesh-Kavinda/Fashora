@@ -106,9 +106,11 @@
                     <div class="body-title">Upload images <span class="tf-color-1">*</span>
                     </div>
                     <div class="upload-image flex-grow">
-                        <div class="item" id="imgpreview" style="display:none">
-                            <img src="../../../localhost_8000/images/upload/upload-1.png" class="effect8" alt="">
+                        @if($product->image)
+                        <div class="item" id="imgpreview">
+                            <img src="{{ asset('uploads/products') }}/{{ $product->image }}" class="effect8" alt="{{ $product->image }}">
                         </div>
+                        @endif
                         <div id="upload-file" class="item up-load">
                             <label class="uploadfile" for="myFile">
                                 <span class="icon">
