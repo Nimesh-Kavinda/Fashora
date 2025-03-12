@@ -241,6 +241,7 @@
             });           
         });
 
+
         $("input[name ='name']").on("change", function() {
             $("input[name ='slug']").val(stringToSlug($(this).val()));
         });
