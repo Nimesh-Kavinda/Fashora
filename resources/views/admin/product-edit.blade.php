@@ -130,7 +130,7 @@
                 <fieldset>
                     <div class="body-title mb-10">Upload Gallery Images</div>
                     <div class="upload-image mb-16">
-                        <div class="gitems item">
+                        <div class="item" style="gap: 1rem" id="gimgpreview">
                         @if($product->images)
                         @foreach(explode(',', $product->images) as $img)
                          <div class="gitems item">
