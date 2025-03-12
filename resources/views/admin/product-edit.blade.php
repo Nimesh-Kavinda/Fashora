@@ -130,13 +130,15 @@
                 <fieldset>
                     <div class="body-title mb-10">Upload Gallery Images</div>
                     <div class="upload-image mb-16">
+                        <div class="gitems item">
                         @if($product->images)
                         @foreach(explode(',', $product->images) as $img)
                          <div class="gitems item">
                             <img src="{{ asset('uploads/products') }}/{{ trim($img) }}" alt="">
                         </div>
                         @endforeach
-                        @endif                                                 
+                        @endif
+                        </div>                                               
                         <div id="galUpload" class="item up-load">
                             <label class="uploadfile" for="gFile">
                                 <span class="icon">
@@ -236,8 +238,9 @@
         $("#gFile").on("change", function(e) {
             const photo = $("#gFile");
             const gphotos = this.files;
+            $("#gimgpreview").empty();
             $.each(gphotos,function(key,val){
-                $("#galUpload").prepend(`<div class ="item gitem"><img src="${URL.createObjectURL(val)}"/><div/>`);
+                $("#gimgpreview").append(`<div class ="item gitem"><img src="${URL.createObjectURL(val)}"/><div/>`);
             });           
         });
 
