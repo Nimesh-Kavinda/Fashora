@@ -299,4 +299,9 @@ class AdminController extends Controller
             $constraint->aspectRatio();
         })->save($destinationPathThumbnail . '/' . $imageName);
     }
+
+    public function product_edit($id)
+    {
+        $product = Product::find($id);
+    }
 }
