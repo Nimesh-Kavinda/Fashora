@@ -307,4 +307,25 @@ class AdminController extends Controller
         $brands = Brand::select('id', 'name')->orderBy('name')->get();
         return view('admin.product-edit',compact('product','categories','brands'));
     }
+
+    public function product_update(Request $request)
+    {
+        $request->validate([
+            'name' => 'required',
+            'slug' => 'required|unique:products,slug,'.$request->id,
+            'short_description' => 'required',
+            'description' => 'required',
+            'regular_price' => 'required',
+            'sale_price' => 'required',
+            'SKU' => 'required',
+            'stock_status' => 'required',
+            'featured' => 'required',
+            'quantity' => 'required',
+            'image' => 'required|mimes:png,jpg,jpeg|max:2048',
+            'category_id' => 'required',
+            'brand_id' => 'required'
+        ]);
+
+        
+    }
 }
