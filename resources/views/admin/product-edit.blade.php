@@ -121,7 +121,7 @@
                             </label>
                         </div>
                     </div>
-                </fieldset>
+                </fieldset> 
                 @error('image') <span class="alert alert-danger text-center">{{ $message }}</span> @enderror
 
 
