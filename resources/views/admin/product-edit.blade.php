@@ -182,8 +182,8 @@
                         <div class="body-title mb-10">Stock</div>
                         <div class="select mb-10">
                             <select class="" name="stock_status">
-                                <option value="instock">InStock</option>
-                                <option value="outofstock">Out of Stock</option>
+                                <option value="instock" {{ $product ->stock_status == "instock" ? "selected" : "" }}>InStock</option>
+                                <option value="outofstock" {{ $product ->stock_status == "outofstock" ? "selected" : "" }}>Out of Stock</option>
                             </select>
                         </div>
                     </fieldset>
@@ -193,8 +193,8 @@
                         <div class="body-title mb-10">Featured</div>
                         <div class="select mb-10">
                             <select class="" name="featured">
-                                <option value="0">No</option>
-                                <option value="1">Yes</option>
+                                <option value="0" {{ $product ->featured == "0" ? "selected" : "" }}>No</option>
+                                <option value="1" {{ $product ->featured == "1" ? "selected" : "" }}>Yes</option>
                             </select>
                         </div>
                     </fieldset>
