@@ -128,9 +128,13 @@
                 <fieldset>
                     <div class="body-title mb-10">Upload Gallery Images</div>
                     <div class="upload-image mb-16">
-                        <!-- <div class="item">
-        <img src="images/upload/upload-1.png" alt="">
-    </div>                                                 -->
+                        @if($product->images)
+                        @foreach(explode(',', $product->images) as $img)
+                         <div class="gitems item">
+                            <img src="{{ asset('uploads/products') }}/{{ trim($img) }}" alt="">
+                        </div>
+                        @endforeach
+                        @endif                                                 
                         <div id="galUpload" class="item up-load">
                             <label class="uploadfile" for="gFile">
                                 <span class="icon">
