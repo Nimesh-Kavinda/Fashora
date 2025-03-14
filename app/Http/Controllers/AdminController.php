@@ -399,4 +399,10 @@ class AdminController extends Controller
         $product->save();
         return redirect()->route('admin.products')->with('status', 'Product has been Updated successfully.!');
     }
+
+    public function product_delete($id)
+    {
+        $product = Product::find($id);
+        
+    }
 }
