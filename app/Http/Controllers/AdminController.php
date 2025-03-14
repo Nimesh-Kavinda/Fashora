@@ -10,6 +10,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\File;
 use Intervention\Image\Laravel\Facades\Image;
+use Illuminate\Support\Facades\Validator;
 
 class AdminController extends Controller
 {
@@ -212,7 +213,7 @@ class AdminController extends Controller
     }
 
     public function product_store(Request $request)
-    {
+    {   ;
         $request->validate([
             'name' => 'required',
             'slug' => 'required|unique:products,slug',
@@ -310,6 +311,7 @@ class AdminController extends Controller
 
     public function product_update(Request $request)
     {
+        
         $request->validate([
             'name' => 'required',
             'slug' => 'required|unique:products,slug,'.$request->id,

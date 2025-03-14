@@ -1,6 +1,6 @@
 @extends('layouts.admin')
 @section('content')
-    
+
 <div class="main-content-inner">
     <!-- main-content-wrap -->
     <div class="main-content-wrap">
@@ -39,7 +39,7 @@
                     <div class="text-tiny">Do not exceed 100 characters when entering the
                         product name.</div>
                 </fieldset>
-                @error('name') <span class="alert alert-danger text-center">{{ $message }} @enderror
+                @error('name') <span class="alert alert-danger text-center">{{ $message }} </span> @enderror
 
                 <fieldset class="name">
                     <div class="body-title mb-10">Slug <span class="tf-color-1">*</span></div>
