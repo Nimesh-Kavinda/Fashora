@@ -362,7 +362,7 @@
         </div>
 
         <div class="products-grid row row-cols-2 row-cols-md-3" id="products-grid">
-
+            
             @foreach ($products as $product)
 
           <div class="product-card-wrapper">
@@ -410,6 +410,7 @@
                         <s>${{ $product->regular_price }}</s> ${{ $product->sale_price }}
                     @else
                     ${{ $product->regular_price }}
+                    @endif
                   </span>
                 </div>
                 <div class="product-card__review d-flex align-items-center">
@@ -443,7 +444,7 @@
             </div>
           </div>
 
-          {{-- @endforeach --}}
+          @endforeach
 
         </div>
 
@@ -454,5 +455,5 @@
       </div>
     </section>
   </main>
-  
+
 @endsection
