@@ -92,7 +92,7 @@
                                     <form action="{{ route('admin.product.delete',['id'=>$product->id]) }}" method="POST">
                                         @csrf
                                         @method('DELETE')
-                                        <div class="item text-danger delete">
+                                        <div class="item text-danger delete">  
                                             <i class="icon-trash-2"></i>
                                         </div>
                                     </form>
