@@ -17,6 +17,9 @@ class ShopController extends Controller
     {
         $product = Product::where('slug',$product_slug)->first();
         $rproducts = Product::where('slug','<>',$product_slug)->get()->take(8);
-        return view('details',compact('product','rproducts'));
+        $nextProduct = Product::where('id', '>', $product->id)->orderBy('id')->first();
+        $prevProduct = Product::where('id', '<', $product->id)->orderBy('id', 'desc')->first();
+
+        return view('details',compact('product','rproducts','nextProduct','prevProduct'));
     }
 }

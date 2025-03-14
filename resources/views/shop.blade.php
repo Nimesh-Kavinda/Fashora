@@ -66,7 +66,7 @@
         </div>
 
 
-        <div class="accordion" id="color-filters">
+        {{-- <div class="accordion" id="color-filters">
           <div class="accordion-item mb-4 pb-3">
             <h5 class="accordion-header" id="accordion-heading-1">
               <button class="accordion-button p-0 border-0 fs-5 text-uppercase" type="button" data-bs-toggle="collapse"
@@ -98,7 +98,7 @@
               </div>
             </div>
           </div>
-        </div>
+        </div> --}}
 
 
         {{-- <div class="accordion" id="size-filters">

@@ -72,16 +72,22 @@
               <a href="#" class="menu-link menu-link_us-s text-uppercase fw-medium">The Shop</a>
             </div><!-- /.breadcrumb -->
 
-            <div
-              class="product-single__prev-next d-flex align-items-center justify-content-between justify-content-md-end flex-grow-1">
-              <a href="#" class="text-uppercase fw-medium"><svg width="10" height="10" viewBox="0 0 25 25"
-                  xmlns="http://www.w3.org/2000/svg">
-                  <use href="#icon_prev_md" />
-                </svg><span class="menu-link menu-link_us-s">Prev</span></a>
-              <a href="#" class="text-uppercase fw-medium"><span class="menu-link menu-link_us-s">Next</span><svg
-                  width="10" height="10" viewBox="0 0 25 25" xmlns="http://www.w3.org/2000/svg">
-                  <use href="#icon_next_md" />
-                </svg></a>
+            <div class="product-single__prev-next d-flex align-items-center justify-content-between justify-content-md-end flex-grow-1">
+
+              @if ($nextProduct)
+            <a href="{{ route('shop.product.details', ['product_slug'=>$nextProduct->slug]) }}" class="text-uppercase fw-medium">
+                <svg width="10" height="10" viewBox="0 0 25 25" xmlns="http://www.w3.org/2000/svg"> <use href="#icon_prev_md" /> </svg>
+                <span class="menu-link menu-link_us-s">Prev</span>
+            </a>
+                @endif
+
+                @if ($prevProduct)
+            <a href="{{ route('shop.product.details', ['product_slug'=>$prevProduct->slug]) }}" class="text-uppercase fw-medium">
+                <span class="menu-link menu-link_us-s">Next</span>
+                <svg width="10" height="10" viewBox="0 0 25 25" xmlns="http://www.w3.org/2000/svg"><use href="#icon_next_md" /></svg>
+            </a>
+                @endif
+
             </div><!-- /.shop-acs -->
           </div>
           <h1 class="product-single__name">{{ $product->name }}</h1>
