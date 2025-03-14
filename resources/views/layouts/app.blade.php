@@ -313,7 +313,7 @@
               <a href="{{route('home.index')}}" class="navigation__link">Home</a>
             </li>
             <li class="navigation__item">
-              <a href="shop.html" class="navigation__link">Shop</a>
+              <a href="{{ route('shop.index') }}" class="navigation__link">Shop</a>
             </li>
             <li class="navigation__item">
               <a href="cart.html" class="navigation__link">Cart</a>
@@ -402,7 +402,7 @@
               <a href="{{route('home.index')}}" class="navigation__link">Home</a>
             </li>
             <li class="navigation__item">
-              <a href="shop.html" class="navigation__link">Shop</a>
+              <a href="{{ route('shop.index') }}" class="navigation__link">Shop</a>
             </li>
             <li class="navigation__item">
               <a href="cart.html" class="navigation__link">Cart</a>
@@ -613,7 +613,7 @@
 
     <div class="footer-bottom">
       <div class="container d-md-flex align-items-center">
-        <span class="footer-copyright me-auto">©2024 Surfside Media</span>
+        <span class="footer-copyright me-auto">©2025 - HNDIT Final Project</span>
         <div class="footer-settings d-md-flex align-items-center">
           <a href="privacy-policy.html">Privacy Policy</a> &nbsp;|&nbsp; <a href="terms-conditions.html">Terms &amp;
             Conditions</a>
@@ -636,7 +636,7 @@
       </div>
 
       <div class="col-4">
-        <a href="{{route('home.index')}}" class="footer-mobile__link d-flex flex-column align-items-center">
+        <a href="{{route('shop.index')}}" class="footer-mobile__link d-flex flex-column align-items-center">
           <svg class="d-block" width="18" height="18" viewBox="0 0 18 18" fill="none"
             xmlns="http://www.w3.org/2000/svg">
             <use href="#icon_hanger" />
