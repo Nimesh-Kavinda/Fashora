@@ -363,7 +363,7 @@
 
         <div class="products-grid row row-cols-2 row-cols-md-3" id="products-grid">
 
-            @foreach($products as $product)
+            @foreach ($products as $product)
 
           <div class="product-card-wrapper">
             <div class="product-card mb-3 mb-md-4 mb-xxl-5">
@@ -378,11 +378,12 @@
                     </div>
 
                     <div class="swiper-slide">
-
-                        @foreach(explode(",",$product->images) as $gimg)
+                        
+                        @foreach (explode(",",$product->images) as $gimg)
                       <a href="details.html"><img loading="lazy" src="{{ asset('uploads/products') }}/{{ $gimg }}"
                           width="330" height="400" alt="{{ $product->name }}" class="pc__img"></a>
                           @endforeach
+                       
 
                     </div>
                   </div>
@@ -442,7 +443,7 @@
             </div>
           </div>
 
-          @endforeach
+          {{-- @endforeach --}}
 
         </div>
 
@@ -453,4 +454,5 @@
       </div>
     </section>
   </main>
+  
 @endsection
