@@ -210,30 +210,39 @@
                 {{ $product->description }}
             </div>
           </div>
+         
           <div class="tab-pane fade" id="tab-additional-info" role="tabpanel" aria-labelledby="tab-additional-info-tab">
             <div class="product-single__addtional-info">
               <div class="item">
-                <label class="h6">Weight</label>
-                <span>1.25 kg</span>
+                <label class="h6">Product Name</label>
+                <span>{{ $product->name }}</span>
               </div>
               <div class="item">
-                <label class="h6">Dimensions</label>
-                <span>90 x 60 x 90 cm</span>
+                <label class="h6">Sale Price</label>
+                <span><s>${{ $product->regular_price }}</s> ${{ $product->sale_price }}</span>
               </div>
               <div class="item">
-                <label class="h6">Size</label>
-                <span>XS, S, M, L, XL</span>
+                <label class="h6">Stock Status</label>
+                <span>{{ $product->stock_status }}</span>
               </div>
               <div class="item">
-                <label class="h6">Color</label>
-                <span>Black, Orange, White</span>
+                <label class="h6">Quantity</label>
+                <span>{{ $product->quantity }}</span>
               </div>
               <div class="item">
-                <label class="h6">Storage</label>
-                <span>Relaxed fit shirt-style dress with a rugged</span>
+                <label class="h6">Featured</label>
+                <span>
+                  @if($product->featured == 0)
+                   Yes
+                  @else{
+                    No
+                  }
+                  @endif
+                </span>
               </div>
             </div>
           </div>
+       
           <div class="tab-pane fade" id="tab-reviews" role="tabpanel" aria-labelledby="tab-reviews-tab">
             <h2 class="product-single__reviews-title">Reviews</h2>
             <div class="product-single__reviews-list">
