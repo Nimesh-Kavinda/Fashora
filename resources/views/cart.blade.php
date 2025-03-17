@@ -53,8 +53,8 @@
                 <td>
                   <div class="shopping-cart__product-item__detail">
                     <h4>{{ $item->name }}</h4>
-                    {{-- <ul class="shopping-cart__product-item__options">
-                      <li>Color: Yellow</li>
+                    <ul class="shopping-cart__product-item__options">
+                      {{-- <li>Color: Yellow</li>
                       <li>Size: L</li>
                     </ul> --}}
                   </div>
