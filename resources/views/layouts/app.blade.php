@@ -9,7 +9,7 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'Laravel') }}</title>
+    <title>{{ config('app.name', 'Laravel') }}</title> 
   <meta http-equiv="content-type" content="text/html; charset=utf-8" />
   <meta name="author" content="surfside media" />
   <link rel="shortcut icon" href="{{ asset('assets/images/favicon.ico') }}" type="image/x-icon">
@@ -509,7 +509,7 @@
             </svg>
             <span class="cart-amount d-block position-absolute js-cart-items-count">3</span>
           </a>
-          
+
           @endguest
 
         </div>
