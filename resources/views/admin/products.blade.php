@@ -52,6 +52,7 @@
                             <th>Brand</th>
                             <th>Featured</th>
                             <th>Stock</th>
+                            <th>Size</th>
                             <th>Quantity</th>
                             <th>Action</th>
                         </tr>
@@ -76,6 +77,7 @@
                             <td>{{ $product->brand->name }}</td>
                             <td>{{ $product->featured == 0 ? "No":"Yes" }}</td>
                             <td>{{ $product->stock_status }}</td>
+                            <td>{{ $product->size }}</td>
                             <td>{{ $product->quantity }}</td>
                             <td>
                                 <div class="list-icon-function">
