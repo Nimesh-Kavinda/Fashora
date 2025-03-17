@@ -53,10 +53,10 @@
                 <td>
                   <div class="shopping-cart__product-item__detail">
                     <h4>{{ $item->name }}</h4>
-                    <ul class="shopping-cart__product-item__options">
+                    {{-- <ul class="shopping-cart__product-item__options">
                       <li>Color: Yellow</li>
                       <li>Size: L</li>
-                    </ul>
+                    </ul> --}}
                   </div>
                 </td>
                 <td>
@@ -64,7 +64,7 @@
                 </td>
                 <td>
                   <div class="qty-control position-relative">
-                    <input type="number" name="quantity" value="3" min="1" class="qty-control__number text-center">
+                    <input type="number" name="quantity" value="{{ $item->qty }}" min="1" class="qty-control__number text-center">
                     <div class="qty-control__reduce">-</div>
                     <div class="qty-control__increase">+</div>
                   </div>
