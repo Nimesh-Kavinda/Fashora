@@ -6,21 +6,21 @@
     <section class="shop-checkout container">
       <h2 class="page-title">Cart</h2>
       <div class="checkout-steps">
-        <a href="cart.html" class="checkout-steps__item active">
+        <a href="javascript:void(0)" class="checkout-steps__item active">
           <span class="checkout-steps__item-number">01</span>
           <span class="checkout-steps__item-title">
             <span>Shopping Bag</span>
             <em>Manage Your Items List</em>
           </span>
         </a>
-        <a href="checkout.html" class="checkout-steps__item">
+        <a href="javascript:void(0)" class="checkout-steps__item">
           <span class="checkout-steps__item-number">02</span>
           <span class="checkout-steps__item-title">
             <span>Shipping and Checkout</span>
             <em>Checkout Your Items List</em>
           </span>
         </a>
-        <a href="order-confirmation.html" class="checkout-steps__item">
+        <a href="javascript:void(0)" class="checkout-steps__item">
           <span class="checkout-steps__item-number">03</span>
           <span class="checkout-steps__item-title">
             <span>Confirmation</span>
@@ -29,6 +29,7 @@
         </a>
       </div>
       <div class="shopping-cart">
+        @if($items->count()>0)
         <div class="cart-table__wrapper">
           <table class="cart-table">
             <thead>
@@ -215,6 +216,14 @@
             </div>
           </div>
         </div>
+        @else
+         <div class="row">
+            <div class="col-md-12 text-center pt-5 pb-5">
+                <p>No items found in your cart</p>
+                <a href="{{ route('shop.index') }}" class="btn btn-info">Shop Now</a>
+            </div>
+         </div>
+        @endif
       </div>
     </section>
   </main>
