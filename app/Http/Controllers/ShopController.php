@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Product;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class ShopController extends Controller
@@ -14,7 +15,7 @@ class ShopController extends Controller
     }
 
     public function product_details($product_slug)
-    {
+    {   
         $product = Product::where('slug',$product_slug)->first();
         $rproducts = Product::where('slug','<>',$product_slug)->get()->take(8);
         $nextProduct = Product::where('id', '>', $product->id)->orderBy('id')->first();
