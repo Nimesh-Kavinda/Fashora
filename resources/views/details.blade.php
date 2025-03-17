@@ -191,6 +191,10 @@
               <label>Tags:</label>
               <span>NA</span>
             </div>
+            <div class="meta-item">
+              <label>Size:</label>
+              <span>{{ $product->size }}</span>
+            </div>
           </div>
         </div>
       </div>
@@ -233,8 +237,8 @@
                 <span>{{ $product->stock_status }}</span>
               </div>
               <div class="item">
-                <label class="h6">Quantity</label>
-                <span>{{ $product->quantity }}</span>
+                <label class="h6">Size</label>
+                <span>{{ $product->size }}</span>
               </div>
               <div class="item">
                 <label class="h6">Featured</label>
