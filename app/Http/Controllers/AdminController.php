@@ -328,7 +328,9 @@ class AdminController extends Controller
             'quantity' => 'required',
             'image' => 'mimes:png,jpg,jpeg|max:2048',
             'category_id' => 'required',
-            'brand_id' => 'required'
+            'brand_id' => 'required',
+            'size' => 'required|in:S,M,L,XL,XXL',
+
         ]);
 
         $product = Product::find($request->id);
@@ -344,6 +346,8 @@ class AdminController extends Controller
         $product->quantity = $request->quantity;
         $product->category_id = $request->category_id;
         $product->brand_id = $request->brand_id;
+        $product->size = $request->size;
+
 
         $current_timestamp = Carbon::now()->timestamp;
 
