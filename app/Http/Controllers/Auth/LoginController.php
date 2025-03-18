@@ -44,7 +44,7 @@ class LoginController extends Controller
     public function logout(Request $request)
     {
         if (Auth::check()) {
-            Cart::instance('cart')->store(Auth::id()); // Store the cart in DB
+            Cart::instance('cart')->store(Auth::id()); 
         }
 
         $this->guard()->logout();
@@ -52,6 +52,6 @@ class LoginController extends Controller
         $request->session()->invalidate();
         $request->session()->regenerateToken();
 
-        return redirect('/'); // Redirect after logout
+        return redirect('/'); 
     }
 }
