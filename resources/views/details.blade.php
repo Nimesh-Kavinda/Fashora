@@ -123,6 +123,20 @@
           <div class="product-single__short-desc">
             <p>{{ $product->short_description }}</p>
           </div>
+
+          @guest 
+
+          <div class="product-single__addtocart">
+            <div class="qty-control position-relative">
+              <input type="number" name="quantity" value="1" min="1" class="qty-control__number text-center">
+              <div class="qty-control__reduce">-</div>
+              <div class="qty-control__increase">+</div>
+            </div>
+          <a href="{{ route('login') }}" class="btn btn-primary btn-addtocart">Add to Cart</a>
+          </div>
+          
+          @else 
+
           @if(Cart::instance('cart')->content()->where('id',$product->id)->count()>0)
             <a href="{{ route('cart.index') }}" class="btn btn-warning mb-3">Go to Cart</a>
           @else
@@ -142,6 +156,9 @@
             </div>
           </form>
           @endif
+
+          @endguest
+
           <div class="product-single__addtolinks">
             <a href="#" class="menu-link menu-link_us-s add-to-wishlist"><svg width="16" height="16" viewBox="0 0 20 20"
                 fill="none" xmlns="http://www.w3.org/2000/svg">
