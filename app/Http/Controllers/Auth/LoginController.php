@@ -4,20 +4,12 @@ namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
+use Illuminate\Http\Request;
+use Surfsidemedia\Shoppingcart\Facades\Cart;
+use Illuminate\Support\Facades\Auth;
 
 class LoginController extends Controller
 {
-    /*
-    |--------------------------------------------------------------------------
-    | Login Controller
-    |--------------------------------------------------------------------------
-    |
-    | This controller handles authenticating users for the application and
-    | redirecting them to your home screen. The controller uses a trait
-    | to conveniently provide its functionality to your applications.
-    |
-    */
-
     use AuthenticatesUsers;
 
     /**
@@ -36,5 +28,30 @@ class LoginController extends Controller
     {
         $this->middleware('guest')->except('logout');
         $this->middleware('auth')->only('logout');
+    }
+
+    /**
+     * Restore Cart after successful login
+     */
+    protected function authenticated(Request $request, $user)
+    {
+        Cart::instance('cart')->restore($user->id);
+    }
+
+    /**
+     * Store Cart before logout and log the user out
+     */
+    public function logout(Request $request)
+    {
+        if (Auth::check()) {
+            Cart::instance('cart')->store(Auth::id()); // Store the cart in DB
+        }
+
+        $this->guard()->logout();
+
+        $request->session()->invalidate();
+        $request->session()->regenerateToken();
+
+        return redirect('/'); // Redirect after logout
     }
 }
