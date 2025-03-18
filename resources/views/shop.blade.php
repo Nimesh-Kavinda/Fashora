@@ -396,6 +396,11 @@
                       <use href="#icon_next_sm" />
                     </svg></span>
                 </div>
+                @guest
+
+                  <a href="{{ route('login') }}" class="pc__atc btn anim_appear-bottom btn position-absolute border-0 text-uppercase fw-medium">Add to Cart</a> 
+                            
+                @else
 
                 @if(Cart::instance('cart')->content()->where('id',$product->id)->count()>0)
                 <a href="{{ route('cart.index') }}" class="pc__atc btn anim_appear-bottom btn position-absolute border-0 text-uppercase fw-medium btn-warning mb-3">Go to Cart</a>
@@ -411,6 +416,8 @@
                 <button type="submit" class="pc__atc btn anim_appear-bottom btn position-absolute border-0 text-uppercase fw-medium" data-aside="cartDrawer" title="Add To Cart">Add To Cart</button>
               </form>
                 @endif
+
+                @endguest
 
               </div>
 
