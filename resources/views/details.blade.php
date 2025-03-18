@@ -136,6 +136,7 @@
               </div><!-- .qty-control -->
               <input type="hidden" name="id" value="{{ $product->id }}">
               <input type="hidden" name="name" value="{{ $product->name }}">
+              <input type="hidden" name="size" value="{{ $product->size }}">
               <input type="hidden" name="price" value="{{ $product->sale_price == '' ? $product->regular_price : $product->sale_price }}">
               <button type="submit" class="btn btn-primary btn-addtocart" data-aside="cartDrawer">Add to Cart</button>
             </div>
@@ -314,6 +315,7 @@
                   <input type="hidden" name="id" value="{{ $rproduct->id }}">
                   <input type="hidden" name="quantity" value="1">
                   <input type="hidden" name="name" value="{{ $rproduct->name }}">
+                  <input type="hidden" name="size" value="{{ $product->size }}">
                   <input type="hidden" name="price" value="{{ $rproduct->sale_price == '' ? $rproduct->regular_price : $rproduct->sale_price }}">
                 <button type="submit" class="pc__atc btn anim_appear-bottom btn position-absolute border-0 text-uppercase fw-medium" data-aside="cartDrawer" title="Add To Cart">Add To Cart</button>
                 </form>
