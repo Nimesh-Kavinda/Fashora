@@ -106,7 +106,11 @@
               <input class="btn-link fw-medium position-absolute top-0 end-0 h-100 px-4" type="submit"
                 value="APPLY COUPON">
             </form>
-            <button class="btn btn-light">CLEAR CART</button>
+            <form action="{{ route('cart.item.clear') }}" method="POST">
+              @csrf
+              @method('DELETE')
+            <button class="btn btn-light cart__clear">CLEAR CART</button>
+          </form>
           </div>
         </div>
         <div class="shopping-cart__totals-wrapper">
@@ -168,6 +172,11 @@
         $(".remove-cart").on("click", function(){
           $(this).closest('form').submit();
         });
+
+        $(".cart__clear").on("click", function(){
+          $(this).closest('form').submit();
+        });
+
       });
     </script>
 @endpush
