@@ -109,7 +109,7 @@
             <form action="{{ route('cart.item.clear') }}" method="POST">
               @csrf
               @method('DELETE')
-            <button class="btn btn-light cart__clear">CLEAR CART</button>
+            <button class="btn btn-light cart__clear" type="submit">CLEAR CART</button>
           </form>
           </div>
         </div>
@@ -170,10 +170,6 @@
         });
 
         $(".remove-cart").on("click", function(){
-          $(this).closest('form').submit();
-        });
-
-        $(".cart__clear").on("click", function(){
           $(this).closest('form').submit();
         });
 
