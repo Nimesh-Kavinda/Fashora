@@ -42,7 +42,7 @@ class ShopController extends Controller
                 $o_order = 'DESC';
             }
 
-        $products = Product::orderBy('created_at','DESC')->orderBy($o_column, $o_order)->paginate($size);
+        $products = Product::orderBy($o_column, $o_order)->paginate($size);
         return view('shop',compact('products', 'size', 'order'));
     }
 
