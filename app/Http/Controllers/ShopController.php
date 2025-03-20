@@ -14,6 +14,7 @@ class ShopController extends Controller
         $o_column = "";
         $o_order = "";
         $order = $request->query('order') ? $request->query('order') : -1;
+        
         $products = Product::orderBy('created_at','DESC')->paginate($size);
         return view('shop',compact('products', 'size', 'order'));
     }

@@ -337,16 +337,12 @@
 
             <div class="shop-asc__seprator mx-3 bg-light d-none d-md-block order-md-0"></div>
 
-            <select class="shop-acs__select form-select w-auto border-0 py-0 order-1 order-md-0" aria-label="Sort Items" name="total-number">
-              <option selected>Default Sorting</option>
-              <option value="1">Featured</option>
-              <option value="2">Best selling</option>
-              <option value="3">Alphabetically, A-Z</option>
-              <option value="3">Alphabetically, Z-A</option>
-              <option value="3">Price, low to high</option>
-              <option value="3">Price, high to low</option>
-              <option value="3">Date, old to new</option>
-              <option value="3">Date, new to old</option>
+            <select class="shop-acs__select form-select w-auto border-0 py-0 order-1 order-md-0" aria-label="Sort Items" name="orderBy" id="orderBy">
+              <option value="-1" {{ $order == -1 ? 'selected' : '' }}>Default</option>
+              <option value="1" {{ $order == 1 ? 'selected' : '' }}>Date, New to Old</option>
+              <option value="2" {{ $order == 2 ? 'selected' : '' }}>Date, Old to New</option>
+              <option value="3" {{ $order == 3 ? 'selected' : '' }}>Price, Low to High</option>
+              <option value="4" {{ $order == 4 ? 'selected' : '' }}>Price, High to Low</option>
             </select>
 
             <div class="shop-asc__seprator mx-3 bg-light d-none d-md-block order-md-0"></div>
@@ -488,6 +484,7 @@
   <form id="frmFilter" method="GET" action="{{ route('shop.index') }}">
     <input type="hidden" name="page" value="{{ $products->currentPage() }}">
     <input type="hidden" name="size" id="size" value="{{ $size }}">
+    <input type="hidden" name="order" id="order" value="{{ $order }}">
   </form>
 
 @endsection
@@ -496,9 +493,16 @@
   <script>
       $(function(){
         $('#pagesize').on('change', function(){
+
           $('#size').val($('#pagesize option:selected').val());
           $('#frmFilter').submit();
-        })
-      })
+        });
+
+        $('#orderBy').on('change', function(){
+          $('#order').val($('#orderBy option:selected').val());
+          $('#frmFilter').submit();
+        });
+
+      });
   </script>
 @endpush
