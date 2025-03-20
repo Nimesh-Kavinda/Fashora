@@ -327,8 +327,17 @@
           </div>
 
           <div class="shop-acs d-flex align-items-center justify-content-between justify-content-md-end flex-grow-1">
-            <select class="shop-acs__select form-select w-auto border-0 py-0 order-1 order-md-0" aria-label="Sort Items"
-              name="total-number">
+
+            <select class="shop-acs__select form-select w-auto border-0 py-0 order-1 order-md-0" aria-label="Page Size" id="pagesize" name="pagesize">
+            <option value="12" {{ $size == 12 ? 'selected' : '' }}>Show</option>
+            <option value="24" {{ $size == 24 ? 'selected' : '' }}>24</option>
+            <option value="48" {{ $size == 48 ? 'selected' : '' }}>48</option>
+            <option value="102" {{ $size == 102 ? 'selected' : '' }}>102</option>
+            </select>
+
+            <div class="shop-asc__seprator mx-3 bg-light d-none d-md-block order-md-0"></div>
+
+            <select class="shop-acs__select form-select w-auto border-0 py-0 order-1 order-md-0" aria-label="Sort Items" name="total-number">
               <option selected>Default Sorting</option>
               <option value="1">Featured</option>
               <option value="2">Best selling</option>
