@@ -282,7 +282,7 @@
                 </div>
                 <div class="slide-split_media position-relative">
                   <div class="slideshow-bg" style="background-color: #f5e6e0;">
-                    <img loading="lazy" src="assets/images/shop/shop_banner3.jpg" width="630" height="450"
+                    <img loading="lazy" src="assets/images/shop/shop_banner1.jpg" width="630" height="450"
                       alt="Women's accessories" class="slideshow-bg__img object-fit-cover" />
                   </div>
                 </div>
@@ -303,7 +303,7 @@
                 </div>
                 <div class="slide-split_media position-relative">
                   <div class="slideshow-bg" style="background-color: #f5e6e0;">
-                    <img loading="lazy" src="assets/images/shop/shop_banner3.jpg" width="630" height="450"
+                    <img loading="lazy" src="assets/images/shop/shop_banner2.jpg" width="630" height="450"
                       alt="Women's accessories" class="slideshow-bg__img object-fit-cover" />
                   </div>
                 </div>
