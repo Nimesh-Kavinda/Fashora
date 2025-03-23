@@ -300,7 +300,7 @@
                     <p class="mb-0 animate animate_fade animate_btt animate_delay-5">Accessories are the best way to
                       update your look. Add a title edge with new styles and new colors, or go for timeless pieces.</h6>
                   </div>
-                </div>                  
+                </div>                                  
                 <div class="slide-split_media position-relative">
                   <div class="slideshow-bg" style="background-color: #f5e6e0;">
                     <img loading="lazy" src="assets/images/shop/shop_banner2.jpg" width="630" height="450"
