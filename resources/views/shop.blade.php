@@ -457,6 +457,7 @@
     <input type="hidden" name="page" value="{{ $products->currentPage() }}">
     <input type="hidden" name="size" id="size" value="{{ $size }}">
     <input type="hidden" name="order" id="order" value="{{ $order }}">
+    <input type="hidden" name="brands" id="hdnBrands">
   </form>
 
 @endsection
@@ -473,6 +474,22 @@
         $('#orderBy').on('change', function(){
           $('#order').val($('#orderBy option:selected').val());
           $('#frmFilter').submit();
+        });
+
+        $("input[name = 'brands']").on('change', function(){
+          var brands = "";
+          $("input[name = 'brands']:checked").each(function(){
+          if(brands == "")
+          {
+            brands += $(this).val();
+          }
+          else
+          {
+            brands += "," + $(this).val();
+          }
+          });
+          $("#hdnBrands").val(brands);
+          $("#frmFilter").submit();
         });
 
       });
