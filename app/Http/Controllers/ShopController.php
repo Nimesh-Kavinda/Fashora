@@ -46,7 +46,7 @@ class ShopController extends Controller
         
         $brands = Brand::orderBy('name', 'ASC')->get();
         $products = Product::where(function($query) use($f_brands){
-                        $query->whereIn('brand_id',explode(',',$f_brands))->onWhereRaw("'".$f_brands."'=''");
+                        $query->whereIn('brand_id',explode(',',$f_brands))->orWhereRaw("'".$f_brands."'=''");
                     })-> orderBy($o_column, $o_order)->paginate($size);
         return view('shop',compact('products', 'size', 'order', 'brands','f_brands'));
     }
