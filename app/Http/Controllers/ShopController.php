@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Brand;
 use App\Models\Product;
 use App\Models\User;
 use Illuminate\Http\Request;
@@ -41,7 +42,8 @@ class ShopController extends Controller
                 $o_column = 'id';
                 $o_order = 'DESC';
             }
-
+        
+        $brands = Brandnd::orderBy('name', 'ASC')->get();
         $products = Product::orderBy($o_column, $o_order)->paginate($size);
         return view('shop',compact('products', 'size', 'order'));
     }
@@ -55,5 +57,6 @@ class ShopController extends Controller
 
         return view('details',compact('product','rproducts','nextProduct','prevProduct'));
     }
+
 
 }
