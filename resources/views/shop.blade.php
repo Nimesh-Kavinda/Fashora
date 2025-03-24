@@ -163,7 +163,7 @@
                   @endforeach
                 </ul>
 
-                </div>
+             
               </div>
             </div>
           </div>
@@ -201,6 +201,7 @@
             </div>
           </div>
         </div>
+        
       </div>
 
       <div class="shop-list flex-grow-1">
