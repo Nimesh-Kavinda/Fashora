@@ -43,7 +43,7 @@ class ShopController extends Controller
                 $o_order = 'DESC';
             }
         
-        $brands = Brandnd::orderBy('name', 'ASC')->get();
+        $brands = Brand::orderBy('name', 'ASC')->get();
         $products = Product::orderBy($o_column, $o_order)->paginate($size);
         return view('shop',compact('products', 'size', 'order'));
     }
