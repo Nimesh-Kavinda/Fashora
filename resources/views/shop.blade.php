@@ -148,7 +148,7 @@
             </h5>
             <div id="accordion-filter-brand" class="accordion-collapse collapse show border-0" aria-labelledby="accordion-heading-brand" data-bs-parent="#brand-filters">
               <div class="search-field multi-select accordion-body px-0 pb-0">
-              
+                          
                 <ul class="list list-inline mb-0 brand-list">
                   @foreach ($brands as $brand)
                   <li class="list-item">
