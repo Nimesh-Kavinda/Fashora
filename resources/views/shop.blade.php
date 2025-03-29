@@ -460,6 +460,7 @@
     <input type="hidden" name="size" id="size" value="{{ $size }}">
     <input type="hidden" name="order" id="order" value="{{ $order }}">
     <input type="hidden" name="brands" id="hdnBrands">
+    <input type="hidden" name="categories" id="hdnCategories">
   </form>
 
 @endsection
@@ -491,6 +492,22 @@
           }
           });
           $("#hdnBrands").val(brands);
+          $("#frmFilter").submit();
+        });
+
+        $("input[name = 'categories']").on('change', function(){
+          var brands = "";
+          $("input[name = 'categories']:checked").each(function(){
+          if(categories == "")
+          {
+            categories += $(this).val();
+          }
+          else
+          {
+            categories += "," + $(this).val();
+          }
+          });
+          $("#hdnCategories").val(categories);
           $("#frmFilter").submit();
         });
 
