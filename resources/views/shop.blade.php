@@ -9,7 +9,7 @@
           <button class="btn-close-lg js-close-aside btn-close-aside ms-auto"></button>
         </div>
 
-        <div class="pt-4 pt-lg-0"></div>
+        <div class="pt-4 pt-lg-0"></div>        
 
         <div class="accordion" id="categories-list">
           <div class="accordion-item mb-4 pb-3">
