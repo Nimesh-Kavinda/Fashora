@@ -1,6 +1,23 @@
 @extends('layouts.app')
 
 @section('content')
+
+<style>
+  .brand-list li, .category-list li{
+    line-height: 40px
+  }
+
+  .brand-list li .chk-brand , .category-list li .chk-category{
+    width: 1rem;
+    height: 1rem;
+    color: #e4e4e4;
+    border: 0.125rem solid currentColor;
+    border-radius: 0;
+    margin-right: 0.75rem; 
+  }
+
+</style>
+
 <main class="pt-90">
     <section class="shop-main container d-flex pt-4 pt-xl-5">
       <div class="shop-sidebar side-sticky bg-body" id="shopFilter">
