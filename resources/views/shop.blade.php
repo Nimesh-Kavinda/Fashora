@@ -469,6 +469,7 @@
 
 @push('scripts')
   <script>
+    
       $(function(){
         $('#pagesize').on('change', function(){
 
