@@ -521,7 +521,9 @@
           var max = $(this).val().split(',')[1];
           $("#hdnMinPrice").val(min);
           $("#hdnMaxPrice").val(max);
+          setTimeout(() => {
           $("#frmFilter").submit();
+          }, 2000);
 
         });
 
