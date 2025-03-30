@@ -516,7 +516,7 @@
           $("#frmFilter").submit();
         });
 
-        $("[name='price_range']").on("chnage", function(){
+        $("[name='price_range']").on("change", function(){
           var min = $(this).val().split(',')[0];
           var max = $(this).val().split(',')[1];
           $("#hdnMinPrice").val(min);
