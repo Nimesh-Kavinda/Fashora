@@ -522,7 +522,7 @@
           $("#hdnMinPrice").val(min);
           $("#hdnMaxPrice").val(max);
           setTimeout(() => {
-          $("#frmFilter").submit();    
+          $("#frmFilter").submit();             
           }, 2000);
 
         });
