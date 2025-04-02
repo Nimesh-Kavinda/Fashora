@@ -523,11 +523,11 @@
               </svg>
             </a>
           </div>
-          <a href="{{ route('wishlist.index') }}" class="header-tools__item header-tools__cart">
+          <a href="#" class="header-tools__item header-tools__cart">
             <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
               <use href="#icon_heart" />
             </svg>
-            @if(Cart::instance('wishlist')->content()->count()->0)
+            @if(Cart::instance('wishlist')->content()->count()>0)
             <span class="cart-amount d-block position-absolute js-cart-items-count">{{ Cart::instance('wishlist')->content()->count() }}</span>
             @endif
           </a>

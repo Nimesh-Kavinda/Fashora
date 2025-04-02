@@ -450,7 +450,7 @@
                   @csrf
                   <input type="hodden" name="id" value="{{ $product->id }}">
                   <input type="hodden" name="name" value="{{ $product->name }}">
-                  <input type="hodden" name="price" value="{{ $product->sale_price == '' ? $product->regular_price : $product_sale_price }}">
+                  <input type="hodden" name="price" value="{{ $product->sale_price == '' ? $product->regular_price : $product->sale_price }}">
                   <input type="hodden" name="quantity" value="1">
                   <button type="submit" class="pc__btn-wl position-absolute top-0 end-0 bg-transparent border-0 js-add-wishlist"
                   title="Add To Wishlist">
