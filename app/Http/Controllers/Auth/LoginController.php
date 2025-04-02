@@ -36,6 +36,7 @@ class LoginController extends Controller
     protected function authenticated(Request $request, $user)
     {
         Cart::instance('cart')->restore($user->id);
+        Cart::instance('wishlist')->restore($user->id);
     }
 
     /**
@@ -45,6 +46,7 @@ class LoginController extends Controller
     {
         if (Auth::check()) {
             Cart::instance('cart')->store(Auth::id()); 
+            Cart::instance('wishlist')->store(Auth::id()); 
         }
 
         $this->guard()->logout();
