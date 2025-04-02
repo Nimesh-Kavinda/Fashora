@@ -17,7 +17,7 @@
   }
 
   .filled-heart{
-    color: #FB923C;
+    color: orange;
   }
 
 </style>
@@ -452,7 +452,7 @@
 
                 @if(Cart::instance('wishlist')->content()->where('id', $product->id)->count() > 0)
 
-                <button type="submit" class="pc__btn-wl position-absolute top-0 end-0 bg-transparent border-0 js-add-wishlist filled-heart"
+                <button type="submit" disabled class="pc__btn-wl position-absolute top-0 end-0 bg-transparent border-0 js-add-wishlist filled-heart"
                 title="Add To Wishlist">
                 <svg width="16" height="16" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
                   <use href="#icon_heart" />

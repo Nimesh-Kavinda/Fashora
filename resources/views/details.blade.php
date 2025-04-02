@@ -1,6 +1,13 @@
 @extends('layouts.app')
 
 @section('content')
+
+<style>
+  .filled-heart{
+    color: orange;
+  }
+</style>
+
 <main class="pt-90">
     <div class="mb-md-1 pb-md-3"></div>
     <section class="product-single container">
@@ -159,12 +166,15 @@
 
           @endguest
 
-          <div class="product-single__addtolinks">
-            <a href="#" class="menu-link menu-link_us-s add-to-wishlist"><svg width="16" height="16" viewBox="0 0 20 20"
+          @guest
+          <div class="product-single__addtolinks mt-3">
+
+            <a href="{{ route('login') }}" class="menu-link menu-link_us-s add-to-wishlist"><svg width="16" height="16" viewBox="0 0 20 20"
                 fill="none" xmlns="http://www.w3.org/2000/svg">
                 <use href="#icon_heart" />
               </svg><span>Add to Wishlist</span></a>
-            <share-button class="share-button">
+
+            {{-- <share-button class="share-button">
               <button class="menu-link menu-link_us-s to-share border-0 bg-transparent d-flex align-items-center">
                 <svg width="16" height="19" viewBox="0 0 16 19" fill="none" xmlns="http://www.w3.org/2000/svg">
                   <use href="#icon_sharing" />
@@ -194,8 +204,71 @@
               </details>
             </share-button>
             <script src="js/details-disclosure.html" defer="defer"></script>
-            <script src="js/share.html" defer="defer"></script>
+            <script src="js/share.html" defer="defer"></script> --}}
           </div>
+
+          @else
+
+          <div class="product-single__addtolinks mt-3">
+
+            @if(Cart::instance('wishlist')->content()->where('id', $product->id)->count() > 0)
+
+            <a href="javascript:void(0)" class="menu-link menu-link_us-s add-to-wishlist filled-heart"><svg width="16" height="16" viewBox="0 0 20 20"
+                fill="none" xmlns="http://www.w3.org/2000/svg">
+                <use href="#icon_heart" />
+              </svg><span>Remove from Wishlist</span></a>
+
+            @else
+
+            <form action="{{ route('wishlist.add') }}" method="POST" id="wishlist-form" class="product-single__addtolinks">
+              @csrf
+              <input type="hidden" name="id" value="{{ $product->id }}">
+              <input type="hidden" name="name" value="{{ $product->name }}">
+              <input type="hidden" name="price" value="{{ $product->sale_price == '' ? $product->regular_price : $product->sale_price }}">
+              <input type="hidden" name="quantity" value="1">
+            <a href="javascript:void(0)" class="menu-link menu-link_us-s add-to-wishlist" onclick = "document.getElementById('wishlist-form').submit();"><svg width="16" height="16" viewBox="0 0 20 20"
+              fill="none" xmlns="http://www.w3.org/2000/svg">
+              <use href="#icon_heart" />
+            </svg><span>Add to Wishlist</span></a>
+            </form>
+
+            @endif
+
+            {{-- <share-button class="share-button">
+              <button class="menu-link menu-link_us-s to-share border-0 bg-transparent d-flex align-items-center">
+                <svg width="16" height="19" viewBox="0 0 16 19" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <use href="#icon_sharing" />
+                </svg>
+                <span>Share</span>
+              </button>
+              <details id="Details-share-template__main" class="m-1 xl:m-1.5" hidden="">
+                <summary class="btn-solid m-1 xl:m-1.5 pt-3.5 pb-3 px-5">+</summary>
+                <div id="Article-share-template__main"
+                  class="share-button__fallback flex items-center absolute top-full left-0 w-full px-2 py-4 bg-container shadow-theme border-t z-10">
+                  <div class="field grow mr-4">
+                    <label class="field__label sr-only" for="url">Link</label>
+                    <input type="text" class="field__input w-full" id="url"
+                      value="https://uomo-crystal.myshopify.com/blogs/news/go-to-wellness-tips-for-mental-health"
+                      placeholder="Link" onclick="this.select();" readonly="">
+                  </div>
+                  <button class="share-button__copy no-js-hidden">
+                    <svg class="icon icon-clipboard inline-block mr-1" width="11" height="13" fill="none"
+                      xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" viewBox="0 0 11 13">
+                      <path fill-rule="evenodd" clip-rule="evenodd"
+                        d="M2 1a1 1 0 011-1h7a1 1 0 011 1v9a1 1 0 01-1 1V1H2zM1 2a1 1 0 00-1 1v9a1 1 0 001 1h7a1 1 0 001-1V3a1 1 0 00-1-1H1zm0 10V3h7v9H1z"
+                        fill="currentColor"></path>
+                    </svg>
+                    <span class="sr-only">Copy link</span>
+                  </button>
+                </div>
+              </details>
+            </share-button>
+            <script src="js/details-disclosure.html" defer="defer"></script>
+            <script src="js/share.html" defer="defer"></script> --}}
+          </div>
+
+          @endguest
+
           <div class="product-single__meta-info">
             <div class="meta-item">
               <label>SKU:</label>
@@ -368,29 +441,30 @@
                     <use href="#icon_heart" />
                   </svg>
                 </button>
+
               </div>
             </div>
 
             @endforeach
 
-          </div><!-- /.swiper-wrapper -->
-        </div><!-- /.swiper-container js-swiper-slider -->
+          </div>
+        </div>
 
         <div class="products-carousel__prev position-absolute top-50 d-flex align-items-center justify-content-center">
           <svg width="25" height="25" viewBox="0 0 25 25" xmlns="http://www.w3.org/2000/svg">
             <use href="#icon_prev_md" />
           </svg>
-        </div><!-- /.products-carousel__prev -->
+        </div>
         <div class="products-carousel__next position-absolute top-50 d-flex align-items-center justify-content-center">
           <svg width="25" height="25" viewBox="0 0 25 25" xmlns="http://www.w3.org/2000/svg">
             <use href="#icon_next_md" />
           </svg>
-        </div><!-- /.products-carousel__next -->
+        </div>
 
         <div class="products-pagination mt-4 mb-5 d-flex align-items-center justify-content-center"></div>
-        <!-- /.products-pagination -->
-      </div><!-- /.position-relative -->
+        
+      </div>
 
-    </section><!-- /.products-carousel container -->
+    </section>
   </main>
 @endsection
