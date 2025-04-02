@@ -472,7 +472,7 @@
             </form>
 
             @endif
-
+  
               @endguest
 
               </div>
