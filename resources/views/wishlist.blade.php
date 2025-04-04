@@ -66,10 +66,21 @@
               @method('DELETE')
               <button class="btn btn-light cart__clear" type="submit">CLEAR WISHLIST</button>
           </form>
-      @endif
-        </div>
 
-      </div>
+          @else
+
+          <div class="row">
+            <div class="col-md-12 text-center pt-5 pb-5">
+                <p>No items found in your cart</p>
+                <a href="{{ route('shop.index') }}" class="btn btn-info">Shop Now</a>
+            </div>
+         </div>
+
+     </div>
+
+
+      @endif
+     
     </section>
   </main>
 

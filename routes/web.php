@@ -27,6 +27,7 @@ Route::get('/wishlist', [WishlistController::class, 'index'])->name('wishlist.in
 Route::post('/wishlist/add' ,[WishlistController::class, 'add_to_wishlist'])->name('wishlist.add');
 Route::delete('/wishlist/remove/{rowId}', [WishlistController::class, 'remove_item'])->name('wishlist.item.remove');
 Route::delete('/wishlist/clear/', [WishlistController::class, 'empty_wishlist'])->name('wishlist.item.clear');
+Route::post('')
 
 
 

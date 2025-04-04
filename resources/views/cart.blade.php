@@ -106,7 +106,7 @@
               <input class="btn-link fw-medium position-absolute top-0 end-0 h-100 px-4" type="submit"
                 value="APPLY COUPON">
             </form>
-            @if (Cart::instance('wishlist')->count() > 0)
+            @if (Cart::instance('cart')->count() > 0)
             <form action="{{ route('cart.item.clear') }}" method="POST">
               @csrf
               @method('DELETE')
