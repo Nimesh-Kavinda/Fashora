@@ -106,11 +106,13 @@
               <input class="btn-link fw-medium position-absolute top-0 end-0 h-100 px-4" type="submit"
                 value="APPLY COUPON">
             </form>
+            @if (Cart::instance('wishlist')->count() > 0)
             <form action="{{ route('cart.item.clear') }}" method="POST">
               @csrf
               @method('DELETE')
             <button class="btn btn-light cart__clear" type="submit">CLEAR CART</button>
           </form>
+          @endif
           </div>
         </div>
         <div class="shopping-cart__totals-wrapper">

@@ -60,9 +60,13 @@
 
             </tbody>
           </table>
-          <div class="cart-table-footer">
-            <button class="btn btn-light">CLEAR WISHLIST</button>
-          </div>
+          @if (Cart::instance('wishlist')->count() > 0)
+          <form action="{{ route('wishlist.item.clear') }}" method="POST" class="mt-4">
+              @csrf
+              @method('DELETE')
+              <button class="btn btn-light cart__clear" type="submit">CLEAR WISHLIST</button>
+          </form>
+      @endif
         </div>
 
       </div>
