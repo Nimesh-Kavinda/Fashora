@@ -16,7 +16,7 @@
                 <th></th>
                 <th>Price</th>
                 <th>Quantity</th>
-                <th>Subtotal</th>
+                <th>Action</th>
                 <th></th>
               </tr>
             </thead>
@@ -40,15 +40,19 @@
                     <span class="shopping-cart__product-price">${{ $item->price }}</span>
                     </td>
                     <td>
-                        {{ $item->qty }}
+                        {{ $item->qty }} 
                     </td>
                     <td>
-                    <a href="#" class="remove-cart">
-                        <svg width="10" height="10" viewBox="0 0 10 10" fill="#767676" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M0.259435 8.85506L9.11449 0L10 0.885506L1.14494 9.74056L0.259435 8.85506Z" />
-                        <path d="M0.885506 0.0889838L9.74057 8.94404L8.85506 9.82955L0 0.97449L0.885506 0.0889838Z" />
-                        </svg>
-                    </a>
+                        <form action="{{ route('wishlist.item.remove',['rowId'=>$item->rowId]) }}" method="POST">
+                            @csrf
+                            @method('DELETE')
+                            <a href="javascript:void(0)" class="remove-wishlist">
+                              <svg width="10" height="10" viewBox="0 0 10 10" fill="#767676" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M0.259435 8.85506L9.11449 0L10 0.885506L1.14494 9.74056L0.259435 8.85506Z" />
+                                <path d="M0.885506 0.0889838L9.74057 8.94404L8.85506 9.82955L0 0.97449L0.885506 0.0889838Z" />
+                              </svg>
+                            </a>
+                        </form>
                     </td>
                 </tr>
 
@@ -57,7 +61,7 @@
             </tbody>
           </table>
           <div class="cart-table-footer">
-            <button class="btn btn-light">UPDATE CART</button>
+            <button class="btn btn-light">CLEAR WISHLIST</button>
           </div>
         </div>
 
@@ -66,3 +70,15 @@
   </main>
 
 @endsection
+
+@push('scripts')
+    <script>
+      $(function(){
+
+        $(".remove-wishlist").on("click", function(){
+          $(this).closest('form').submit();
+        });
+
+      });
+    </script>
+@endpush
