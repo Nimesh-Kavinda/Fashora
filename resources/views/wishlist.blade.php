@@ -31,16 +31,13 @@
                     <td>
                     <div class="shopping-cart__product-item__detail">
                         <h4>{{ $item->name }}</h4>
-                        <ul class="shopping-cart__product-item__options">
-                        <li>{{ $item->options->size }}</li>
-                        </ul>
                     </div>
                     </td>
                     <td>
-                    <span class="shopping-cart__product-price">${{ $item->price }}</span>
+                    <span class="shopping-cart__product-price__detail text-muted">${{ $item->price }}</span>
                     </td>
                     <td>
-                        {{ $item->qty }} 
+                        <span class="shopping-cart__product-item__detail text-muted text-center">{{ $item->qty }}</span>
                     </td>
                     <td>
                         <div class="row g-2 align-items-center justify-content-around">
