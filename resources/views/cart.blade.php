@@ -144,7 +144,7 @@
               <div class="button-wrapper container">
                 <a href="checkout.html" class="btn btn-primary btn-checkout">PROCEED TO CHECKOUT</a>
               </div>
-            </div>
+            </div>   
           </div>
         </div>
         @else
