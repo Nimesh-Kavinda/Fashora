@@ -19,7 +19,7 @@ class WishlistController extends Controller
     {
         Cart::instance('wishlist')->add($request->id,$request->name,$request->quantity,$request->price,['size' => $request->size])->associate('App\Models\Product');
         return redirect()->back();
-    }
+    }            
 
     public function remove_item($rowId)
     {
