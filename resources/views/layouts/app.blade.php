@@ -579,9 +579,9 @@
               <img src="{{ asset('assets/images/logo.png') }}" alt="SurfsideMedia" class="logo__image d-block" />
             </a>
           </div>
-          <p class="footer-address">123 Beach Avenue, Surfside City, CA 00000</p>
-          <p class="m-0"><strong class="fw-medium">contact@surfsidemedia.in</strong></p>
-          <p><strong class="fw-medium">+1 000-000-0000</strong></p>
+          <p class="footer-address">193/1, Colombo-Kandy Road, Kegalle</p>
+          <p class="m-0"><strong class="fw-medium">fashoraclothsoutlet@gmail.com</strong></p>
+          <p><strong class="fw-medium">+35 227 8218</strong></p>
 
           <ul class="social-links list-unstyled d-flex flex-wrap mb-0">
             <li>
