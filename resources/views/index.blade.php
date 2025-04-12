@@ -869,7 +869,7 @@
                   <use href="#icon_heart" />
                 </svg>            
               </button>
-            </div>
+            </div>                
           </div>
         </div>
       </div>
