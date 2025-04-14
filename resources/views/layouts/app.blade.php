@@ -709,7 +709,7 @@
           <span>Shop</span>
         </a>
       </div>
-                         
+                                      
       <div class="col-4">
         <a href="{{route('home.index')}}" class="footer-mobile__link d-flex flex-column align-items-center">
           <div class="position-relative">
