@@ -710,7 +710,7 @@
         </a>
       </div>
                                                               
-      <div class="col-4">
+      <div class="col-4">              
         <a href="{{route('home.index')}}" class="footer-mobile__link d-flex flex-column align-items-center">
           <div class="position-relative">
             <svg class="d-block" width="18" height="18" viewBox="0 0 20 20" fill="none"
