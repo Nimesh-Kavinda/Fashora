@@ -720,7 +720,7 @@
             <span class="wishlist-amount d-block position-absolute js-wishlist-count">3</span>
           </div>
           <span>Wishlist</span>
-        </a>
+        </a> 
       </div>
     </div>
   </footer>
