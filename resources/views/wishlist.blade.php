@@ -16,6 +16,7 @@
                 <th></th>
                 <th>Price</th>
                 <th>Quantity</th>
+                <th>Size</th>
                 <th class="text-center">Action</th>
                 <th></th>
               </tr>
@@ -39,6 +40,9 @@
                     <td>
                         <span class="shopping-cart__product-item__detail text-muted text-center">{{ $item->qty }}</span>
                     </td>
+                    <td>
+                      <span class="shopping-cart__product-item__detail text-muted text-center">{{ $item->options['size'] }}</span>
+                  </td>
                     <td>
                         <div class="row g-2 align-items-center justify-content-around">
                             <div class="col-12 col-sm-auto">
