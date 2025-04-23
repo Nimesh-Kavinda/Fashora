@@ -438,4 +438,17 @@ class AdminController extends Controller
         return view ('admin.coupon-add');
     }
 
+    public function coupon_store(Request $request)
+    {
+        $request->validate([
+            'code' => 'requried',
+            'type' => 'requried',
+            'value' => 'requried|numeric',
+            'cart_value' => 'requried|numeric',
+            'expiry_date' => 'requried|date',
+        ]);
+
+        
+    }
+
 }
