@@ -224,6 +224,7 @@
               @csrf
               <input type="hidden" name="id" value="{{ $product->id }}">
               <input type="hidden" name="name" value="{{ $product->name }}">
+              <input type="hidden" name="size" value="{{ $product->size }}">
               <input type="hidden" name="price" value="{{ $product->sale_price == '' ? $product->regular_price : $product->sale_price }}">
               <input type="hidden" name="quantity" value="1">
             <a href="javascript:void(0)" class="menu-link menu-link_us-s add-to-wishlist" onclick = "document.getElementById('wishlist-form').submit();"><svg width="16" height="16" viewBox="0 0 20 20"
@@ -412,7 +413,7 @@
                   <input type="hidden" name="id" value="{{ $rproduct->id }}">
                   <input type="hidden" name="quantity" value="1">
                   <input type="hidden" name="name" value="{{ $rproduct->name }}">
-                  <input type="hidden" name="size" value="{{ $product->size }}">
+                  <input type="hidden" name="size" value="{{ $rproduct->size }}">
                   <input type="hidden" name="price" value="{{ $rproduct->sale_price == '' ? $rproduct->regular_price : $rproduct->sale_price }}">
                 <button type="submit" class="pc__atc btn anim_appear-bottom btn position-absolute border-0 text-uppercase fw-medium" data-aside="cartDrawer" title="Add To Cart">Add To Cart</button>
                 </form>
@@ -446,7 +447,7 @@
 
                 @else
 
-                @if(Cart::instance('wishlist')->content()->where('id', $product->id)->count() > 0)
+                @if(Cart::instance('wishlist')->content()->where('id', $rproduct->id)->count() > 0)
 
                 <button type="submit" disabled class="pc__btn-wl position-absolute top-0 end-0 bg-transparent border-0 js-add-wishlist filled-heart"
                 title="Add To Wishlist">
@@ -459,9 +460,10 @@
 
                 <form action="{{ route('wishlist.add') }}" method="POST">
                   @csrf
-                  <input type="hidden" name="id" value="{{ $product->id }}">
-                  <input type="hidden" name="name" value="{{ $product->name }}">
-                  <input type="hidden" name="price" value="{{ $product->sale_price == '' ? $product->regular_price : $product->sale_price }}">
+                  <input type="hidden" name="id" value="{{ $rproduct->id }}">
+                  <input type="hidden" name="name" value="{{ $rproduct->name }}">
+                  <input type="hidden" name="size" value="{{ $rproduct->size }}">
+                  <input type="hidden" name="price" value="{{ $rproduct->sale_price == '' ? $rproduct->regular_price : $rproduct->sale_price }}">
                   <input type="hidden" name="quantity" value="1">
                   <button type="submit" class="pc__btn-wl position-absolute top-0 end-0 bg-transparent border-0 js-add-wishlist"
                   title="Add To Wishlist">
@@ -470,6 +472,8 @@
                   </svg>
                 </button>
             </form>
+
+            
 
             @endif
                     
