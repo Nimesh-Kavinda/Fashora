@@ -433,4 +433,9 @@ class AdminController extends Controller
         return view('admin.coupons', compact('coupons'));
     }
 
+    public function coupon_add()
+    {
+        return view ('admin.coupon-add');
+    }
+
 }
