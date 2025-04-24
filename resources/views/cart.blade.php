@@ -137,6 +137,8 @@
             @endif
             @endguest
 
+
+
             @if (Cart::instance('cart')->count() > 0)
             <form action="{{ route('cart.item.clear') }}" method="POST">
               @csrf
