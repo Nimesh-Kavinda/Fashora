@@ -102,6 +102,7 @@
           <div class="cart-table-footer">
 
             @guest
+            
             <form action="{{ route('login') }}" class="position-relative bg-body" method="POST">
               @csrf
               <input class="form-control" type="text" name="coupon_code" placeholder="Coupon Code">
@@ -110,14 +111,22 @@
             </form>
 
             @else
-           
-            <form action="{{ route('cart.coupon.apply') }}" class="position-relative bg-body" method="POST">
+           @if(!Session::has('coupon'))
+           <form action="{{ route('cart.coupon.apply') }}" class="position-relative bg-body" method="POST">
+            @csrf
+            <input class="form-control" type="text" name="coupon_code" placeholder="Coupon Code" value="">
+            <input class="btn-link fw-medium position-absolute top-0 end-0 h-100 px-4" type="submit"
+              value="APPLY COUPON">
+          </form>
+           @else
+            <form action="{{ route('cart.coupon.remove') }}" class="position-relative bg-body" method="POST">
               @csrf
+              @method('DELETE')
               <input class="form-control" type="text" name="coupon_code" placeholder="Coupon Code" value="{{ Session::has('coupon') ? Session::get('coupon')['code'] . ' Applied!' : '' }}">
               <input class="btn-link fw-medium position-absolute top-0 end-0 h-100 px-4" type="submit"
-                value="APPLY COUPON">
+                value="REMOVE COUPON">
             </form>
-
+            @endif
             @endguest
 
             @if (Cart::instance('cart')->count() > 0)
