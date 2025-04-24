@@ -30,7 +30,7 @@
                 </ul>
             </div>
             <div class="wg-box">
-                <form class="form-new-product form-style-1" method="POST" action="{{ route('admin.coupon.store') }}">
+                <form class="form-new-product form-style-1" method="POST" action="{{ route('admin.coupon.update') }}">
                     @csrf
                     <input type="hidden" name="id" value="{{ $coupon->id }}">
                     <fieldset class="name">
