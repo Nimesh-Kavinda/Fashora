@@ -32,6 +32,7 @@
             <div class="wg-box">
                 <form class="form-new-product form-style-1" method="POST" action="{{ route('admin.coupon.store') }}">
                     @csrf
+                    <input type="hidden" name="id" value="{{ $coupon->id }}">
                     <fieldset class="name">
                         <div class="body-title">Coupon Code <span class="tf-color-1">*</span></div>
                         <input class="flex-grow" type="text" placeholder="Coupon Code" name="code" tabindex="0" value="{{ $coupon->code }}" aria-required="true" required="">
