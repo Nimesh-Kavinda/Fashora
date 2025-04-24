@@ -460,4 +460,10 @@ class AdminController extends Controller
         return redirect()->route('admin.coupons')->with('status', 'Coupon has been added successfully');
     }
 
+    public function coupon_edit($id)
+    {
+        $coupon = Coupon::find($id);
+        return view('admin.coupon-edit', compact('coupon'));
+    }
+
 }
