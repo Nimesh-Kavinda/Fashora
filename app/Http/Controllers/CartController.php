@@ -27,6 +27,11 @@ class CartController extends Controller
         $product = Cart::instance('cart')->get($rowId);
         $qty = $product->qty + 1;
         Cart::instance('cart')->update($rowId,$qty);
+
+        if (Session::has('coupon')) {
+            $this->calculateDiscount();
+        }
+
         return redirect()->back();
     }
                  
@@ -35,6 +40,11 @@ class CartController extends Controller
         $product = Cart::instance('cart')->get($rowId);
         $qty = $product->qty - 1;
         Cart::instance('cart')->update($rowId,$qty);
+
+        if (Session::has('coupon')) {
+            $this->calculateDiscount();
+        }
+
         return redirect()->back();
     }
 
