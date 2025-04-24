@@ -1,6 +1,14 @@
 @extends('layouts.app')
 
 @section('content')
+<style>
+  .text-success {
+      color: #278c04 !important;
+  }
+  .text-danger {
+      color: #d61808 !important;
+  }
+</style>
 <main class="pt-90">
     <div class="mb-4 pb-4"></div>
     <section class="shop-checkout container">
