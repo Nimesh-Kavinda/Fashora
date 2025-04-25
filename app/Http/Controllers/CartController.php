@@ -182,10 +182,11 @@ class CartController extends Controller
         $order = new Order();
 
         $order->user_id = $user_id;
-        $order->subtotal = Session::get('checkout')->subtotal();
-        $order->discount = Session::get('checkout')->discount();
-        $order->tax = Session::get('checkout')->tax();
-        $order->total = Session::get('checkout')->total();
+        $checkout = Session::get('checkout');
+        $order->subtotal = (float) $checkout['subtotal'];
+        $order->discount = (float) $checkout['discount'];
+        $order->tax = (float) $checkout['tax'];
+        $order->total = (float) $checkout['total'];
         $order->name = $address->name;
         $order->phone = $address->phone;
         $order->locality = $address->locality;
@@ -230,6 +231,7 @@ class CartController extends Controller
         Session::forget('checkout');
         Session::forget('coupon');
         Session::forget('discounts');
+        return redirect()->route('cart.order.confirmation',compact('order'));
           
     }
 
@@ -259,6 +261,11 @@ class CartController extends Controller
                 'total' => Cart::instance('cart')->total()
             ]);
         }
+    }
+
+    public function order_confirmation()
+    {
+        return view('order-confirmation');
     }
 
 }
