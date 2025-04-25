@@ -204,8 +204,7 @@
                   <label class="form-check-label" for="checkout_payment_method_1">
                     Direct bank transfer
                     <p class="option-detail">
-                      Make your payment directly into our bank account. Please use your Order ID as the payment
-                      reference.Your order will not be shipped until the funds have cleared in our account.
+                      Select this option if you'd like to transfer the payment directly from your bank account. Please use your Order ID as the payment reference. Your order will be confirmed and shipped once the payment is successfully received and verified in our bank records.
                     </p>
                   </label>
                 </div>
@@ -215,9 +214,7 @@
                   <label class="form-check-label" for="checkout_payment_method_2">
                     Check payments
                     <p class="option-detail">
-                      Phasellus sed volutpat orci. Fusce eget lore mauris vehicula elementum gravida nec dui. Aenean
-                      aliquam varius ipsum, non ultricies tellus sodales eu. Donec dignissim viverra nunc, ut aliquet
-                      magna posuere eget.
+                      If you prefer to pay by check, please mail it to our billing address. Kindly include your Order ID on the back of the check. Note that your order will only be processed and dispatched after the check has been cleared by our financial institution, which might take a few business days.
                     </p>
                   </label>
                 </div>
@@ -227,9 +224,7 @@
                   <label class="form-check-label" for="checkout_payment_method_3">
                     Cash on delivery
                     <p class="option-detail">
-                      Phasellus sed volutpat orci. Fusce eget lore mauris vehicula elementum gravida nec dui. Aenean
-                      aliquam varius ipsum, non ultricies tellus sodales eu. Donec dignissim viverra nunc, ut aliquet
-                      magna posuere eget.
+                      With Cash on Delivery (COD), you can pay for your order in cash at the time it is delivered to your address. This method is convenient and secure, but please ensure that you have the exact amount ready, as the delivery personnel may not carry change.
                     </p>
                   </label>
                 </div>
@@ -239,9 +234,7 @@
                   <label class="form-check-label" for="checkout_payment_method_4">
                     Paypal
                     <p class="option-detail">
-                      Phasellus sed volutpat orci. Fusce eget lore mauris vehicula elementum gravida nec dui. Aenean
-                      aliquam varius ipsum, non ultricies tellus sodales eu. Donec dignissim viverra nunc, ut aliquet
-                      magna posuere eget.
+                      Choose PayPal to make a fast, secure payment using your PayPal account or a linked credit/debit card. You will be redirected to the PayPal site to complete your transaction, after which you'll be brought back to our website to confirm your order.
                     </p>
                   </label>
                 </div>
@@ -251,6 +244,7 @@
                     policy</a>.
                 </div>
               </div>
+              
               <button class="btn btn-primary btn-checkout">PLACE ORDER</button>
             </div>
           </div>
