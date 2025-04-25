@@ -41,7 +41,10 @@
                         <span class="shopping-cart__product-item__detail text-muted text-center">{{ $item->qty }}</span>
                     </td>
                     <td>
-                      <span class="shopping-cart__product-item__detail text-muted text-center">{{ $item->options['size'] }}</span>
+                      <span class="shopping-cart__product-item__detail text-muted text-center">
+                        {{ $item->options['size'] ?? 'N/A' }}
+                    </span>
+                    
                   </td>
                     <td>
                         <div class="row g-2 align-items-center justify-content-around">

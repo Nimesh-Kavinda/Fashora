@@ -43,18 +43,18 @@
             </div>
             @if($address)
 
-            <div class="row">
+            <div class="row mt-3">
               <div class="col-md-12">
                  <div class="my-account__address-list">
                     <div class="my-account__address-list-item">
                         <div class="my-account__address-item_detail">
-                          <p>{{ $address->name }}</p>
-                          <p>{{ $address->address }}</p>
-                          <p>{{ $address->landmark }}</p>
-                          <p>{{ $address->city }}, {{ $address->state }}, {{ $address->country }}</p>
-                          <p>{{ $address->zip }}</p>
+                          <p>{{ $address->name }},</p>
+                          <p>{{ $address->address }},</p>
+                          <p>{{ $address->landmark }},</p>
+                          <p>{{ $address->city }}, {{ $address->state }}, {{ $address->country }},</p>
+                          <p>{{ $address->zip }}.</p>
                           <br>
-                          <p>{{ $address->phone }}</p>
+                          <p>Contact Number -: {{ $address->phone }}</p>
                         </div>
                     </div>
                  </div>
