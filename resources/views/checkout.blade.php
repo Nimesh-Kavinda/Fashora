@@ -30,7 +30,8 @@
         </a>
       </div>
 
-      <form name="checkout-form" action="">
+      <form name="checkout-form" action="{{ route('cart.place.an.order') }}" method="POST">
+        @csrf
         <div class="checkout-form">
           <div class="billing-info__wrapper">
             <div class="row">
@@ -199,42 +200,29 @@
               </div>
               <div class="checkout__payment-methods">
                 <div class="form-check">
-                  <input class="form-check-input form-check-input_fill" type="radio" name="checkout_payment_method"
-                    id="checkout_payment_method_1" checked>
-                  <label class="form-check-label" for="checkout_payment_method_1">
-                    Direct bank transfer
-                    <p class="option-detail">
-                      Select this option if you'd like to transfer the payment directly from your bank account. Please use your Order ID as the payment reference. Your order will be confirmed and shipped once the payment is successfully received and verified in our bank records.
-                    </p>
-                  </label>
-                </div>
-                <div class="form-check">
-                  <input class="form-check-input form-check-input_fill" type="radio" name="checkout_payment_method"
-                    id="checkout_payment_method_2">
+                  <input class="form-check-input form-check-input_fill" type="radio" name="mode" id="mode1" value="card">
                   <label class="form-check-label" for="checkout_payment_method_2">
-                    Check payments
+                    Debit or Credit Card
                     <p class="option-detail">
-                      If you prefer to pay by check, please mail it to our billing address. Kindly include your Order ID on the back of the check. Note that your order will only be processed and dispatched after the check has been cleared by our financial institution, which might take a few business days.
+                      Pay securely using your debit or credit card through our encrypted payment gateway. We accept Visa, MasterCard, and other major cards. Your payment will be processed instantly and your order will be confirmed immediately.
                     </p>
                   </label>
                 </div>
                 <div class="form-check">
-                  <input class="form-check-input form-check-input_fill" type="radio" name="checkout_payment_method"
-                    id="checkout_payment_method_3">
-                  <label class="form-check-label" for="checkout_payment_method_3">
-                    Cash on delivery
-                    <p class="option-detail">
-                      With Cash on Delivery (COD), you can pay for your order in cash at the time it is delivered to your address. This method is convenient and secure, but please ensure that you have the exact amount ready, as the delivery personnel may not carry change.
-                    </p>
-                  </label>
-                </div>
-                <div class="form-check">
-                  <input class="form-check-input form-check-input_fill" type="radio" name="checkout_payment_method"
-                    id="checkout_payment_method_4">
+                  <input class="form-check-input form-check-input_fill" type="radio" name="mode" id="mode2" value="paypal">
                   <label class="form-check-label" for="checkout_payment_method_4">
                     Paypal
                     <p class="option-detail">
                       Choose PayPal to make a fast, secure payment using your PayPal account or a linked credit/debit card. You will be redirected to the PayPal site to complete your transaction, after which you'll be brought back to our website to confirm your order.
+                    </p>
+                  </label>
+                </div>
+                <div class="form-check">
+                  <input class="form-check-input form-check-input_fill" type="radio" name="mode" id="mode3" value="cod">
+                  <label class="form-check-label" for="checkout_payment_method_3">
+                    Cash on delivery
+                    <p class="option-detail">
+                      With Cash on Delivery (COD), you can pay for your order in cash at the time it is delivered to your address. This method is convenient and secure, but please ensure that you have the exact amount ready, as the delivery personnel may not carry change.
                     </p>
                   </label>
                 </div>

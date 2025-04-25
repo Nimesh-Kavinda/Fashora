@@ -207,12 +207,24 @@ class CartController extends Controller
             $orderItem->save();
         }
 
-        $transaction = new Transaction();
-        $transaction->user_id = $user_id;
-        $transaction->order_id = $order->id;
-        $transaction->mode = $request->mode;
-        $transaction->status = "pending";
-        $transaction->save();
+        if($request->mode == "card")
+        {
+            //
+        }
+        elseif($request->mode == "paypal")
+        {
+            //
+        }
+        elseif($request->mode == "cod" )
+        {
+            $transaction = new Transaction();
+            $transaction->user_id = $user_id;
+            $transaction->order_id = $order->id;
+            $transaction->mode = $request->mode;
+            $transaction->status = "pending";
+            $transaction->save();
+        }
+        
 
         Cart::instance('cart')->destroy();
         Session::forget('checkout');
