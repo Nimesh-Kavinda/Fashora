@@ -4,6 +4,9 @@ namespace App\Http\Controllers;
 
 use App\Models\Address;
 use App\Models\Coupon;
+use App\Models\Order;
+use App\Models\OrderItem;
+use App\Models\Transaction;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -173,6 +176,49 @@ class CartController extends Controller
             $address->save();
 
         }
+
+        $this->setAmountforCheckout();
+
+        $order = new Order();
+
+        $order->user_id = $user_id;
+        $order->subtotal = Session::get('checkout')->subtotal();
+        $order->discount = Session::get('checkout')->discount();
+        $order->tax = Session::get('checkout')->tax();
+        $order->total = Session::get('checkout')->total();
+        $order->name = $address->name;
+        $order->phone = $address->phone;
+        $order->locality = $address->locality;
+        $order->address = $address->address;
+        $order->city = $address->city;
+        $order->state = $address->state;
+        $order->country = $address->country;
+        $order->landmark = $address->landmark;
+        $order->zip = $address->zip;
+        $order->save();
+
+        foreach(Cart::instance('cart')->content() as $item)
+        {
+            $orderItem = new OrderItem();
+            $orderItem->product_id = $item->id;
+            $orderItem->order_id = $order->id;
+            $orderItem->price = $item->price;
+            $orderItem->quantity = $item->qty;
+            $orderItem->save();
+        }
+
+        $transaction = new Transaction();
+        $transaction->user_id = $user_id;
+        $transaction->order_id = $order->id;
+        $transaction->mode = $request->mode;
+        $transaction->status = "pending";
+        $transaction->save();
+
+        Cart::instance('cart')->destroy();
+        Session::forget('checkout');
+        Session::forget('coupon');
+        Session::forget('discounts');
+          
     }
 
     public function setAmountforCheckout()
@@ -204,3 +250,5 @@ class CartController extends Controller
     }
 
 }
+
+
