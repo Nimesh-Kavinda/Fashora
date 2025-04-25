@@ -40,65 +40,86 @@
               <div class="col-6">
               </div>
             </div>
+            @if($address)
 
+            <div class="row">
+              <div class="col-md-12">
+                 <div class="my-account__address-list">
+                    <div class="my-account__address-list-item">
+                        <div class="my-account__address-item_detail">
+                          <p>{{ $address->name }}</p>
+                          <p>{{ $address->address }}</p>
+                          <p>{{ $address->landmark }}</p>
+                          <p>{{ $address->city }}, {{ $address->state }}, {{ $address->country }}</p>
+                          <p>{{ $address->zip }}</p>
+                          <br>
+                          <p>{{ $address->phone }}</p>
+                        </div>
+                    </div>
+                 </div>
+              </div>
+            </div>
+
+            @else
             <div class="row mt-5">
               <div class="col-md-11">
                 <div class="form-floating my-3">
-                  <input type="text" class="form-control" name="name" required="">
+                  <input type="text" class="form-control" name="name" required="" value="{{ old('name') }}">
                   <label for="name">Full Name *</label>
-                  <span class="text-danger"></span>
+                @error('name')  <span class="text-danger">{{ $message }}</span> @enderror
                 </div>
               </div>
               <div class="col-md-8">
                 <div class="form-floating my-3">
-                  <input type="text" class="form-control" name="phone" required="">
+                  <input type="text" class="form-control" name="phone" required="" value="{{ old('phone') }}">
                   <label for="phone">Phone Number *</label>
-                  <span class="text-danger"></span>
+                  @error('phone')  <span class="text-danger">{{ $message }}</span> @enderror
                 </div>
               </div>
               <div class="col-md-7">
                 <div class="form-floating my-3">
-                  <input type="text" class="form-control" name="zip" required="">
+                  <input type="text" class="form-control" name="zip" required="" value="{{ old('zip') }}">
                   <label for="zip">Pincode *</label>
-                  <span class="text-danger"></span>
+                  @error('zip')  <span class="text-danger">{{ $message }}</span> @enderror
                 </div>
               </div>
               <div class="col-md-6">
                 <div class="form-floating mt-3 mb-3">
-                  <input type="text" class="form-control" name="state" required="">
+                  <input type="text" class="form-control" name="state" required="" value="{{ old('state') }}">
                   <label for="state">State *</label>
-                  <span class="text-danger"></span>
+                  @error('state')  <span class="text-danger">{{ $message }}</span> @enderror
                 </div>
               </div>
               <div class="col-md-5">
                 <div class="form-floating my-3">
-                  <input type="text" class="form-control" name="city" required="">
+                  <input type="text" class="form-control" name="city" required="" value="{{ old('city') }}">
                   <label for="city">Town / City *</label>
-                  <span class="text-danger"></span>
+                  @error('city')  <span class="text-danger">{{ $message }}</span> @enderror
                 </div>
               </div>
               <div class="col-md-6">
                 <div class="form-floating my-3">
-                  <input type="text" class="form-control" name="address" required="">
+                  <input type="text" class="form-control" name="address" required="" value="{{ old('address') }}">
                   <label for="address">House no, Building Name *</label>
-                  <span class="text-danger"></span>
+                  @error('address')  <span class="text-danger">{{ $message }}</span> @enderror
                 </div>
               </div>
               <div class="col-md-5">
                 <div class="form-floating my-3">
-                  <input type="text" class="form-control" name="locality" required="">
+                  <input type="text" class="form-control" name="locality" required="" value="{{ old('locality') }}">
                   <label for="locality">Road Name, Area, Colony *</label>
-                  <span class="text-danger"></span>
+                  @error('locality')  <span class="text-danger">{{ $message }}</span> @enderror
                 </div>
               </div>
               <div class="col-md-12">
                 <div class="form-floating my-3">
-                  <input type="text" class="form-control" name="landmark" required="">
+                  <input type="text" class="form-control" name="landmark" required="" value="{{ old('landmark') }}">
                   <label for="landmark">Landmark *</label>
-                  <span class="text-danger"></span>
+                  @error('landmark')  <span class="text-danger">{{ $message }}</span> @enderror
                 </div>
               </div>
             </div>
+            @endif
           </div>
           <div class="checkout__totals-wrapper">
             <div class="sticky-content">
@@ -112,44 +133,69 @@
                     </tr>
                   </thead>
                   <tbody>
+                    @foreach (Cart::instance('cart') as $item)
                     <tr>
                       <td>
-                        Zessi Dresses x 2
+                       {{ $item->name }} x {{ $item->qty }}
                       </td>
                       <td align="right">
-                        $32.50
+                        {{ $item->subtotal }}
                       </td>
                     </tr>
+                    @endforeach
+                  </tbody>
+                </table>
+                @if(Session::has('discounts'))
+                <table class="checkout-totals">
+                  <tbody>
                     <tr>
-                      <td>
-                        Kirby T-Shirt
-                      </td>
-                      <td align="right">
-                        $29.90
-                      </td>
+                      <th>Subtotal</th>
+                      <td class="text-right">${{ Cart::instance('cart')->subTotal() }}</td>
+                    </tr>
+                    <tr>
+                      <th>Discount {{ Session::get('coupon')['code'] }}</th>
+                      <td class="text-right">${{ Session::get('discounts')['discount'] }}</td>
+                    </tr>
+                    <tr>
+                      <th>Subtotal After Discount</th>
+                      <td class="text-right">${{ Session::get('discounts')['subtotal'] }}</td>
+                    </tr>
+                    <tr>
+                      <th>Shipping</th>
+                      <td class="text-right">Free</td>
+                    </tr>
+                    <tr>
+                      <th>VAT</th>
+                      <td class="text-right">${{ Session::get('discounts')['tax'] }}</td>
+                    </tr>
+                    <tr>
+                      <th>Total</th>
+                      <td class="text-right">${{ Session::get('discounts')['total'] }}</td>
                     </tr>
                   </tbody>
                 </table>
+                @else
                 <table class="checkout-totals">
                   <tbody>
                     <tr>
                       <th>SUBTOTAL</th>
-                      <td align="right">$62.40</td>
+                      <td class="text-right">${{ Cart::instance('cart')->subtotal() }}</td>
                     </tr>
                     <tr>
                       <th>SHIPPING</th>
-                      <td align="right">Free shipping</td>
+                      <td class="text-right">Free shipping</td>
                     </tr>
                     <tr>
                       <th>VAT</th>
-                      <td align="right">$19</td>
+                      <td class="text-right">${{ Cart::instance('cart')->tax() }}</td>
                     </tr>
                     <tr>
                       <th>TOTAL</th>
-                      <td align="right">$81.40</td>
+                      <td class="text-right">${{ Cart::instance('cart')->total() }}</td>
                     </tr>
                   </tbody>
                 </table>
+                @endif
               </div>
               <div class="checkout__payment-methods">
                 <div class="form-check">
