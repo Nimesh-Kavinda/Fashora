@@ -139,4 +139,68 @@ class CartController extends Controller
         return view('checkout',compact('address'));
 
     }
+
+    public function place_an_order(Request $request)
+    {
+        $user_id = Auth::user()->id;
+        $address = Address::where('user_id', $user_id)->where('isdefault',true)->first();
+
+        if(!$address)
+        {
+            $request->validate([
+                'name' => 'required|max:100',
+                'phone' => 'required|numeric|digits:10',
+                'zip' => 'required|numeric|digits:6',
+                'state' => 'required',
+                'city' => 'required',
+                'address' => 'required',
+                'locality' => 'required',
+                'landmark' => 'required',
+            ]);
+
+            $address = new Address();
+            $address->name = $request->name;
+            $address->phone = $request->phone;
+            $address->zip = $request->zip;
+            $address->state = $request->state;
+            $address->city = $request->city;
+            $address->address = $request->address;
+            $address->locality = $request->locality;
+            $address->landmark = $request->landmark;
+            $address->country = 'Sri Lanka';
+            $address->user_id = $user_id;
+            $address->isdefault = true;
+            $address->save();
+
+        }
+    }
+
+    public function setAmountforCheckout()
+    {
+        if(!Cart::instance('cart')->content()->count() > 0)
+        {
+            Session::forget('checkout');
+            return;
+        }
+
+        if(Session::has('coupon'))
+        {
+            Session::put('checkout',[
+                'discount' => Session::get('discounts'), ['discount'],
+                'subtotal' => Session::get('discounts'), ['subtotal'],
+                'tax' => Session::get('discounts'), ['tax'],
+                'total' => Session::get('discounts'), ['total']
+            ]);
+        }
+        else 
+        {
+            Session::put('checkout',[
+                'discount' => 0,
+                'subtotal' => Cart::instance('cart')->subtotal(),
+                'tax' => Cart::instance('cart')->tax(),
+                'total' => Cart::instance('cart')->total()
+            ]);
+        }
+    }
+
 }
