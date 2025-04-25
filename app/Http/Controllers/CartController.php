@@ -231,7 +231,8 @@ class CartController extends Controller
         Session::forget('checkout');
         Session::forget('coupon');
         Session::forget('discounts');
-        return redirect()->route('cart.order.confirmation',compact('order'));
+        Session::put('order_id',$order->id);
+        return redirect()->route('cart.order.confirmation');
           
     }
 
@@ -246,10 +247,11 @@ class CartController extends Controller
         if(Session::has('coupon'))
         {
             Session::put('checkout',[
-                'discount' => Session::get('discounts'), ['discount'],
-                'subtotal' => Session::get('discounts'), ['subtotal'],
-                'tax' => Session::get('discounts'), ['tax'],
-                'total' => Session::get('discounts'), ['total']
+                'discount' => Session::get('discounts')['discount'],
+                'subtotal' => Session::get('discounts')['subtotal'],
+                'tax'      => Session::get('discounts')['tax'],
+                'total'    => Session::get('discounts')['total'],
+
             ]);
         }
         else 
@@ -265,7 +267,16 @@ class CartController extends Controller
 
     public function order_confirmation()
     {
-        return view('order-confirmation');
+        if(Session::has('order_id'))
+        {
+
+         $order = Order::find(Session::get('order_id'));
+         return view('order-confirmation',compact('order'));
+
+        }
+
+        return redirect()->route('cart.index');
+
     }
 
 }

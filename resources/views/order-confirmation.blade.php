@@ -74,7 +74,7 @@
                   <td>
                     {{ $item->product->name }} x {{ $item->quantity }}
                   </td>
-                  <td>
+                  <td class="text-right">
                     ${{ $item->price }}
                   </td>
                 </tr>
@@ -85,23 +85,23 @@
               <tbody>
                 <tr>
                   <th>SUBTOTAL</th>
-                  <td>${{ $order->subtotal }}</td>
+                  <td class="text-right">${{ $order->subtotal }}</td>
                 </tr>
                 <tr>
                     <th>DISCOUNT</th>
-                    <td>${{ $order->discount }}</td>
+                    <td class="text-right">${{ $order->discount }}</td>
                   </tr>
                 <tr>
                   <th>SHIPPING</th>
-                  <td>Free shipping</td>
+                  <td class="text-right">Free shipping</td>
                 </tr>
                 <tr>
                   <th>VAT</th>
-                  <td>${{ $order->tax }}</td>
+                  <td class="text-right">${{ $order->tax }}</td>
                 </tr>
                 <tr>
                   <th>TOTAL</th>
-                  <td>${{ $order->total }}</td>
+                  <td class="text-right">${{ $order->total }}</td>
                 </tr>
               </tbody>
             </table>
