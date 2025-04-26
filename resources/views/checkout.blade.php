@@ -55,7 +55,7 @@
                           <p>{{ $address->zip }}.</p>
                           <br>
                           <p>Contact Number -: {{ $address->phone }}</p>
-                        </div>
+                        </div> 
                     </div>
                  </div>
               </div>
