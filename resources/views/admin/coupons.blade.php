@@ -66,7 +66,7 @@
                                     <td>{{ $coupon->type }}</td>
                                     <td>
                                         @if($coupon->type == 'fixed')
-                                            Rs {{ $coupon->value }}
+                                            ${{ $coupon->value }}
                                         @else
                                             {{ $coupon->value }} %
                                         @endif
