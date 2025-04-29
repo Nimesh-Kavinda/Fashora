@@ -71,7 +71,7 @@
                                             {{ $coupon->value }} %
                                         @endif
                                     </td>
-                                    <td>Rs {{ $coupon->cart_value }}</td>
+                                    <td>$ {{ $coupon->cart_value }}</td>
                                     <td>{{ $coupon->expiry_date }}</td>
                                     <td>
                                         <div class="list-icon-function">
