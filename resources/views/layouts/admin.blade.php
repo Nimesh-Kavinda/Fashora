@@ -121,7 +121,7 @@
                                         <div class="icon"><i class="icon-file-plus"></i></div>
                                         <div class="text">Order</div>
                                     </a>
-                                    <ul class="sub-menu">
+                                    <ul class="sub-menu"> 
                                         <li class="sub-menu-item">
                                             <a href="{{ route('admin.orders') }}" class="">
                                                 <div class="text">Orders</div>
