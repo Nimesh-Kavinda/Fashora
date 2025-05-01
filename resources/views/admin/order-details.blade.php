@@ -49,9 +49,9 @@
                             <th>Order Date</th>
                             <td>{{ $order->created_at }}</td>
                             <th>Delivered Date</th>
-                            <td>{{ $order->delivered_date }}</td>
+                            <td>{{ $order->delivered_date ?? '-' }}</td>
                             <th>Canceled Date</th>
-                            <td>{{ $order->canceled_date }}</td>
+                            <td>{{ $order->canceled_date ?? '-' }}</td>
                         </tr>
 
                         <tr>
@@ -74,7 +74,7 @@
             <div class="flex items-center justify-between gap10 flex-wrap">
                 <div class="wg-filter flex-grow">
                     <h5>Ordered Items</h5>
-
+                </div>
             <div class="table-responsive">
                 <table class="table table-striped table-bordered">
                     <thead>
@@ -108,7 +108,7 @@
                             <td class="text-center">{{ $item->product->SKU }}</td>
                             <td class="text-center">{{ $item->product->category->name }}</td>
                             <td class="text-center">{{ $item->product->brand->name}}</td>
-                            <td class="text-center">{{ $item->options }}</td>
+                            <td class="text-center">{{ $item->options ?? '-'}}</td>
                             <td class="text-center">{{ $item->rstatus == 0 ? 'No' : "Yes" }}</td>
                             <td class="text-center">
                                 <div class="list-icon-function view-icon">
@@ -140,7 +140,7 @@
                     <p>{{ $order->landmark }}</p>
                     <p>{{ $order->zip }}</p>
                     <br>
-                    <p>Mobile : {{ $order->phone }}/p>
+                    <p>Mobile : {{ $order->phone }}</p>
                 </div>
             </div>
         </div>
@@ -161,7 +161,7 @@
                         <th>Total</th>
                         <td>${{ $order->total }}</td>
                         <th>Payment Mode</th>
-                        <td>${{ $transaction->mode }}</td>
+                        <td style="text-transform: capitalize">{{ $transaction->mode }}</td>
                         <th>Status</th>
                         <td>
                             @if($transaction->status == 'approved')
