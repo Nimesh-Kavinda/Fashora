@@ -18,4 +18,10 @@ class UserController extends Controller
         $orders = Order::where('user_id', Auth::user()->id)->orderBy('created_at', 'DESC')->paginate(10);
         return view('user.orders',compact('orders'));
     }
+
+    public function order_details($order_id)
+    {
+        $order = Order::where('user_id', Auth::user()->id)->where('id', $order_id)->first();
+        return view('user.order_details',compact('order'));
+    }
 }
