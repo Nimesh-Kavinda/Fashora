@@ -61,7 +61,8 @@
 
     .table> :not(caption)>tr>th {
       padding: 0.625rem 1.5rem .25rem !important;
-      background-color: #6a6e51 !important;
+      background-color: #3e3e3e !important;
+    
     }
 
     .table-bordered>:not(caption)>*>* {
@@ -72,31 +73,32 @@
       vertical-align: middle;
     }
 
-    .table-striped .image {
+    .image {
       display: flex;
       align-items: center;
       justify-content: center;
       width: 50px;
       height: 50px;
       flex-shrink: 0;
-      border-radius: 10px;
+      border-radius: 5px;
       overflow: hidden;
     }
 
-    .table-striped td:nth-child(1) {
+     td:nth-child(1) {
       min-width: 250px;
       padding-bottom: 7px;
     }
 
-    .pname {
+    /* .pname {
       display: flex;
       gap: 13px;
-    }
+      flex-wrap: wrap;
+    } */
 
     .table-bordered> :not(caption)>tr>th,
     .table-bordered> :not(caption)>tr>td {
       border-width: 1px 1px;
-      border-color: #6a6e51;
+      border-color: #7a79795d;
     }
   </style>
     
@@ -163,16 +165,16 @@
             <div class="wg-box">
                 <div class="flex items-center justify-between gap10 flex-wrap">
                     <div class="wg-filter flex-grow">
-                        <h5>Ordered Items</h5>
+                        <h5 class="fw-bold">Ordered Items</h5>
                     </div>
+                    <div class="mb-3 pb-4"></div>
                 <div class="table-responsive">
                     <table class="table table-striped table-bordered">
                         <thead>
                             <tr>
-                                <th>Name</th>
+                                <th class="text-center">Name</th>
                                 <th class="text-center">Price</th>
                                 <th class="text-center">Quantity</th>
-                                <th class="text-center">SKU</th>
                                 <th class="text-center">Category</th>
                                 <th class="text-center">Brand</th>
                                 <th class="text-center">Options</th>
@@ -184,18 +186,17 @@
                             @foreach ($orderItems as $item)
                             
                             <tr>
-                                <td class="pname">
+                                <td class="text-center align-center justify-content-center d-flex gap-4">
                                     <div class="image">
                                         <img src="{{ asset('uploads/products/thumbnails') }}/{{ $item->product->image }}" alt="{{ $item->product->name }}" class="image">
                                     </div>
                                     <div class="name">
-                                        <a href="{{ route('shop.product.details',['product_slug' => $item->product->slug]) }}" target="_blank"
+                                        <a href="{{ route('shop.product.details',['product_slug' => $item->product->slug]) }}"
                                             class="body-title-2">{{ $item->product->name }}</a>
                                     </div>
                                 </td>
                                 <td class="text-center">${{ $item->price }}</td>
                                 <td class="text-center">{{ $item->quantity }}</td>
-                                <td class="text-center">{{ $item->product->SKU }}</td>
                                 <td class="text-center">{{ $item->product->category->name }}</td>
                                 <td class="text-center">{{ $item->product->brand->name}}</td>
                                 <td class="text-center">{{ $item->options ?? '-'}}</td>
