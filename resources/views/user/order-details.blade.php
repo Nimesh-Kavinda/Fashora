@@ -112,34 +112,39 @@
         <div class="col-lg-10">
             <div class="wg-box">
                 <div class="flex items-center justify-between gap10 flex-wrap">
-                    <div class="wg-filter flex-grow">
-                        <h5>Ordered Details</h5>
+                    
+                    <div class="row">
+                        <div class="col-6">
+                            <h5 class="fw-bold">Order Details</h5>
+                        </div>
+                        <div class="col-6 text-right">
+                            <a class="btn btn-sm btn-warning" href="{{ route('user.orders') }}">Back</a>
+                        </div>
                     </div>
-                    <a class="tf-button style-1 w208" href="{{ route('admin.orders') }}">Back</a>
                 </div>
                 <div class="table-responsive">
-                    <table class="table table-striped table-bordered">
+                    <table class="table table-bordered">
                        
                             <tr>
-                                <th>Order No</th>
-                                <td>{{ $order->id }}</td>
-                                <th>Mobile</th>
-                                <td>{{ $order->phone }}</td>
-                                <th>Zip Code</th>
-                                <td>{{ $order->zip }}</td>
+                                <th class="text-center">Order No</th>
+                                <td class="text-center">{{ $order->id }}</td>
+                                <th class="text-center">Mobile</th>
+                                <td class="text-center">{{ $order->phone }}</td>
+                                <th class="text-center">Zip Code</th>
+                                <td class="text-center">{{ $order->zip }}</td>
                             </tr>
     
                             <tr>
-                                <th>Order Date</th>
-                                <td>{{ $order->created_at }}</td>
-                                <th>Delivered Date</th>
-                                <td>{{ $order->delivered_date ?? '-' }}</td>
-                                <th>Canceled Date</th>
-                                <td>{{ $order->canceled_date ?? '-' }}</td>
+                                <th class="text-center">Order Date</th>
+                                <td class="text-center">{{ $order->created_at }}</td>
+                                <th class="text-center">Delivered Date</th>
+                                <td class="text-center">{{ $order->delivered_date ?? '-' }}</td>
+                                <th class="text-center">Canceled Date</th>
+                                <td class="text-center">{{ $order->canceled_date ?? '-' }}</td>
                             </tr>
     
                             <tr>
-                                <th>Order Status</th>
+                                <th class="text-center">Order Status</th>
                                 <td colspan="5">
                                     @if($order->status == 'delivered')
                                         <span class="badge bg-success">Deliverd</span>
