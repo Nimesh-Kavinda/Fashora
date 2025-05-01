@@ -133,12 +133,12 @@
             <h5>Shipping Address</h5>
             <div class="my-account__address-item col-md-6">
                 <div class="my-account__address-item__detail">
-                    <p>{{ $order->name }}</p>
-                    <p>{{ $order->address }}</p>
-                    <p>{{ $order->locality }}</p>
-                    <p>{{ $order->city }}, {{ $order->country }}</p>
-                    <p>{{ $order->landmark }}</p>
-                    <p>{{ $order->zip }}</p>
+                    <p>{{ $order->name }},</p>
+                    <p>{{ $order->address }},</p>
+                    <p>{{ $order->locality }},</p>
+                    <p>{{ $order->city }}, {{ $order->country }},</p>
+                    <p>{{ $order->landmark }},</p>
+                    <p>{{ $order->zip }}.</p>
                     <br>
                     <p>Mobile : {{ $order->phone }}</p>
                 </div>
@@ -151,7 +151,7 @@
                 <tbody>
                     <tr>
                         <th>Subtotal</th>
-                        <td>${{ $order->subtotal }}/td>
+                        <td>${{ $order->subtotal }}</td>
                         <th>Tax</th>
                         <td>${{ $order->tax }}</td>
                         <th>Discount</th>
