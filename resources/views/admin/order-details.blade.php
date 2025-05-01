@@ -99,7 +99,7 @@
                                     <img src="{{ asset('uploads/products/thumbnails') }}/{{ $item->product->image }}" alt="{{ $item->product->name }}" class="image">
                                 </div>
                                 <div class="name">
-                                    <a href="{{ route('shop.product.details',['product_slug'->$item->product->slug]) }}" target="_blank"
+                                    <a href="{{ route('shop.product.details',['product_slug' => $item->product->slug]) }}" target="_blank"
                                         class="body-title-2">{{ $item->product->name }}</a>
                                 </div>
                             </td>
@@ -137,7 +137,7 @@
                     <p>{{ $order->address }}</p>
                     <p>{{ $order->locality }}</p>
                     <p>{{ $order->city }}, {{ $order->country }}</p>
-                    <p>{{ $order->landmark }}/p>
+                    <p>{{ $order->landmark }}</p>
                     <p>{{ $order->zip }}</p>
                     <br>
                     <p>Mobile : {{ $order->phone }}/p>
