@@ -92,6 +92,7 @@
                     </thead>
                     <tbody>
                         @foreach ($orderItems as $item)
+                        
                         <tr>
                             <td class="pname">
                                 <div class="image">

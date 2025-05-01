@@ -510,8 +510,8 @@ class AdminController extends Controller
     {
         $order = Order::find($order_id);
         $orderItems = OrderItem::where('order_id', $order_id)->orderBy('id')->paginate(12);
-        $transactions = Transaction::where('order_id', $order_id)->first();
-        return view('admin.order-details', compact('order','orderItems', 'transactions'));
+        $transaction = Transaction::where('order_id', $order_id)->first();
+        return view('admin.order-details', compact('order','orderItems', 'transaction'));
 
     }
 
