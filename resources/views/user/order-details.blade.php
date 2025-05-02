@@ -125,7 +125,7 @@
                     </div>
                 </div>
                 <div class="table-responsive">
-                    <table class="table table-bordered">
+                    <table class="table table-bordered table-striped table-transaction">
                        
                             <tr>
                                 <th class="text-center">Order No</th>
@@ -221,7 +221,7 @@
             </div>
     
             <div class="wg-box mt-5">
-                <h5>Shipping Address</h5>
+                <h5 class="fw-bold">Shipping Address</h5>
                 <div class="my-account__address-item col-md-6">
                     <div class="my-account__address-item__detail">
                         <p>{{ $order->name }},</p>
@@ -237,7 +237,7 @@
             </div>
     
             <div class="wg-box mt-5">
-                <h5>Transactions</h5>
+                <h5 class="fw-bold">Transactions</h5>
                 <table class="table table-striped table-bordered table-transaction">
                     <tbody>
                         <tr>
