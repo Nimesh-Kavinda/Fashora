@@ -7,11 +7,6 @@
       padding-top: 90px !important;
     }
 
-    .pr-6px {
-      padding-right: 6px;
-      text-transform: uppercase;
-    }
-
     .my-account .page-title {
       font-size: 1.5rem;
       font-weight: 700;
@@ -88,13 +83,6 @@
       min-width: 250px;
       padding-bottom: 7px;
     }
-
-    /* .pname {
-      display: flex;
-      gap: 13px;
-      flex-wrap: wrap;
-    } */
-
     .table-bordered> :not(caption)>tr>th,
     .table-bordered> :not(caption)>tr>td {
       border-width: 1px 1px;
