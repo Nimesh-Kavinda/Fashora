@@ -22,7 +22,7 @@
       padding: .8rem 1rem !important;
     }
     .bg-success {
-      background-color: #40c710 !important;
+      background-color: #247905 !important;
     }
 
     .bg-danger {
@@ -74,7 +74,15 @@
                                     <td class="text-center">${{ $order->tax }}</td>
                                     <td class="text-center">${{ $order->total }}</td>
                                     
-                                    <td class="text-center">{{ $order->status }}</td>
+                                    <td class="text-center">
+                                    @if($order->status == 'delivered')
+                                        <span class="badge bg-success">Deliverd</span>
+                                    @elseif($order->status == 'canceled')
+                                        <span class="badge bg-danger">Canceled</span>
+                                    @else
+                                    <span class="badge bg-warning">Orderd</span>
+                                    @endif
+                                    </td>
                                     <td class="text-center">{{ $order->created_at }}</td>
                                     <td class="text-center">{{{ $order->orderItems->count() }}}</td>
                                     <td class="text-center">{{ $order->delivered_date ?? '-' }}</td>

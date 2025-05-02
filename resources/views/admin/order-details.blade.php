@@ -6,6 +6,9 @@
     .table-transaction>tbody>tr:nth-of-type(odd) {
         --bs-table-accent-bg: #fff !important;
     }
+    .bg-success {
+      background-color: #247905 !important;
+    }
 </style>
 <div class="main-content-inner">
     <div class="main-content-wrap">

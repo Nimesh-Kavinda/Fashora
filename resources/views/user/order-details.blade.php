@@ -31,7 +31,7 @@
     }
 
     .bg-success {
-      background-color: #40c710 !important;
+      background-color: #247905 !important;
     }
 
     .bg-danger {
