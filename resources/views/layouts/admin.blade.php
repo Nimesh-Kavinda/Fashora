@@ -31,11 +31,11 @@
         <div id="page" class="">
             <div class="layout-wrap">
 
-                <!-- <div id="preload" class="preload-container">
-    <div class="preloading">
+     {{-- <div id="preload" class="preload-container">
+            <div class="preloading">
         <span></span>
-    </div>
-</div> -->
+            </div>
+    </div>  --}}
 
                 <div class="section-menu-left">
                     <div class="box-logo">
@@ -116,23 +116,11 @@
                                     </ul>
                                 </li>
 
-                                <li class="menu-item has-children">
-                                    <a href="javascript:void(0);" class="menu-item-button">
+                                <li class="menu-item">
+                                    <a href="{{ route('admin.orders') }}" class="menu-item-button">
                                         <div class="icon"><i class="icon-file-plus"></i></div>
-                                        <div class="text">Order</div>
+                                        <div class="text">Orders</div>
                                     </a>
-                                    <ul class="sub-menu"> 
-                                        <li class="sub-menu-item">
-                                            <a href="{{ route('admin.orders') }}" class="">
-                                                <div class="text">Orders</div>
-                                            </a>
-                                        </li>
-                                        <li class="sub-menu-item">
-                                            <a href="order-tracking.html" class="">
-                                                <div class="text">Order tracking</div>
-                                            </a>
-                                        </li>
-                                    </ul>
                                 </li>
                                 <li class="menu-item">
                                     <a href="{{ route('admin.slides') }}" class="">

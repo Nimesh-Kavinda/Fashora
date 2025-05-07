@@ -28,7 +28,7 @@
                     <div class="flex items-center justify-between">
                         <div class="flex items-center gap14">
                             <div class="image ic-bg">
-                                <i class="icon-dollar-sign"></i>
+                                <span class="text-primary fs-1 fw-semibold">LKR</span>
                             </div>
                             <div>
                                 <div class="body-text mb-2">Total Amount</div>
@@ -58,7 +58,7 @@
                     <div class="flex items-center justify-between">
                         <div class="flex items-center gap14">
                             <div class="image ic-bg">
-                                <i class="icon-dollar-sign"></i>
+                                <span class="text-primary fs-1 fw-semibold">LKR</span>
                             </div>
                             <div>
                                 <div class="body-text mb-2">Pending Orders Amount</div>
@@ -91,7 +91,7 @@
                     <div class="flex items-center justify-between">
                         <div class="flex items-center gap14">
                             <div class="image ic-bg">
-                                <i class="icon-dollar-sign"></i>
+                                <span class="text-primary fs-1 fw-semibold">LKR</span>
                             </div>
                             <div>
                                 <div class="body-text mb-2">Delivered Orders Amount</div>
@@ -121,7 +121,7 @@
                     <div class="flex items-center justify-between">
                         <div class="flex items-center gap14">
                             <div class="image ic-bg">
-                                <i class="icon-dollar-sign"></i>
+                                <span class="text-primary fs-1 fw-semibold">LKR</span>
                             </div>
                             <div>
                                 <div class="body-text mb-2">Canceled Orders Amount</div>
@@ -163,7 +163,7 @@
                         </div>
                     </div>
                     <div class="flex items-center gap10">
-                        <h4>$37,802</h4>
+                        <h4>LKR 37,802</h4>
                         <div class="box-icon-trending up">
                             <i class="icon-trending-up"></i>
                             <div class="body-title number">0.56%</div>
@@ -178,7 +178,7 @@
                         </div>
                     </div>
                     <div class="flex items-center gap10">
-                        <h4>$28,305</h4>
+                        <h4>LKR 28,305</h4>
                         <div class="box-icon-trending up">
                             <i class="icon-trending-up"></i>
                             <div class="body-title number">0.56%</div>
