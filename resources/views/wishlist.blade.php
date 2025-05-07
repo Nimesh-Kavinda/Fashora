@@ -35,7 +35,7 @@
                     </div>
                     </td>
                     <td>
-                    <span class="shopping-cart__product-price__detail text-muted">${{ $item->price }}</span>
+                    <span class="shopping-cart__product-price__detail text-muted">LKR {{ $item->price }}</span>
                     </td>
                     <td>
                         <span class="shopping-cart__product-item__detail text-muted text-center">{{ $item->qty }}</span>

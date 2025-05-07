@@ -121,9 +121,9 @@
           <div class="product-single__price">
             <span class="current-price">
                 @if($product->sale_price)
-                <s>${{ $product->regular_price }}</s> ${{ $product->sale_price }}
+                <s>LKR {{ $product->regular_price }}</s> LKR {{ $product->sale_price }}
             @else
-                ${{ $product->regular_price }}
+            LKR {{ $product->regular_price }}
             @endif
             </span>
           </div>
@@ -429,9 +429,9 @@
                 <div class="product-card__price d-flex">
                   <span class="money price">
                 @if($product->sale_price)
-                    <s>${{ $rproduct->regular_price }}</s> ${{ $rproduct->sale_price }}
+                    <s>LKR {{ $rproduct->regular_price }}</s> LKR {{ $rproduct->sale_price }}
                  @else
-                     ${{ $rproduct->regular_price }}
+                     LKR {{ $rproduct->regular_price }}
                 @endif
                   </span>
                 </div>

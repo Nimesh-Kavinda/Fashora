@@ -51,7 +51,7 @@
           </div>
           <div class="order-info__item">
             <label>Total</label>
-            <span>${{ $order->total }}</span>
+            <span>LKR {{ $order->total }}</span>
           </div>
           <div class="order-info__item">
             <label>Paymetn Method</label>
@@ -75,7 +75,7 @@
                     {{ $item->product->name }} x {{ $item->quantity }}
                   </td>
                   <td class="text-right">
-                    ${{ $item->price }}
+                    LKR {{ $item->price }}
                   </td>
                 </tr>
               </tbody>
@@ -85,11 +85,11 @@
               <tbody>
                 <tr>
                   <th>SUBTOTAL</th>
-                  <td class="text-right">${{ $order->subtotal }}</td>
+                  <td class="text-right">LKR {{ $order->subtotal }}</td>
                 </tr>
                 <tr>
                     <th>DISCOUNT</th>
-                    <td class="text-right">${{ $order->discount }}</td>
+                    <td class="text-right">LKR {{ $order->discount }}</td>
                   </tr>
                 <tr>
                   <th>SHIPPING</th>
@@ -97,11 +97,11 @@
                 </tr>
                 <tr>
                   <th>VAT</th>
-                  <td class="text-right">${{ $order->tax }}</td>
+                  <td class="text-right">LKR {{ $order->tax }}</td>
                 </tr>
                 <tr>
                   <th>TOTAL</th>
-                  <td class="text-right">${{ $order->total }}</td>
+                  <td class="text-right">LKR {{ $order->total }}</td>
                 </tr>
               </tbody>
             </table>
