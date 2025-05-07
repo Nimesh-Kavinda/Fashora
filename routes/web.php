@@ -80,6 +80,7 @@ Route::middleware(['auth', AuthAdmin::class])->group(function(){
     Route::put('/admin/order/update-status', [AdminController::class, 'update_order_status'])->name('admin.order.status.update');
 
     Route::get('/admin/slides', [AdminController::class, 'slides'])->name('admin.slides');
+    Route::get('/admin/slide/add', [AdminController::class, 'slides_add'])->name('admin.slide.add');
 
 
 });

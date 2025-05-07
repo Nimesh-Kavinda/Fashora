@@ -545,4 +545,9 @@ class AdminController extends Controller
         return view('admin.slides', compact('slides'));
     }
 
+    public function slides_add()
+    {
+        return view('admin.slide-add');
+    }
+
 }
