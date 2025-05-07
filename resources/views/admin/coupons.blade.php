@@ -66,12 +66,12 @@
                                     <td>{{ $coupon->type }}</td>
                                     <td>
                                         @if($coupon->type == 'fixed')
-                                            ${{ $coupon->value }}
+                                        LKR {{ $coupon->value }}
                                         @else
                                             {{ $coupon->value }} %
                                         @endif
                                     </td>
-                                    <td>$ {{ $coupon->cart_value }}</td>
+                                    <td>LKR {{ $coupon->cart_value }}</td>
                                     <td>{{ $coupon->expiry_date }}</td>
                                     <td>
                                         <div class="list-icon-function">
