@@ -38,6 +38,9 @@
                         class="icon-plus"></i>Add new</a>
             </div>
             <div class="wg-table table-all-user">
+                @if (Session::has('status'))
+                    <p class="alert alert-success">{{Session::get('status')}}</p>
+                    @endif
                 <table class="table table-striped table-bordered">
                     <thead>
                         <tr>
@@ -62,15 +65,18 @@
                             <td>{{ $slide->tagline }}</td>
                             <td>{{ $slide->title }}</td>
                             <td>{{ $slide->subtitle }}</td>
-                            <td>{{ $slide->link }}</td>
+                            <td class="text-wrap" style="word-break: break-word;">{{ $slide->link }}</td>
                             <td>
                                 <div class="list-icon-function">
-                                    <a href="#">
+                                    <a href="{{ route('admin.slide.edit', ['id' => $slide->id]) }}">
                                         <div class="item edit">
                                             <i class="icon-edit-3"></i>
                                         </div>
                                     </a>
-                                    <form action="#" method="POST">
+                                    <form action="{{ route('admin.slide.delete', ["id" => $slide->id]) }}" method="POST">
+                                        @csrf
+                                        @method('DELETE')
+                                        <input type="hidden" name="id" value="{{ $slide->id }}">
                                         <div class="item text-danger delete">
                                             <i class="icon-trash-2"></i>
                                         </div>
@@ -92,3 +98,25 @@
 
 
 @endsection
+
+@push('scripts')
+<script>
+    $(function() {
+        $('.delete').on("click", function(e) {
+            e.preventDefault();
+            var form = $(this).closest('form');
+            swal({
+                title: "Are you Sure",
+                text: "Once deleted, you will not be able to recover this data",
+                type: "warning",
+                buttons: ["No", "Yes"],
+                confirmButtonColor: '#dc3545'
+            }).then(function(result) {
+                if (result) {
+                    form.submit();
+                }
+            });
+        });
+    });
+</script>
+@endpush
