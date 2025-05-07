@@ -1,6 +1,22 @@
 @extends('layouts.admin')
 
 @section('content')
+
+<style>
+    .status_active{
+        background-color: rgb(18, 117, 18);
+        color: white;
+        padding: 5px;
+        border-radius: 5px;
+    }
+
+    .status_inactive{
+        background-color: rgb(172, 32, 25);
+        color: white;
+        padding: 5px;
+        border-radius: 5px;
+    }
+</style>
     
 <div class="main-content-inner">
     <div class="main-content-wrap">
@@ -24,15 +40,6 @@
         <div class="wg-box">
             <div class="flex items-center justify-between gap10 flex-wrap">
                 <div class="wg-filter flex-grow">
-                    <form class="form-search">
-                        <fieldset class="name">
-                            <input type="text" placeholder="Search here..." class="" name="name"
-                                tabindex="2" value="" aria-required="true" required="">
-                        </fieldset>
-                        <div class="button-submit">
-                            <button class="" type="submit"><i class="icon-search"></i></button>
-                        </div>
-                    </form>
                 </div>
                 <a class="tf-button style-1 w208" href="{{ route('admin.slide.add') }}"><i
                         class="icon-plus"></i>Add new</a>
@@ -50,13 +57,14 @@
                             <th>Title</th>
                             <th>Subtitle</th>
                             <th>Link</th>
+                            <th>Status</th>
                             <th>Action</th>
                         </tr>
                     </thead>
                     <tbody>
                         @foreach ($slides as $slide)
                         <tr>
-                            <td>{{ $slide->id }}</td>
+                            <td> {{ $slide->id }}</td>
                             <td class="pname">
                                 <div class="image">
                                     <img src="{{ asset('uploads/slides') }}/{{ $slide->image }}" alt="{{ $slide->image }}" class="image">
@@ -66,6 +74,15 @@
                             <td>{{ $slide->title }}</td>
                             <td>{{ $slide->subtitle }}</td>
                             <td class="text-wrap" style="word-break: break-word;">{{ $slide->link }}</td>
+                            @if($slide->status == "1")
+                            
+                            <td class="text-center"><span class="status_active">Active</span></td>
+                            
+                            @else
+                            
+                            <td class="text-center"><span class="status_inactive">Inactive</span></td>
+                            
+                            @endif
                             <td>
                                 <div class="list-icon-function">
                                     <a href="{{ route('admin.slide.edit', ['id' => $slide->id]) }}">
