@@ -79,8 +79,8 @@
                             <td>{{ $product->stock_status }}</td>
                             <td>{{ $product->size }}</td>
                             <td>{{ $product->quantity }}</td>
-                            <td>
-                                <div class="list-icon-function">
+                            <td class="text-wrap" style="word-break: break-word;">
+                                <div class="list-icon-function d-flex justify-content-center">
                                     <a href="{{ route('shop.product.details',['product_slug'=>$product->slug]) }}">
                                         <div class="item eye">
                                             <i class="icon-eye"></i>
