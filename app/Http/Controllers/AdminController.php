@@ -33,7 +33,7 @@ class AdminController extends Controller
                                         sum(if(status='canceled', 1,0)) As TotalCanceled
                                         From Orders
                                  ");
-        return view('admin.index', compact('orders'));
+        return view('admin.index', compact('orders','dashboardDatas'));
     }
 
     // Admin Brand Page Functions
