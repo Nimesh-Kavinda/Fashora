@@ -137,36 +137,20 @@
 
         <div class="wg-box">
             <div class="flex items-center justify-between">
-                <h5>Earnings revenue</h5>
-                <div class="dropdown default">
-                    <button class="btn btn-secondary dropdown-toggle" type="button"
-                        data-bs-toggle="dropdown" aria-haspopup="true"
-                        aria-expanded="false">
-                        <span class="icon-more"><i class="icon-more-horizontal"></i></span>
-                    </button>
-                    <ul class="dropdown-menu dropdown-menu-end">
-                        <li>
-                            <a href="javascript:void(0);">This Week</a>
-                        </li>
-                        <li>
-                            <a href="javascript:void(0);">Last Week</a>
-                        </li>
-                    </ul>
-                </div>
+                <h5>Monthly Revenue</h5>
             </div>
             <div class="flex flex-wrap gap40">
                 <div>
                     <div class="mb-2">
                         <div class="block-legend">
                             <div class="dot t1"></div>
-                            <div class="text-tiny">Revenue</div>
+                            <div class="text-tiny">Total Revenue</div>
                         </div>
                     </div>
                     <div class="flex items-center gap10">
-                        <h4>LKR 37,802</h4>
+                        <h4>LKR {{ $TotalAmount }}</h4>
                         <div class="box-icon-trending up">
                             <i class="icon-trending-up"></i>
-                            <div class="body-title number">0.56%</div>
                         </div>
                     </div>
                 </div>
@@ -174,14 +158,41 @@
                     <div class="mb-2">
                         <div class="block-legend">
                             <div class="dot t2"></div>
-                            <div class="text-tiny">Order</div>
+                            <div class="text-tiny">Pending</div>
                         </div>
                     </div>
                     <div class="flex items-center gap10">
-                        <h4>LKR 28,305</h4>
+                        <h4>LKR {{ $TotalOrderedAmount }}</h4>
                         <div class="box-icon-trending up">
                             <i class="icon-trending-up"></i>
-                            <div class="body-title number">0.56%</div>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <div class="mb-2">
+                        <div class="block-legend">
+                            <div class="dot t1"></div>
+                            <div class="text-tiny">Delivered</div>
+                        </div>
+                    </div>
+                    <div class="flex items-center gap10">
+                        <h4>LKR {{ $TotalDeliveredAmount }}</h4>
+                        <div class="box-icon-trending up">
+                            <i class="icon-trending-up"></i>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <div class="mb-2">
+                        <div class="block-legend">
+                            <div class="dot t2"></div>
+                            <div class="text-tiny">Canceled</div>
+                        </div>
+                    </div>
+                    <div class="flex items-center gap10">
+                        <h4>LKR {{ $TotalCanceledAmount }}</h4>
+                        <div class="box-icon-trending up">
+                            <i class="icon-trending-down"></i>
                         </div>
                     </div>
                 </div>
@@ -265,3 +276,9 @@
 </div>
 
 @endsection 
+
+@push('scripts')
+
+
+
+@endpush

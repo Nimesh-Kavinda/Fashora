@@ -34,6 +34,7 @@ class AdminController extends Controller
                                         sum(if(status='canceled', 1,0)) As TotalCanceled
                                         From Orders
                                  ");
+
         $monthlyDatas = DB::select("SELECT 
                                         M.id AS MonthNo, 
                                         M.name AS MonthName,
@@ -56,8 +57,19 @@ class AdminController extends Controller
                                         ORDER BY MONTH(created_at)
                                     ) D ON D.MonthNo = M.id;
                                     ");
+
+        $AmountM = implode(',' ,collect($monthlyDatas)->pluck('TotalAmount')->toArray());
+        $OrderedAmountM = implode(',' ,collect($monthlyDatas)->pluck('TotalOrderedAmount')->toArray());
+        $DeliveredAmountM = implode(',' ,collect($monthlyDatas)->pluck('TotalDeliveredAmount')->toArray());
+        $CanceledAmountM = implode(',' ,collect($monthlyDatas)->pluck('TotalCanceledAmount')->toArray());
+
+        $TotalAmount = collect($monthlyDatas)->sum('TotalAmount');
+        $TotalOrderedAmount = collect($monthlyDatas)->sum('TotalOrderedAmount');
+        $TotalDeliveredAmount = collect($monthlyDatas)->sum('TotalDeliveredAmount');
+        $TotalCanceledAmount = collect($monthlyDatas)->sum('TotalCanceledAmount');
         
-        return view('admin.index', compact('orders','dashboardDatas'));
+        
+        return view('admin.index', compact('orders','dashboardDatas','AmountM','OrderedAmountM','DeliveredAmountM','CanceledAmountM','TotalAmount','TotalOrderedAmount','TotalDeliveredAmount','TotalCanceledAmount'));
     }
 
     // Admin Brand Page Functions
