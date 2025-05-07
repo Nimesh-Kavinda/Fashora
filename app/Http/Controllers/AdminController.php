@@ -12,6 +12,7 @@ use App\Models\Slide;
 use App\Models\Transaction;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\File;
 use Intervention\Image\Laravel\Facades\Image;
@@ -20,8 +21,19 @@ use Illuminate\Support\Facades\Validator;
 class AdminController extends Controller
 {
     public function index()
-    {
-        return view('admin.index');
+    {   
+        $orders = Order::orderBy('created_at', 'DESC')->get()->take(10);
+        $dashboardDatas = DB::select("Select sum(total) As TotalAmount,
+                                        sum(if(status='ordered', total,0)) As TotalOrderedAmount,
+                                        sum(if(status='delivered', total,0)) As TotalDeliveredAmount,
+                                        sum(if(status='canceled', total,0)) As TotalCanceledAmount,
+                                        Count(*) As Total,
+                                        sum(if(status='ordered', 1,0)) As TotalOrdered,
+                                        sum(if(status='delivered', 1,0)) As TotalDelivered,
+                                        sum(if(status='canceled', 1,0)) As TotalCanceled
+                                        From Orders
+                                 ");
+        return view('admin.index', compact('orders'));
     }
 
     // Admin Brand Page Functions

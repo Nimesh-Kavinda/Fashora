@@ -196,7 +196,7 @@
             <div class="flex items-center justify-between">
                 <h5>Recent orders</h5>
                 <div class="dropdown default">
-                    <a class="btn btn-secondary dropdown-toggle" href="#">
+                    <a class="btn btn-secondary dropdown-toggle" href="{{ route('admin.orders') }}">
                         <span class="view-all">View all</span>
                     </a>
                 </div>
@@ -206,8 +206,8 @@
                     <table class="table table-striped table-bordered">
                         <thead>
                             <tr>
-                                <th style="width: 80px">OrderNo</th>
-                                <th>Name</th>
+                                <th style="width:70px">OrderNo</th>
+                                <th class="text-center">Name</th>
                                 <th class="text-center">Phone</th>
                                 <th class="text-center">Subtotal</th>
                                 <th class="text-center">Tax</th>
@@ -221,20 +221,29 @@
                             </tr>
                         </thead>
                         <tbody>
+                            @foreach ($orders as $order) 
                             <tr>
-                                <td class="text-center">1</td>
-                                <td class="text-center">Divyansh Kumar</td>
-                                <td class="text-center">1234567891</td>
-                                <td class="text-center">$172.00</td>
-                                <td class="text-center">$36.12</td>
-                                <td class="text-center">$208.12</td>
+                                <td class="text-center">{{ $order->id }}</td>
+                                <td class="text-center">{{ $order->name }}</td>
+                                <td class="text-center">{{ $order->phone }}</td>
+                                <td class="text-center">LKR {{ $order->subtotal }}</td>
+                                <td class="text-center">LKR {{ $order->tax }}</td>
+                                <td class="text-center">LKR {{ $order->total }}</td>
 
-                                <td class="text-center">ordered</td>
-                                <td class="text-center">2024-07-11 00:54:14</td>
-                                <td class="text-center">2</td>
-                                <td></td>
                                 <td class="text-center">
-                                    <a href="#">
+                                @if($order->status == 'delivered')
+                                    <span class="badge bg-success">Deliverd</span>
+                                @elseif($order->status == 'canceled')
+                                    <span class="badge bg-danger">Canceled</span>
+                                @else
+                                <span class="badge bg-warning">Orderd</span>
+                                @endif
+                                </td>
+                                <td class="text-center">{{ $order->created_at }}</td>
+                                <td class="text-center">{{{ $order->orderItems->count() }}}</td>
+                                <td class="text-center">{{ $order->delivered_date }}</td>
+                                <td class="text-center">
+                                    <a href="{{ route('admin.order.details', ['order_id'=>$order->id]) }}">
                                         <div class="list-icon-function view-icon">
                                             <div class="item eye">
                                                 <i class="icon-eye"></i>
@@ -243,6 +252,7 @@
                                     </a>
                                 </td>
                             </tr>
+                            @endforeach
                         </tbody>
                     </table>
                 </div>
