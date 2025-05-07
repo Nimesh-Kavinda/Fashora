@@ -23,6 +23,7 @@ class AdminController extends Controller
     public function index()
     {   
         $orders = Order::orderBy('created_at', 'DESC')->get()->take(10);
+
         $dashboardDatas = DB::select("Select sum(total) As TotalAmount,
                                         sum(if(status='ordered', total,0)) As TotalOrderedAmount,
                                         sum(if(status='delivered', total,0)) As TotalDeliveredAmount,
@@ -33,6 +34,8 @@ class AdminController extends Controller
                                         sum(if(status='canceled', 1,0)) As TotalCanceled
                                         From Orders
                                  ");
+
+        
         return view('admin.index', compact('orders','dashboardDatas'));
     }
 
