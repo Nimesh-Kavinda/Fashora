@@ -186,7 +186,7 @@
                                             class="body-title-2">{{ $item->product->name }}</a>
                                     </div>
                                 </td>
-                                <td class="text-center">${{ $item->price }}</td>
+                                <td class="text-center">LKR {{ $item->price }}</td>
                                 <td class="text-center">{{ $item->quantity }}</td>
                                 <td class="text-center">{{ $item->product->category->name }}</td>
                                 <td class="text-center">{{ $item->product->brand->name}}</td>
@@ -233,15 +233,15 @@
                     <tbody>
                         <tr>
                             <th>Subtotal</th>
-                            <td>${{ $order->subtotal }}</td>
+                            <td>LKR {{ $order->subtotal }}</td>
                             <th>Tax</th>
-                            <td>${{ $order->tax }}</td>
+                            <td>LKR {{ $order->tax }}</td>
                             <th>Discount</th>
-                            <td>${{ $order->discount }}</td>
+                            <td>LKR {{ $order->discount }}</td>
                         </tr>
                         <tr>
                             <th>Total</th>
-                            <td>${{ $order->total }}</td>
+                            <td>LKR {{ $order->total }}</td>
                             <th>Payment Mode</th>
                             <td style="text-transform: capitalize">{{ $transaction->mode }}</td>
                             <th>Status</th>
