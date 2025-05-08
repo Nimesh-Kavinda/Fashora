@@ -231,27 +231,6 @@
                       @endif
                     </span>
                   </div>
-
-                  {{-- <div
-                    class="anim_appear-bottom position-absolute bottom-0 start-0 d-none d-sm-flex align-items-center bg-body">
-                    <button class="btn-link btn-link_lg me-4 text-uppercase fw-medium js-add-cart js-open-aside"
-                      data-aside="cartDrawer" title="Add To Cart">Add To Cart</button>
-                    <button class="btn-link btn-link_lg me-4 text-uppercase fw-medium js-quick-view"
-                      data-bs-toggle="modal" data-bs-target="#quickView" title="Quick view">
-                      <span class="d-none d-xxl-block">Quick View</span>
-                      <span class="d-block d-xxl-none"><svg width="18" height="18" viewBox="0 0 18 18" fill="none"
-                          xmlns="http://www.w3.org/2000/svg">
-                          <use href="#icon_view" />
-                        </svg></span>
-                    </button>
-                    <button class="pc__btn-wl bg-transparent border-0 js-add-wishlist" title="Add To Wishlist">
-                      <svg width="16" height="16" viewBox="0 0 20 20" fill="none"
-                        xmlns="http://www.w3.org/2000/svg">
-                        <use href="#icon_heart" />
-                      </svg>
-                    </button>
-                  </div> --}}
-
                 </div>
               </div>
               @endforeach
@@ -368,6 +347,63 @@
 </div>
 
 <div class="mb-3 mb-xl-5 pt-1 pb-4"></div>
+
+
+<section class="products-grid container mt-5">
+  <h2 class="section-title text-center mb-4 pb-2">Available Coupons</h2>
+
+  <div class="row g-4">
+    @foreach ($coupons as $coupon)
+      @php
+        $categoryColorMap = [
+          'fixed' => '#FF4C61',
+          'percentage' => '#344CFF',
+          'free_shipping' => '#00B894'
+        ];
+        $badgeColor = $categoryColorMap[$coupon->type] ?? '#6c5ce7';
+      @endphp
+
+      <div class="col-12 col-md-6 col-lg-4">
+        <div class="border rounded-4 shadow-sm position-relative overflow-hidden h-100" style="background-color: #fdfdfd;">
+          <div class="position-absolute top-0 start-0 w-100 px-4 py-2 border-bottom" style="background-color: {{ $badgeColor }};">
+            <h6 class="text-white text-uppercase fw-semibold m-0">{{ strtoupper($coupon->type) }} Coupon</h6>
+          </div>
+
+          <div class="p-4 pt-5">
+            <h4 class="fw-bold mb-3" style="color: #333;">{{ $coupon->code }}</h4>
+
+            <ul class="list-unstyled mb-4 small text-muted">
+              <li class="mb-1">
+                <strong class="text-dark">Value:</strong>
+                @if($coupon->type === 'fixed')
+                  LKR {{ number_format($coupon->value, 2) }}
+                @else
+                  {{ $coupon->value }}%
+                @endif
+              </li>
+              <li class="mb-1">
+                <strong class="text-dark">Min Cart:</strong> LKR {{ number_format($coupon->cart_value, 2) }}
+              </li>
+              <li>
+                <strong class="text-dark">Expires:</strong> {{ \Carbon\Carbon::parse($coupon->expiry_date)->format('M d, Y') }}
+              </li>
+            </ul>
+
+            <div class="d-flex justify-content-between align-items-center">
+              <span class="badge bg-light text-dark px-3 py-2 rounded-pill border border-secondary">Apply at Checkout</span>
+              <button class="btn btn-outline-dark btn-sm rounded-pill" onclick="navigator.clipboard.writeText('{{ $coupon->code }}')">
+                Copy Code
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    @endforeach
+  </div>
+</section>
+
+
+
 
 </main>
 
