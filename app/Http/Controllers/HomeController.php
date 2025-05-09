@@ -20,4 +20,9 @@ class HomeController extends Controller
         $slides = Slide::where('status', 1)->get()->take(4);
         return view('index', compact('slides','categories','sproducts','fproducts','coupons'));
     }
+
+    public function about()
+    {
+        return view('about');
+    }
 }

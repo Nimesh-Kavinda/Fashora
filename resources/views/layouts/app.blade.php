@@ -358,7 +358,7 @@
             </li>
             @endguest
             <li class="navigation__item">
-              <a href="about.html" class="navigation__link">About</a>
+              <a href="{{ route('about.index') }}" class="navigation__link">About</a>
             </li>
             <li class="navigation__item">
               <a href="contact.html" class="navigation__link">Contact</a>
@@ -453,7 +453,7 @@
             </li>
             @endguest
             <li class="navigation__item">
-              <a href="about.html" class="navigation__link">About</a>
+              <a href="{{ route('about.index') }}" class="navigation__link">About</a>
             </li>
             <li class="navigation__item">
               <a href="contact.html" class="navigation__link">Contact</a>
