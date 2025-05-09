@@ -22,7 +22,7 @@
             <form method="POST" action="{{route('login')}}" name="login-form" class="needs-validation" novalidate="">
                 @csrf
               <div class="form-floating mb-3">
-                <input class="form-control form-control_gray @error('email') is-invalid @enderror" name="email" value="{{old('email')}}" required="" autocomplete="email"
+                <input class="form-control form-control_gray @error('email') is-invalid @enderror" name="email" value="{{old('email')}}" required="" autocomplete="off"
                   autofocus="">
                 <label for="email">Email address *</label>
                                  @error('email')
