@@ -13,9 +13,11 @@ use App\Models\Transaction;
 use App\Models\User;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\File;
+use Illuminate\Support\Facades\Hash;
 use Intervention\Image\Laravel\Facades\Image;
 use Illuminate\Support\Facades\Validator;
 
@@ -711,6 +713,54 @@ class AdminController extends Controller
 
                 return back()->with('success', 'User type updated successfully.');
     }
+    
+    public function settings()
+    {
+        $user = Auth::user();
+        return view('admin.settings', compact('user'));
+    }
+
+    public function updateSettings(Request $request, $id)
+    {
+
+    $user = User::findOrFail($id);
+
+    $request->validate([
+        'name' => 'required|string|max:255',
+        'mobile' => 'required|string|max:20',
+        'email' => 'required|email|unique:users,email,' . $user->id,
+    ]);
+
+    $user->name = $request->name;
+    $user->mobile = $request->mobile;
+    $user->email = $request->email;
+
+    $passwordChanged = false;
+
+    if ($request->filled('old_password') && $request->filled('new_password')) {
+        if (!Hash::check($request->old_password, $user->password)) {
+            return back()->with('statusfail', 'This is correct');
+        }
+
+        $request->validate([
+            'new_password' => 'required|string|min:8|confirmed',
+        ]);
+
+        $user->password = Hash::make($request->new_password);
+        $passwordChanged = true;
+    }
+
+    $user->save();
+
+    if ($passwordChanged) {
+        Auth::logout(); 
+        return redirect()->route('login')->with('status', 'Password changed successfully. Please login again.');
+    }
+
+    return back()->with('status', 'Settings updated successfully.');
+
+    }
+
 
 
 

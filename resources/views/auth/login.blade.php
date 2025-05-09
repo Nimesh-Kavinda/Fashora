@@ -5,6 +5,11 @@
 <main class="pt-90">
     <div class="mb-4 pb-4"></div>
     <section class="login-register container">
+       <div class="my-3">
+            @if (Session::has('status'))
+          <p class="alert alert-success">{{Session::get('status')}}</p>
+            @endif
+      </div>
       <ul class="nav nav-tabs mb-5" id="login_register" role="tablist">
         <li class="nav-item" role="presentation">
           <a class="nav-link nav-link_underscore active" id="login-tab" data-bs-toggle="tab" href="#tab-item-login"
