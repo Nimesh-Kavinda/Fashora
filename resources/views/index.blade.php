@@ -1,6 +1,248 @@
 @extends('layouts.app')
 @section('content')
 
+
+<style>
+ 
+    .coupon-wrapper {
+      position: relative;
+      margin-bottom: 15px;
+      padding: 10px 0;
+    }
+    
+
+    .scissors-top, .scissors-bottom {
+      position: absolute;
+      left: -12px;
+      font-size: 24px;
+      color: #adb5bd;
+      transform: rotate(-90deg);
+      z-index: 2;
+    }
+    
+    .scissors-top {
+      top: -8px;
+    }
+    
+    .scissors-bottom {
+      bottom: -8px;
+    }
+    
+
+    .coupon-card {
+      border-radius: 12px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+      transition: all 0.4s ease;
+      overflow: hidden;
+      position: relative;
+      background: #fff;
+    }
+    
+    .coupon-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 14px 30px rgba(0, 0, 0, 0.15);
+    }
+    
+
+    .coupon-tag {
+      position: absolute;
+      top: 0;
+      right: 20px;
+      width: 40px;
+      height: 40px;
+      border-radius: 0 0 50% 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      z-index: 2;
+    }
+    
+    .coupon-tag span {
+      margin-top: 8px;
+    }
+    
+
+    .coupon-header {
+      border-radius: 0 0 50% 0;
+      padding-bottom: 20px !important;
+      margin-right: -50px;
+      clip-path: polygon(0 0, 100% 0, 100% 60%, 80% 100%, 0 100%);
+    }
+    
+    .letter-spacing-1 {
+      letter-spacing: 1px;
+    }
+    
+
+    .value-pill {
+      display: inline-block;
+      color: white;
+      padding: 8px 20px;
+      border-radius: 30px;
+      font-weight: 700;
+      font-size: 1.1rem;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    }
+    
+ 
+    .code-container {
+      width: 80%;
+      margin-top: 15px;
+      position: relative;
+    }
+    
+    .coupon-code-display {
+      background: #f8f9fa;
+      padding: 10px 15px;
+      border: 2px dashed #dee2e6;
+      border-radius: 8px;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .code-text {
+      font-size: 1.3rem;
+      letter-spacing: 2px;
+      color: #333;
+    }
+    
+    .scissors-icon {
+      top: -13px;
+      right: -15px;
+      font-size: 24px;
+      transform: rotate(90deg);
+      opacity: 0.5;
+    }
+    
+
+    .detail-item {
+      margin-bottom: 12px;
+    }
+    
+    .detail-icon {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      margin-right: 15px;
+    }
+    
+    .detail-text {
+      display: flex;
+      flex-direction: column;
+    }
+    
+    .detail-label {
+      font-size: 0.8rem;
+      color: #6c757d;
+      margin-bottom: 3px;
+    }
+    
+    .detail-value {
+      font-weight: 600;
+      color: #333;
+    }
+    
+  
+    .copy-btn {
+      border: none;
+      background: linear-gradient(135deg, #FF4C61, #FF8181);
+      color: white;
+      padding: 12px 24px;
+      border-radius: 8px;
+      font-weight: 700;
+      font-size: 0.9rem;
+      letter-spacing: 1px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    }
+    
+    .copy-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 15px rgba(0, 0, 0, 0.15);
+    }
+    
+
+    .circle-left, .circle-right {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 20px;
+      height: 20px;
+      background-color: #f8f9fa;
+      border-radius: 50%;
+      z-index: 3;
+    }
+    
+    .circle-left {
+      left: -10px;
+      box-shadow: inset 3px 0 5px rgba(0,0,0,0.06);
+    }
+    
+    .circle-right {
+      right: -10px;
+      box-shadow: inset -3px 0 5px rgba(0,0,0,0.06);
+    }
+    
+
+    .row {
+      display: flex;
+      flex-wrap: wrap;
+      margin: 0 -15px;
+    }
+    
+    .col {
+      flex: 0 0 33.333%;
+      max-width: 33.333%;
+      padding: 0 15px;
+      margin-bottom: 30px;
+    }
+    
+ 
+    @media (max-width: 992px) {
+      .col {
+        flex: 0 0 50%;
+        max-width: 50%;
+      }
+    }
+    
+    @media (max-width: 768px) {
+      .col {
+        flex: 0 0 100%;
+        max-width: 100%;
+      }
+      
+      .scissors-top, .scissors-bottom {
+        display: none;
+      }
+      
+      .coupon-code-display {
+        padding: 8px 12px;
+      }
+      
+      .code-text {
+        font-size: 1.1rem;
+      }
+      
+      .value-pill {
+        font-size: 1rem;
+        padding: 6px 16px;
+      }
+    }
+    
+    .text-center {
+      text-align: center;
+    }
+</style>
+    
+
 <main>
 
 <section class="swiper-container js-swiper-slider swiper-number-pagination slideshow" data-settings='{
@@ -102,22 +344,22 @@
             </div>
           </div>
           @endforeach
-        </div><!-- /.swiper-wrapper -->
-      </div><!-- /.swiper-container js-swiper-slider -->
+        </div>
+      </div>
 
       <div
         class="products-carousel__prev products-carousel__prev-1 position-absolute top-50 d-flex align-items-center justify-content-center">
         <svg width="25" height="25" viewBox="0 0 25 25" xmlns="http://www.w3.org/2000/svg">
           <use href="#icon_prev_md" />
         </svg>
-      </div><!-- /.products-carousel__prev -->
+      </div>
       <div
         class="products-carousel__next products-carousel__next-1 position-absolute top-50 d-flex align-items-center justify-content-center">
         <svg width="25" height="25" viewBox="0 0 25 25" xmlns="http://www.w3.org/2000/svg">
           <use href="#icon_next_md" />
         </svg>
-      </div><!-- /.products-carousel__next -->
-    </div><!-- /.position-relative -->
+      </div>
+    </div>
   </section>
 
   <div class="mb-3 mb-xl-5 pt-1 pb-4"></div>
@@ -355,46 +597,95 @@
   <div class="row g-4">
     @foreach ($coupons as $coupon)
       @php
-        $categoryColorMap = [
-          'fixed' => '#FF4C61',
-          'percentage' => '#344CFF',
-          'free_shipping' => '#00B894'
+        $colorMap = [
+          'fixed' => ['#FF4C61', '#FF8181'],
+          'percentage' => ['#344CFF', '#7B8BFF'],
+          'free_shipping' => ['#00B894', '#55EFC4'],
         ];
-        $badgeColor = $categoryColorMap[$coupon->type] ?? '#6c5ce7';
+        $iconMap = [
+          'fixed' => 'money-bill-wave',
+          'percentage' => 'percent',
+          'free_shipping' => 'truck'
+        ];
+        $gradient = $colorMap[$coupon->type] ?? ['#6c5ce7', '#a29bfe'];
+        $icon = $iconMap[$coupon->type] ?? 'ticket-alt';
       @endphp
 
-      <div class="col-12 col-md-6 col-lg-4">
-        <div class="border rounded-4 shadow-sm position-relative overflow-hidden h-100" style="background-color: #fdfdfd;">
-          <div class="position-absolute top-0 start-0 w-100 px-4 py-2 border-bottom" style="background-color: {{ $badgeColor }};">
-            <h6 class="text-white text-uppercase fw-semibold m-0">{{ strtoupper($coupon->type) }} Coupon</h6>
+      <div class="col">
+        <div class="coupon-wrapper">
+          <div class="scissors-top">
+            <i class="fas fa-cut"></i>
           </div>
 
-          <div class="p-4 pt-5">
-            <h4 class="fw-bold mb-3" style="color: #333;">{{ $coupon->code }}</h4>
-
-            <ul class="list-unstyled mb-4 small text-muted">
-              <li class="mb-1">
-                <strong class="text-dark">Value:</strong>
-                @if($coupon->type === 'fixed')
-                  LKR {{ number_format($coupon->value, 2) }}
-                @else
-                  {{ $coupon->value }}%
-                @endif
-              </li>
-              <li class="mb-1">
-                <strong class="text-dark">Min Cart:</strong> LKR {{ number_format($coupon->cart_value, 2) }}
-              </li>
-              <li>
-                <strong class="text-dark">Expires:</strong> {{ \Carbon\Carbon::parse($coupon->expiry_date)->format('M d, Y') }}
-              </li>
-            </ul>
-
-            <div class="d-flex justify-content-between align-items-center">
-              <span class="badge bg-light text-dark px-3 py-2 rounded-pill border border-secondary">Apply at Checkout</span>
-              <button class="btn btn-outline-dark btn-sm rounded-pill" onclick="navigator.clipboard.writeText('{{ $coupon->code }}')">
-                Copy Code
-              </button>
+          <div class="coupon-card position-relative overflow-hidden" style="border-top: 5px solid {{ $gradient[0] }};">
+            <div class="coupon-tag" style="background: linear-gradient(135deg, {{ $gradient[0] }}, {{ $gradient[1] }});">
+              <span><i class="fas fa-{{ $icon }}"></i></span>
             </div>
+
+            <div class="coupon-header text-center p-3 text-white" style="background: linear-gradient(135deg, {{ $gradient[0] }}, {{ $gradient[1] }});">
+              <h5 class="mb-0 text-uppercase text-white fw-bold letter-spacing-1">
+                <i class="fas fa-{{ $icon }} me-2"></i>{{ ucfirst($coupon->type) }} Coupon
+              </h5>
+            </div>
+
+            <div class="coupon-body p-4 bg-white">
+              <div class="text-center mb-4">
+                <div class="value-pill mb-2" style="background: linear-gradient(135deg, {{ $gradient[0] }}, {{ $gradient[1] }});">
+                  @if($coupon->type === 'fixed')
+                    LKR {{ number_format($coupon->value, 2) }} OFF
+                  @elseif($coupon->type === 'percentage')
+                    {{ $coupon->value }}% OFF
+                  @else
+                    Free Shipping
+                  @endif
+                </div>
+
+                <div class="code-container mx-auto position-relative">
+                  <div class="coupon-code-display position-relative">
+                    <span class="code-text fw-bold">{{ $coupon->code }}</span>
+                    <div class="scissors-icon position-absolute" style="color: {{ $gradient[0] }};">
+                      <i class="fas fa-cut"></i>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="coupon-details mb-4">
+                <div class="detail-item d-flex align-items-center mb-3">
+                  <div class="detail-icon" style="background: {{ $gradient[0] }}20;">
+                    <i class="fas fa-shopping-cart" style="color: {{ $gradient[0] }};"></i>
+                  </div>
+                  <div class="detail-text">
+                    <span class="detail-label">Minimum Purchase</span>
+                    <span class="detail-value">LKR {{ number_format($coupon->cart_value, 2) }}</span>
+                  </div>
+                </div>
+
+                <div class="detail-item d-flex align-items-center">
+                  <div class="detail-icon" style="background: {{ $gradient[0] }}20;">
+                    <i class="fas fa-calendar-alt" style="color: {{ $gradient[0] }};"></i>
+                  </div>
+                  <div class="detail-text">
+                    <span class="detail-label">Valid Until</span>
+                    <span class="detail-value">{{ \Carbon\Carbon::parse($coupon->expiry_date)->format('M d, Y') }}</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="coupon-footer d-grid">
+                <button class="copy-btn" style="background: linear-gradient(135deg, {{ $gradient[0] }}, {{ $gradient[1] }});" onclick="copyCouponCode('{{ $coupon->code }}', this)">
+                  <span>COPY CODE</span>
+                  <i class="fas fa-copy ms-2"></i>
+                </button>
+              </div>
+            </div>
+
+            <div class="circle-left"></div>
+            <div class="circle-right"></div>
+          </div>
+
+          <div class="scissors-bottom">
+            <i class="fas fa-cut"></i>
           </div>
         </div>
       </div>
@@ -403,8 +694,12 @@
 </section>
 
 
-
-
 </main>
 
 @endsection
+
+@push('scripts')
+    
+
+
+@endpush
