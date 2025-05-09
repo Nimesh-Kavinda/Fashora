@@ -596,102 +596,103 @@
 
   <div class="row g-4">
     @foreach ($coupons as $coupon)
-      @php
-        $colorMap = [
-          'fixed' => ['#FF4C61', '#FF8181'],
-          'percentage' => ['#344CFF', '#7B8BFF'],
-          'free_shipping' => ['#00B894', '#55EFC4'],
-        ];
-        $iconMap = [
-          'fixed' => 'money-bill-wave',
-          'percentage' => 'percent',
-          'free_shipping' => 'truck'
-        ];
-        $gradient = $colorMap[$coupon->type] ?? ['#6c5ce7', '#a29bfe'];
-        $icon = $iconMap[$coupon->type] ?? 'ticket-alt';
-      @endphp
+      @if (\Carbon\Carbon::now()->lte(\Carbon\Carbon::parse($coupon->expiry_date)))
+        @php
+          $colorMap = [
+            'fixed' => ['#b59b63', '#c9ad7f'],
+            'precent' => ['#5a6240', '#818c62']
+          ];
+          $iconMap = [
+            'fixed' => 'cash-coin',
+            'precent' => 'percent'
+          ];
+          $gradient = $colorMap[$coupon->type] ?? ['#6c5ce7', '#a29bfe'];
+          $icon = $iconMap[$coupon->type] ?? 'ticket-alt';
+        @endphp
 
-      <div class="col">
-        <div class="coupon-wrapper">
-          <div class="scissors-top">
-            <i class="fas fa-cut"></i>
-          </div>
-
-          <div class="coupon-card position-relative overflow-hidden" style="border-top: 5px solid {{ $gradient[0] }};">
-            <div class="coupon-tag" style="background: linear-gradient(135deg, {{ $gradient[0] }}, {{ $gradient[1] }});">
-              <span><i class="fas fa-{{ $icon }}"></i></span>
+        <div class="col-12 col-sm-6 col-lg-3">
+          <div class="coupon-wrapper">
+            <div class="scissors-top">
+              <i class="bi bi-scissors text-muted"></i>
             </div>
 
-            <div class="coupon-header text-center p-3 text-white" style="background: linear-gradient(135deg, {{ $gradient[0] }}, {{ $gradient[1] }});">
-              <h5 class="mb-0 text-uppercase text-white fw-bold letter-spacing-1">
-                <i class="fas fa-{{ $icon }} me-2"></i>{{ ucfirst($coupon->type) }} Coupon
-              </h5>
-            </div>
+            <div class="coupon-card position-relative overflow-hidden" style="border-top: 5px solid {{ $gradient[0] }};">
+              <div class="coupon-tag" style="background: linear-gradient(135deg, {{ $gradient[0] }}, {{ $gradient[1] }});">
+                <span><i class="bi bi-{{ $icon }}"></i></span>
+              </div>
 
-            <div class="coupon-body p-4 bg-white">
-              <div class="text-center mb-4">
-                <div class="value-pill mb-2" style="background: linear-gradient(135deg, {{ $gradient[0] }}, {{ $gradient[1] }});">
-                  @if($coupon->type === 'fixed')
-                    LKR {{ number_format($coupon->value, 2) }} OFF
-                  @elseif($coupon->type === 'percentage')
-                    {{ $coupon->value }}% OFF
-                  @else
-                    Free Shipping
-                  @endif
-                </div>
+              <div class="coupon-header text-center p-3 text-white" style="background: linear-gradient(135deg, {{ $gradient[0] }}, {{ $gradient[1] }});">
+                <h5 class="mb-0 text-uppercase text-white fw-bold letter-spacing-1 text-start">
+                  <i class="bi bi-{{ $icon }} me-2"></i>{{ ucfirst($coupon->type) }} Coupon
+                </h5>
+              </div>
 
-                <div class="code-container mx-auto position-relative">
-                  <div class="coupon-code-display position-relative">
-                    <span class="code-text fw-bold">{{ $coupon->code }}</span>
-                    <div class="scissors-icon position-absolute" style="color: {{ $gradient[0] }};">
-                      <i class="fas fa-cut"></i>
+              <div class="coupon-body p-4 bg-white">
+                <div class="text-center mb-4">
+                  <div class="value-pill mb-2" style="background: linear-gradient(135deg, {{ $gradient[0] }}, {{ $gradient[1] }});">
+                    @if($coupon->type === 'fixed')
+                      LKR {{ number_format($coupon->value, 2) }} OFF
+                    @elseif($coupon->type === 'precent')
+                      {{ $coupon->value }}% OFF
+                    @else
+                      Free Shipping
+                    @endif
+                  </div>
+
+                  <div class="code-container mx-auto position-relative">
+                    <div class="coupon-code-display position-relative">
+                      <span class="code-text fw-bold">{{ $coupon->code }}</span>
+                      <div class="scissors-icon position-absolute" style="color: {{ $gradient[0] }};">
+                        <i class="bi bi-scissors"></i>
+                      </div>
                     </div>
                   </div>
                 </div>
-              </div>
 
-              <div class="coupon-details mb-4">
-                <div class="detail-item d-flex align-items-center mb-3">
-                  <div class="detail-icon" style="background: {{ $gradient[0] }}20;">
-                    <i class="fas fa-shopping-cart" style="color: {{ $gradient[0] }};"></i>
+                <div class="coupon-details mb-4">
+                  <div class="detail-item d-flex align-items-center mb-3">
+                    <div class="detail-icon" style="background: {{ $gradient[0] }}20;">
+                      <i class="bi bi-cart" style="color: {{ $gradient[0] }};"></i>
+                    </div>
+                    <div class="detail-text">
+                      <span class="detail-label">Minimum Purchase</span>
+                      <span class="detail-value">LKR {{ number_format($coupon->cart_value, 2) }}</span>
+                    </div>
                   </div>
-                  <div class="detail-text">
-                    <span class="detail-label">Minimum Purchase</span>
-                    <span class="detail-value">LKR {{ number_format($coupon->cart_value, 2) }}</span>
+
+                  <div class="detail-item d-flex align-items-center">
+                    <div class="detail-icon" style="background: {{ $gradient[0] }}20;">
+                      <i class="bi bi-calendar-event" style="color: {{ $gradient[0] }};"></i>
+                    </div>
+                    <div class="detail-text">
+                      <span class="detail-label">Valid Until</span>
+                      <span class="detail-value">{{ \Carbon\Carbon::parse($coupon->expiry_date)->format('M d, Y') }}</span>
+                    </div>
                   </div>
                 </div>
 
-                <div class="detail-item d-flex align-items-center">
-                  <div class="detail-icon" style="background: {{ $gradient[0] }}20;">
-                    <i class="fas fa-calendar-alt" style="color: {{ $gradient[0] }};"></i>
-                  </div>
-                  <div class="detail-text">
-                    <span class="detail-label">Valid Until</span>
-                    <span class="detail-value">{{ \Carbon\Carbon::parse($coupon->expiry_date)->format('M d, Y') }}</span>
-                  </div>
+                <div class="coupon-footer d-grid">
+                  <button class="copy-btn" style="background: linear-gradient(135deg, {{ $gradient[0] }}, {{ $gradient[1] }});" onclick="copyCouponCode('{{ $coupon->code }}', this)">
+                    <span>COPY CODE</span>
+                    <i class="bi bi-clipboard ms-2"></i>
+                  </button>
                 </div>
               </div>
 
-              <div class="coupon-footer d-grid">
-                <button class="copy-btn" style="background: linear-gradient(135deg, {{ $gradient[0] }}, {{ $gradient[1] }});" onclick="copyCouponCode('{{ $coupon->code }}', this)">
-                  <span>COPY CODE</span>
-                  <i class="fas fa-copy ms-2"></i>
-                </button>
-              </div>
+              <div class="circle-left"></div>
+              <div class="circle-right"></div>
             </div>
 
-            <div class="circle-left"></div>
-            <div class="circle-right"></div>
-          </div>
-
-          <div class="scissors-bottom">
-            <i class="fas fa-cut"></i>
+            <div class="scissors-bottom">
+              <i class="bi bi-scissors"></i>
+            </div>
           </div>
         </div>
-      </div>
+      @endif
     @endforeach
   </div>
 </section>
+
 
 
 </main>
@@ -700,6 +701,27 @@
 
 @push('scripts')
     
+<script>
+  function copyCouponCode(code, btn) {
+    
+    const tempInput = document.createElement("input");
+    tempInput.value = code;
+    document.body.appendChild(tempInput);
+    tempInput.select();
+    document.execCommand("copy");
+    document.body.removeChild(tempInput);
+
+   
+    const originalHTML = btn.innerHTML;
+    btn.innerHTML = '<span class = "text-white">Copied!</span> <i class="bi bi-check-circle ms-2 text-white"></i>';
+    btn.classList.add('btn-success');
+
+    setTimeout(() => {
+      btn.innerHTML = originalHTML;
+      btn.classList.remove('btn-success');
+    }, 2000);
+  }
+</script>
 
 
 @endpush
