@@ -10,6 +10,7 @@ use App\Models\OrderItem;
 use App\Models\Product;
 use App\Models\Slide;
 use App\Models\Transaction;
+use App\Models\User;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -72,7 +73,7 @@ class AdminController extends Controller
         return view('admin.index', compact('orders','dashboardDatas','AmountM','OrderedAmountM','DeliveredAmountM','CanceledAmountM','TotalAmount','TotalOrderedAmount','TotalDeliveredAmount','TotalCanceledAmount'));
     }
 
-    // Admin Brand Page Functions
+   
     public function brands()
     {
         $brands = Brand::orderBy('id', 'DESC')->paginate(10);
@@ -162,7 +163,7 @@ class AdminController extends Controller
         return redirect()->route('admin.brands')->with('status', 'Brand has been deleted succesfully..!');
     }
 
-    // Admin Category Page Functions
+    
     public function categories()
     {
         $categories = Category::orderBy('id', 'DESC')->paginate(10);
@@ -692,5 +693,25 @@ class AdminController extends Controller
         $slide->delete();
         return redirect()->route('admin.slides')->with('status', "Slide has been deleted successfully");
     }
+
+    public function users()
+    {
+        $users = User::with(['orders' => function ($query) {
+                $query->orderBy('created_at', 'DESC');
+                }])->orderBy('id', 'DESC')->paginate(12);
+
+            return view('admin.users', compact('users'));
+    }
+
+    public function updateType(Request $request, $id)
+    {
+                $user = User::findOrFail($id);
+                $user->utype = $request->input('utype');
+                $user->save();
+
+                return back()->with('success', 'User type updated successfully.');
+    }
+
+
 
 }
