@@ -738,8 +738,12 @@ class AdminController extends Controller
     $passwordChanged = false;
 
     if ($request->filled('old_password') && $request->filled('new_password')) {
-        if (!Hash::check($request->old_password, $user->password)) {
-            return back()->with('statusfail', 'This is correct');
+       if (!Hash::check($request->old_password, $user->password)) {
+        return back()->with('status_fail', 'Old password is incorrect!');
+        }
+
+         if ($request->new_password !== $request->new_password_confirmation) {
+            return back()->with('status_fail', 'Confirmation password do not match!');
         }
 
         $request->validate([
