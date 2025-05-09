@@ -18,7 +18,7 @@
             <form method="POST" action="{{ route('register') }}" name="register-form" class="needs-validation" novalidate="">
                 @csrf
               <div class="form-floating mb-3">
-                <input class="form-control form-control_gray @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required="" autocomplete="name"
+                <input class="form-control form-control_gray @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required="" autocomplete="off"
                   autofocus="">
                 <label for="name">Name</label>
                                 @error('name')
@@ -30,7 +30,7 @@
               <div class="pb-3"></div>
               <div class="form-floating mb-3">
                 <input id="email" type="email" class="form-control form-control_gray @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required=""
-                  autocomplete="email">
+                  autocomplete="off">
                 <label for="email">Email address *</label>
                                 @error('email')
                                     <span class="invalid-feedback" role="alert">
@@ -43,7 +43,7 @@
 
               <div class="form-floating mb-3">
                 <input id="mobile" type="text" class="form-control form-control_gray @error('mobile') is-invalid @enderror" name="mobile" value="{{ old('mobile') }}"
-                  required="" autocomplete="mobile">
+                  required="" autocomplete="off">
                 <label for="mobile">Mobile *</label>
                               @error('mobile')
                                     <span class="invalid-feedback" role="alert">
@@ -56,7 +56,7 @@
 
               <div class="form-floating mb-3">
                 <input id="password" type="password" class="form-control form-control_gray @error('password') is-invalid @enderror" name="password" required=""
-                  autocomplete="new-password">
+                  autocomplete="off">
                 <label for="password">Password *</label>
                             @error('password')
                                     <span class="invalid-feedback" role="alert">
@@ -67,7 +67,7 @@
 
               <div class="form-floating mb-3">
                 <input id="password-confirm" type="password" class="form-control form-control_gray"
-                  name="password_confirmation" required="" autocomplete="new-password">
+                  name="password_confirmation" required="" autocomplete="off">
                 <label for="password">Confirm Password *</label>
               </div>
 
