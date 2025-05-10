@@ -721,7 +721,9 @@
               xmlns="http://www.w3.org/2000/svg">
               <use href="#icon_heart" />
             </svg>
-            <span class="wishlist-amount d-block position-absolute js-wishlist-count">3</span>
+             @if(Cart::instance('wishlist')->content()->count()>0)
+            <span class="cart-amount d-block position-absolute js-cart-items-count">{{ Cart::instance('wishlist')->content()->count() }}</span>
+            @endif
           </div>
           <span>Wishlist</span>
         </a>

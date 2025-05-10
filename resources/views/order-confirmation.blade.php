@@ -106,9 +106,93 @@
               </tbody>
             </table>
           </div>
+              <div class="col-md-12 d-flex justify-content-end gap-2 pt-1 pb-5">
+    
+              <a href="{{ route('home.index') }}" class="btn btn-warning text-muted fw-bold" id="confirmBtn" style="border-radius: 8px">Confirm</a>
+
+    
+              <form action="{{ route('user.order.cancel') }}" method="POST">
+                  @csrf
+                  @method("PUT")
+                  <input type="hidden" name="order_id" value="{{ $order->id }}">
+                  <button type="button" class="btn btn-danger cancel-order text-muted fw-bold" style="border-radius: 8px">Cancel Order</button>
+              </form>
+              </div>
+
+            </div>
         </div>
       </div>
     </section>
   </main>
 
 @endsection
+
+@push('scripts')
+
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+<script>
+    document.getElementById('confirmBtn').addEventListener('click', function (e) {
+        e.preventDefault(); 
+
+        Swal.fire({
+            title: 'Are you sure?',
+            text: "You are about to proceed!",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#ffd54f', 
+            cancelButtonColor: '#343a40',
+            confirmButtonText: 'Yes, proceed!'
+        }).then((result) => {
+            if (result.isConfirmed) {
+                window.location.href = this.href;
+            }
+        });
+    });
+    
+
+    $(function () {
+    $('.cancel-order').on("click", function (e) {
+        e.preventDefault();
+        const form = $(this).closest('form');
+        const actionUrl = form.attr('action');
+        const formData = form.serialize();
+
+        Swal.fire({
+            title: 'Are you sure?',
+            text: "You want to cancel this order.",
+            icon: 'warning',
+            iconColor: '#dc3545',
+            showCancelButton: true,
+            confirmButtonColor: '#ffd54f',
+            cancelButtonColor: '#343a40',
+            confirmButtonText: 'Yes, cancel it!',
+            cancelButtonText: 'No, keep it'
+        }).then((result) => {
+            if (result.isConfirmed) {
+                $.ajax({
+                    url: actionUrl,
+                    method: "POST",
+                    data: formData,
+                    headers: {
+                        'X-CSRF-TOKEN': $('input[name="_token"]').val()
+                    },
+                    success: function () {
+                       
+                        window.location.href = "{{ route('home.index') }}";
+                    },
+                    error: function () {
+                        Swal.fire('Error', 'Something went wrong!', 'error');
+                    }
+                });
+            }
+        });
+    });
+});
+
+
+
+
+</script>
+
+@endpush
