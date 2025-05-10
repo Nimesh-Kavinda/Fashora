@@ -683,7 +683,7 @@
       <div class="container d-md-flex align-items-center">
         <span class="footer-copyright me-auto">©2025 - HNDIT Final Project</span>
         <div class="footer-settings d-md-flex align-items-center">
-          <a href="{{ route('privacy.index') }}">Privacy Policy</a> &nbsp;|&nbsp; <a href="#">Terms &amp;
+          <a href="{{ route('privacy.index') }}">Privacy Policy</a> &nbsp;|&nbsp; <a href="{{ route('terms.index') }}">Terms &amp;
             Conditions</a>
         </div>
       </div>
