@@ -602,7 +602,7 @@
 
   @if (! $hasValidCoupons)
     <div class="text-center text-muted mb-4 pb-2">
-      <h5 class="text-muted">No coupons available now!</h5>
+      <h6 class="text-muted">No coupons available now!</h6>
     </div>
   @endif
 

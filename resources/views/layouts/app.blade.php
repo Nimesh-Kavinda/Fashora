@@ -683,7 +683,7 @@
       <div class="container d-md-flex align-items-center">
         <span class="footer-copyright me-auto">©2025 - HNDIT Final Project</span>
         <div class="footer-settings d-md-flex align-items-center">
-          <a href="privacy-policy.html">Privacy Policy</a> &nbsp;|&nbsp; <a href="terms-conditions.html">Terms &amp;
+          <a href="{{ route('privacy.index') }}">Privacy Policy</a> &nbsp;|&nbsp; <a href="#">Terms &amp;
             Conditions</a>
         </div>
       </div>
@@ -713,7 +713,19 @@
         </a>
       </div>
                                                               
-      <div class="col-4">              
+      <div class="col-4">
+        @guest
+          <a href="{{route('login')}}" class="footer-mobile__link d-flex flex-column align-items-center">
+          <div class="position-relative">
+            <svg class="d-block" width="18" height="18" viewBox="0 0 20 20" fill="none"
+              xmlns="http://www.w3.org/2000/svg">
+              <use href="#icon_heart" />
+            </svg>
+            <span class="wishlist-amount d-block position-absolute js-wishlist-count">3</span>
+          </div>
+          <span>Wishlist</span>
+        </a>
+        @else
         <a href="{{route('home.index')}}" class="footer-mobile__link d-flex flex-column align-items-center">
           <div class="position-relative">
             <svg class="d-block" width="18" height="18" viewBox="0 0 20 20" fill="none"
@@ -724,6 +736,7 @@
           </div>
           <span>Wishlist</span>
         </a> 
+        @endguest
       </div>
     </div>
   </footer>
