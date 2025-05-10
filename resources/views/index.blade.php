@@ -591,12 +591,27 @@
 <div class="mb-3 mb-xl-5 pt-1 pb-4"></div>
 
 
+    @php
+      $hasValidCoupons = $coupons->contains(function($coupon) {
+          return \Carbon\Carbon::parse($coupon->expiry_date)->isFuture();
+      });
+    @endphp
+
 <section class="products-grid container mt-5">
   <h2 class="section-title text-center mb-4 pb-2">Available Coupons</h2>
 
+  @if (! $hasValidCoupons)
+    <div class="text-center text-muted mb-4 pb-2">
+      <h5 class="text-muted">No coupons available now!</h5>
+    </div>
+  @endif
+
   <div class="row g-4">
     @foreach ($coupons as $coupon)
-      @if (\Carbon\Carbon::now()->lte(\Carbon\Carbon::parse($coupon->expiry_date)))
+      @php
+        $validCoupon = \Carbon\Carbon::now()->lte(\Carbon\Carbon::parse($coupon->expiry_date));
+      @endphp
+      @if ($validCoupon)
         @php
           $colorMap = [
             'fixed' => ['#b59b63', '#c9ad7f'],
@@ -692,6 +707,7 @@
     @endforeach
   </div>
 </section>
+
 
 
 
