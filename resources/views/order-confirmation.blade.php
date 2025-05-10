@@ -1,6 +1,18 @@
 @extends('layouts.app')
 
 @section('content')
+
+<style>
+
+.swal2-confirm.confirm-btn {
+    color: #3a3a3a;  
+}
+
+
+.swal2-cancel.cancel-btn {
+    color: #3a3a3a;  
+}
+</style>
     
 <main class="pt-90">
     <div class="mb-4 pb-4"></div>
@@ -141,9 +153,13 @@
             text: "You are about to proceed!",
             icon: 'warning',
             showCancelButton: true,
-            confirmButtonColor: '#ffd54f', 
-            cancelButtonColor: '#343a40',
-            confirmButtonText: 'Yes, proceed!'
+            confirmButtonColor: '#F5F0D6', 
+            cancelButtonColor: '#F0C3C3',
+            confirmButtonText: 'Yes, proceed!',
+              customClass: {
+            confirmButton: 'confirm-btn',  
+            cancelButton: 'cancel-btn'    
+         }
         }).then((result) => {
             if (result.isConfirmed) {
                 window.location.href = this.href;
@@ -165,10 +181,14 @@
             icon: 'warning',
             iconColor: '#dc3545',
             showCancelButton: true,
-            confirmButtonColor: '#ffd54f',
-            cancelButtonColor: '#343a40',
+            confirmButtonColor: '#F5F0D6',
+            cancelButtonColor: '#F0C3C3',
             confirmButtonText: 'Yes, cancel it!',
-            cancelButtonText: 'No, keep it'
+            cancelButtonText: 'No, keep it',
+            customClass: {
+            confirmButton: 'confirm-btn',  
+            cancelButton: 'cancel-btn'    
+         }
         }).then((result) => {
             if (result.isConfirmed) {
                 $.ajax({
