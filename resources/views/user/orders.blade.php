@@ -60,7 +60,7 @@
                                     <th class="text-center">Status</th>
                                     <th class="text-center">Order Date</th>
                                     <th class="text-center">Items</th>
-                                    <th class="text-center">Delivered On</th>
+                                    <th class="text-center">Arrived</th>
                                     <th></th>
                                 </tr>
                             </thead>

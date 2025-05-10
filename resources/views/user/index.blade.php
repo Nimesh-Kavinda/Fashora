@@ -8,9 +8,6 @@
       <div class="row">
         <div class="col-lg-3">
            <h2 class="page-title">My Account</h2>
-              <div class="page-content my-account__dashboard">
-            <h6>Hello <strong>{{ $user->name }}</strong></h6>
-          </div>
            @include('user.account-nav')
         </div>
         <div class="col-lg-9">
@@ -43,7 +40,7 @@
                     @method('PUT')
                     
                     <div class="mb-4">
-                        <h5>Personal Information</h5>
+                        <h5 class="mb-3 text-muted">Welcome back, <strong class="text-primary">{{ $user->name }}</strong>! Here’s your personal info 📋</h5>
                         <hr>
                         <div class="row g-3">
                             <div class="col-md-12 mb-3">
@@ -86,7 +83,7 @@
                     </div>
                     
                     <div class="mt-4">
-                        <button type="submit" class="btn btn-primary">Save Changes</button>
+                        <button type="submit" class="btn btn-primary" style="background-color: #3e3e3e">Save Changes</button>
                     </div>
                 </form>
             </div>
