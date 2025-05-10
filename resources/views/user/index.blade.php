@@ -34,7 +34,6 @@
 
         <div class="card shadow-sm">
             <div class="card-body p-4">
-              
                 <form action="{{ route('user.update.information', Auth::id()) }}" method="POST" class="needs-validation" novalidate>
                     @csrf
                     @method('PUT')
