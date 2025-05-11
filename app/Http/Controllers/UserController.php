@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Address;
 use App\Models\Order;
 use App\Models\OrderItem;
 use App\Models\Transaction;
@@ -95,8 +96,10 @@ class UserController extends Controller
     }
 
     public function address()
-    {
-        return view('user.address');
+    {   
+        $user_id = Auth::user()->id;
+        $address = Address::where('user_id', $user_id)->where('isdefault',true)->first();
+        return view('user.address', compact('address'));
     }
 
 }

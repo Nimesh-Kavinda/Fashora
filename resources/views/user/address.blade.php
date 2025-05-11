@@ -15,28 +15,27 @@
     
       <div class="col-lg-9">
         <div class="d-flex justify-content-between align-items-start mb-3">
-          <p class="notice mb-0">
+          <p class="notice mb-3">
             The following addresses will be used on the checkout page by default.
           </p>
-          <a href="#" class="btn btn-sm btn-info">Add New</a>
         </div>
 
         <div class="my-account__address-list row">
           <h5>Shipping Address</h5>
+          <hr>
 
           <div class="my-account__address-item col-md-6">
             <div class="my-account__address-item__title">
-              <h5>Sudhir Kumar <i class="fa fa-check-circle text-success"></i></h5>
+              <h5>{{ $address->name }} <i class="fa fa-check-circle text-success"></i></h5>
               <a href="#">Edit</a>
             </div>
             <div class="my-account__address-item__detail">
-              <p>Flat No - 13, R. K. Wing - B</p>
-              <p>ABC, DEF</p>
-              <p>GHJ, </p>
-              <p>Near Sun Temple</p>
-              <p>000000</p>
+              <p>{{ $address->address }},</p>
+              <p>{{ $address->city }}, {{ $address->state }}, {{ $address->country }},</p>
+              <p>{{ $address->landmark }},</p>
+              <p>{{ $address->zip }}.</p>
               <br>
-              <p>Mobile : 1234567891</p>
+              <p>Mobile : {{ $address->phone }}</p>
             </div>
           </div>
 
