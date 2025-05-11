@@ -245,6 +245,12 @@
 
 <main>
 
+     <div id="preload" class="preload-container">
+            <div class="preloading">
+        <span></span>
+            </div>
+    </div> 
+
 <section class="swiper-container js-swiper-slider swiper-number-pagination slideshow" data-settings='{
     "autoplay": {
       "delay": 5000
@@ -737,6 +743,11 @@
       btn.classList.remove('btn-success');
     }, 2000);
   }
+
+
+        
+
+
 </script>
 
 

@@ -43,17 +43,17 @@
                         <hr>
                         <div class="row g-3">
                             <div class="col-md-12 mb-3">
-                                <label for="name" class="form-label">Full Name <span class="text-danger">*</span></label>
+                                <label for="name" class="form-label fw-bold">Full Name <span class="text-danger">*</span></label>
                                 <input type="text" class="form-control" id="name" name="name" value="{{ old('name', $user->name) }}" required>
                             </div>
                             
                             <div class="col-md-6 mb-3">
-                                <label for="mobile" class="form-label">Mobile Number <span class="text-danger">*</span></label>
+                                <label for="mobile" class="form-label fw-bold">Mobile Number <span class="text-danger">*</span></label>
                                 <input type="text" class="form-control" id="mobile" name="mobile" value="{{ old('mobile', $user->mobile) }}" required>
                             </div>
                             
                             <div class="col-md-6 mb-3">
-                                <label for="email" class="form-label">Email Address <span class="text-danger">*</span></label>
+                                <label for="email" class="form-label fw-bold">Email Address <span class="text-danger">*</span></label>
                                 <input type="email" class="form-control" id="email" name="email" value="{{ old('email', $user->email) }}" required>
                             </div>
                         </div>
@@ -64,18 +64,18 @@
                         <hr>
                         <div class="row g-3">
                             <div class="col-md-12 mb-3">
-                                <label for="old_password" class="form-label">Old Password <span class="text-danger">*</span></label>
+                                <label for="old_password" class="form-label fw-bold">Old Password <span class="text-danger">*</span></label>
                                 <input type="password" class="form-control" id="old_password" name="old_password">
                                 <div class="form-text">Leave blank if you don't want to change password.</div>
                             </div>
                             
                             <div class="col-md-6 mb-3">
-                                <label for="new_password" class="form-label">New Password <span class="text-danger">*</span></label>
+                                <label for="new_password" class="form-label fw-bold">New Password <span class="text-danger">*</span></label>
                                 <input type="password" class="form-control" id="new_password" name="new_password">
                             </div>
                             
                             <div class="col-md-6 mb-3">
-                                <label for="new_password_confirmation" class="form-label">Confirm New Password <span class="text-danger">*</span></label>
+                                <label for="new_password_confirmation" class="form-label fw-bold">Confirm New Password <span class="text-danger">*</span></label>
                                 <input type="password" class="form-control" id="new_password_confirmation" name="new_password_confirmation">
                             </div>
                         </div>

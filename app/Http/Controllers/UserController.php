@@ -93,4 +93,10 @@ class UserController extends Controller
 
     return back()->with('status', 'Profile successfully updated.');
     }
+
+    public function address()
+    {
+        return view('user.address');
+    }
+
 }
