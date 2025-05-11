@@ -102,4 +102,11 @@ class UserController extends Controller
         return view('user.address', compact('address'));
     }
 
+    Public function address_edit()
+    {
+        $user_id = Auth::user()->id;
+        $address = Address::where('user_id', $user_id)->where('isdefault',true)->first();
+        return view('user.address-edit', compact('address'));
+    }
+
 }

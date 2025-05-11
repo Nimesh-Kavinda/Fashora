@@ -27,10 +27,11 @@
           <div class="my-account__address-item col-md-6">
             <div class="my-account__address-item__title">
               <h5>{{ $address->name }} <i class="fa fa-check-circle text-success"></i></h5>
-              <a href="#">Edit</a>
+              <a href="{{ route('user.address.edit', $address->id) }}">Edit</a>
             </div>
             <div class="my-account__address-item__detail">
               <p>{{ $address->address }},</p>
+              <p>{{ $address->locality }},</p>
               <p>{{ $address->city }}, {{ $address->state }}, {{ $address->country }},</p>
               <p>{{ $address->landmark }},</p>
               <p>{{ $address->zip }}.</p>
