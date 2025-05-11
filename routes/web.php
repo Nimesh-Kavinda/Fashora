@@ -47,6 +47,7 @@ Route::middleware(['auth'])->group(function(){
     Route::put('/account-order/update-information/{id}', [UserController::class, 'update_information'])->name('user.update.information');
     Route::get('/account-address', [UserController::class, 'address'])->name('user.address');
     Route::get('/account-address/edit', [UserController::class, 'address_edit'])->name('user.address.edit');
+    Route::put('/account-address/update', [UserController::class, 'update_address'])->name('user.address.update');
 });
               
 Route::middleware(['auth', AuthAdmin::class])->group(function(){

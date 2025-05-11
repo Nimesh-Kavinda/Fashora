@@ -18,7 +18,9 @@
 
     
       <div class="col-lg-9">
-        <form action="">
+        <form action="{{ route('user.address.update'), $address->id }}" method="POST" class="needs-validation" novalidate enctype="multipart/form-data" method="POST">
+            @csrf
+            @method('PUT')
         <div class="row mt-5">
               <div class="col-md-11">
                 <div class="form-floating my-3">
@@ -77,6 +79,7 @@
                 </div>
               </div>
             </div>
+            <button type="submit" class="btn btn-primary" style="background-color: #3e3e3e">Update</button>
             </form>
 
     </div>

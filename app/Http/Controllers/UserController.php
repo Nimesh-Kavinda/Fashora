@@ -102,11 +102,51 @@ class UserController extends Controller
         return view('user.address', compact('address'));
     }
 
-    Public function address_edit()
+    public function address_edit()
     {
         $user_id = Auth::user()->id;
         $address = Address::where('user_id', $user_id)->where('isdefault',true)->first();
         return view('user.address-edit', compact('address'));
     }
+
+    public function update_address(Request $request)
+    {
+        $user_id = Auth::id();
+
+            $request->validate([
+                'name' => 'required|max:100',
+                'phone' => 'required|numeric|digits:10',
+                'zip' => 'required|numeric|digits:5',
+                'state' => 'required',
+                'city' => 'required',
+                'address' => 'required',
+                'locality' => 'required',
+                'landmark' => 'required',
+            ]);
+
+            $address = Address::where('user_id', $user_id)->where('isdefault', true)->first();
+
+            if (!$address) {
+                // If no default address exists, create one
+                $address = new Address();
+                $address->user_id = $user_id;
+                $address->isdefault = true;
+            }
+
+            
+            $address->name = $request->name;
+            $address->phone = $request->phone;
+            $address->zip = $request->zip;
+            $address->state = $request->state;
+            $address->city = $request->city;
+            $address->address = $request->address;
+            $address->locality = $request->locality;
+            $address->landmark = $request->landmark;
+            $address->country = 'Sri Lanka';
+            $address->save();
+
+            return redirect()->route('user.address')->with('status', "Address has been Updated successfully");
+
+        }
 
 }

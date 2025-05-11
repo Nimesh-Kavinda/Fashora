@@ -22,6 +22,12 @@
 
         <div class="my-account__address-list row">
           <h5>Shipping Address</h5>
+           @if (Session::has('status'))
+                        <div class="alert alert-success alert-dismissible fade show" role="alert">
+                            {{ Session::get('status') }}
+                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                        </div>
+            @endif
           <hr>
 
           <div class="my-account__address-item col-md-6">
