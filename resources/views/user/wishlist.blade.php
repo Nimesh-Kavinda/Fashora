@@ -30,6 +30,7 @@
     <div class="col-lg-9">
           <div class="page-content my-account__wishlist">
             <div class="products-grid row row-cols-2 row-cols-lg-3" id="products-grid">
+                @if($items->count() > 0)
                 @foreach ($items as $item)
               <div class="product-card-wrapper">
                 <div class="product-card mb-3 mb-md-4 mb-xxl-5">
@@ -94,7 +95,12 @@
                 </div>
               </div>
               @endforeach
-
+                 @else 
+            <div class="text-center text-muted w-100">
+                <img src="{{ asset('assets/images/user/wishlist.png') }}" alt="Orders not available" class="img-fluid rounded shadow-md" style="height: 100px; width 100px; object-fit: cover;">
+                <h6 class="text-muted mt-4">No wislist items available now!</h6>
+            </div>
+            @endif
             </div>
           </div>
         </div>

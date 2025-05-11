@@ -111,9 +111,9 @@
             
         </div>
         @else
-        <div class="text-center text-muted">
-      <img src="{{ asset('assets/images/privacy/empty-cart.png') }}" alt="Orders not available" class="img-fluid rounded shadow-md" style="height: 100px; width 100px; object-fit: cover;">
-            <h6 class="text-muted mt-4">No orders available now!</h6>
+        <div class="text-center text-muted w-100">
+        <img src="{{ asset('assets/images/user/empty-cart.png') }}" alt="Orders not available" class="img-fluid rounded shadow-md" style="height: 100px; width 100px; object-fit: cover;">
+        <h6 class="text-muted mt-4">No orders available now!</h6>
         </div>
         @endif
     </section>
