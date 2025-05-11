@@ -57,6 +57,7 @@
                           <use href="#icon_next_sm" />
                         </svg></span>
                     </div>
+
                      <form action="{{ route('wishlist.item.remove',['rowId'=>$item->rowId]) }}" method="POST" class="d-grid">
                         @csrf
                         @method('DELETE')
@@ -79,12 +80,16 @@
                     @endif
                     </div>
 
+                     <form action="{{ route('wishlist.move.to.cart', ['rowId'=>$item->rowId]) }}" method="POST" class="d-grid">
+                     @csrf
                     <button class="pc__btn-wl position-absolute top-0 end-0 bg-transparent border-0 js-add-wishlist text-danger bg-warning"
-                      title="">
+                      title="Move to Cart">
                       <svg width="16" height="16" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <use href="#icon_cart" />
                       </svg>
                     </button>
+                     </form>
+
                   </div>
                 </div>
               </div>
