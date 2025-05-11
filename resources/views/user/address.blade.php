@@ -29,7 +29,7 @@
                         </div>
             @endif
           <hr>
-
+          @if($address)
           <div class="my-account__address-item col-md-6">
             <div class="my-account__address-item__title">
               <h5>{{ $address->name }} <i class="fa fa-check-circle text-success"></i></h5>
@@ -45,6 +45,15 @@
               <p>Mobile : {{ $address->phone }}</p>
             </div>
           </div>
+          @else 
+          <div class="my-account__address-item col-md-6">
+            <div class="my-account__address-item__title">
+              <h5>No Address Found</h5>
+            </div>
+            <p>You can conveniently <span class="fw-bold text-primary">Add your address during the checkout process</span> when placing your first order.</p>
+            <p>Thank you for choosing us!</p>
+          </div>
+          @endif
 
           <hr>
         </div>
