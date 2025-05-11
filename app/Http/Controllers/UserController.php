@@ -149,4 +149,9 @@ class UserController extends Controller
 
         }
 
+        public function user_wishlist()
+        {
+            return view('user.wishlist');
+        }
+
 }
