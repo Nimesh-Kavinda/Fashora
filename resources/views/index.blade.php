@@ -245,13 +245,8 @@
 
 <main>
 
-     <div id="preload" class="preload-container">
-            <div class="preloading">
-        <span></span>
-            </div>
-    </div> 
 
-<section class="swiper-container js-swiper-slider swiper-number-pagination slideshow" data-settings='{
+<section class="swiper-container js-swiper-slider swiper-number-pagination slideshow"  data-settings='{
     "autoplay": {
       "delay": 5000
     },
@@ -267,7 +262,7 @@
         <div class="slideshow-character position-absolute bottom-0 pos_right-center">
           <img loading="lazy" src="{{ asset('uploads/slides') }}/{{ $slide->image }}" width="542" height="733"
             alt="Woman Fashion 1"
-            class="slideshow-character__img animate animate_fade animate_btt animate_delay-9 w-auto h-auto" />
+            class="slideshow-character__img animate animate_fade animate_btt animate_delay-9 object-fit-cover w-100 h-100" />
           <div class="character_markup type2">
             <p
               class="text-uppercase font-sofia mark-grey-color animate animate_fade animate_btt animate_delay-10 mb-0">
@@ -296,6 +291,11 @@
     </div>
   </div>
 </section>
+
+
+
+
+
 <div class="container mw-1620 bg-white border-radius-10">
   <div class="mb-3 mb-xl-5 pt-1 pb-4"></div>
   <section class="category-carousel container">
