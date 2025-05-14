@@ -27,6 +27,12 @@
     crossorigin="anonymous" referrerpolicy="no-referrer">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
 
+    <style>
+      .text-danger {
+    color: #e91f0f !important;
+        }
+    </style>
+
       @stack("styles")
 </head>
 
@@ -455,9 +461,15 @@
             <li class="navigation__item">
               <a href="{{ route('about.index') }}" class="navigation__link">About</a>
             </li>
+            @guest 
+            <li class="navigation__item">
+              <a href="{{ route('login') }}" class="navigation__link">Contact</a>
+            </li>
+            @else 
             <li class="navigation__item">
               <a href="{{ route('contact.index') }}" class="navigation__link">Contact</a>
             </li>
+            @endguest
           </ul>
         </nav>
 

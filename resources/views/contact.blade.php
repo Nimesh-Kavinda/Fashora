@@ -26,23 +26,23 @@
             @csrf
             <h3 class="mb-5">Get In Touch</h3>
             <div class="form-floating my-4">
-              <input type="text" class="form-control" name="name" placeholder="Name *" required="">
+              <input type="text" class="form-control" name="name" value="{{ old('name') }}" placeholder="Name *" required="" autocomplete="off">
               <label for="contact_us_name">Name *</label>
               @error('name')<span class="text-danger">{{ $message }}</span>@enderror 
             </div>
             <div class="form-floating my-4">
-              <input type="text" class="form-control" name="phone" placeholder="Phone *" required="">
+              <input type="text" class="form-control" name="phone" value="{{ old('phone') }}" placeholder="Phone *" required="" autocomplete="off">
               <label for="contact_us_name">Phone *</label>
               @error('phone')<span class="text-danger">{{ $message }}</span>@enderror 
             </div>
             <div class="form-floating my-4">
-              <input type="email" class="form-control" name="email" placeholder="Email address *" required="">
+              <input type="email" class="form-control" name="email" value="{{ old('email') }}" placeholder="Email address *" required="" autocomplete="off">
               <label for="contact_us_name">Email address *</label>
               @error('email')<span class="text-danger">{{ $message }}</span>@enderror 
             </div>
             <div class="my-4">
-              <textarea class="form-control form-control_gray" name="comment" placeholder="Your Message" cols="30"
-                rows="8" required=""></textarea>
+              <textarea class="form-control form-control_gray" name="comment" value="{{ old('comment') }}" placeholder="Your Message" cols="30"
+                rows="8" required="" autocomplete="off"></textarea>
               @error('comment')<span class="text-danger">{{ $message }}</span>@enderror 
             </div>
             <div class="my-4">
