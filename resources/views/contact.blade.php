@@ -16,6 +16,12 @@
     <section class="contact-us container">
       <div class="mw-930">
         <div class="contact-us__form">
+            @if(session()->has('success'))
+            <div class="alert alert-success alert-dismissible fade show" role="alert">
+                {{ session()->get('success') }}
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+            @endif
           <form action="{{ route('contact.store') }}" name="contact-us-form" class="needs-validation" novalidate="" method="POST">
             @csrf
             <h3 class="mb-5">Get In Touch</h3>
