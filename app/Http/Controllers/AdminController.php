@@ -772,5 +772,12 @@ class AdminController extends Controller
         return view('admin.contacts', compact('contacts'));
     }
 
+    public function contact_delete($id)
+    {
+        $contact = Contact::find($id);
+        $contact->delete();
+        return redirect()->route('admin.contacts')->with('success', "Message has been deleted successfully");
+    }
+
 
 }

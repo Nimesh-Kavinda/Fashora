@@ -26,16 +26,16 @@
             <div class="wg-box">
                 <div class="flex items-center justify-between gap10 flex-wrap">
                     <div class="wg-filter flex-grow">
-                        
                     </div>
-                    <a class="tf-button style-1 w208" href="{{ route('admin.coupon.add') }}"><i
-                            class="icon-plus"></i>Add new</a>
                 </div>
                 <div class="wg-table table-all-user">
                     <div class="table-responsive">
-                        @if(Session::has('status'))
-                            <p class="alert alert-success">{{ Session::get('status') }}</p>
-                        @endif
+                      @if(session()->has('success'))
+                            <div class="alert alert-success alert-dismissible fade show p-3 fs-4" role="alert">
+                                {{ session()->get('success') }}
+                                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                            </div>
+                            @endif
                         <table class="table table-striped table-bordered">
                             <thead>
                                 <tr>
@@ -61,7 +61,7 @@
                                     <td>{{ $contact->created_at }}</td>
                                     <td>
                                         <div class="list-icon-function">
-                                            <form action="" method="POST">
+                                            <form action="{{ route('admin.contact.delete', $contact->id) }}" method="POST">
                                                 @csrf
                                                 @method('DELETE')
                                                 <div class="item text-danger delete">
