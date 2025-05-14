@@ -44,6 +44,7 @@
                                     <th>Phone</th>
                                     <th>Email</th>
                                     <th>Message</th>
+                                    <th>Date</th>
                                     <th>Action</th>
                                 </tr>
                             </thead>
@@ -55,11 +56,12 @@
                                     <td>{{ $contact->id }}</td>
                                     <td>{{ $contact->name }}</td>
                                     <td>{{ $contact->phone }}</td>
-                                    <td>LKR {{ $contact->email }}</td>
+                                    <td>{{ $contact->email }}</td>
                                     <td>{{ $contact->comment }}</td>
+                                    <td>{{ $contact->created_at }}</td>
                                     <td>
                                         <div class="list-icon-function">
-                                            <form action="{{ route('admin.coupon.delete',['id'=>$contact->id]) }}" method="POST">
+                                            <form action="" method="POST">
                                                 @csrf
                                                 @method('DELETE')
                                                 <div class="item text-danger delete">
