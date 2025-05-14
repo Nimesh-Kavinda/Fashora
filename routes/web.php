@@ -101,6 +101,8 @@ Route::middleware(['auth', AuthAdmin::class])->group(function(){
     Route::get('/admin/settings', [AdminController::class, 'settings'])->name('admin.settings');
     Route::put('/admin/settings/{id}', [AdminController::class, 'updateSettings'])->name('admin.settings.update');
 
+    Route::get('/admin/contacts', [AdminController::class, 'contacts'])->name('admin.contacts');
+
 
 
 

@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     
                   
-    {{-- crsf tokens added manuallay --}}
+    
     <meta name="csrf-token" content="{{ csrf_token() }}">          
 
     <title>{{ config('app.name', 'Laravel') }}</title>
@@ -25,18 +25,18 @@
     <link rel="stylesheet" type="text/css" href="{{ asset('css/custom.css') }}">
   
       @stack("styles")
+
+     <style>
+      .text-danger {
+    color: #e91f0f !important;
+        }
+    </style>
+
 </head>
 <body class="body">
     <div id="wrapper">
         <div id="page" class="">
             <div class="layout-wrap">
-
-     {{-- <div id="preload" class="preload-container">
-            <div class="preloading">
-        <span></span>
-            </div>
-    </div>  --}}
-
                 <div class="section-menu-left">
                     <div class="box-logo">
                         <a href="{{route('home.index')}}" id="site-logo-inner">
