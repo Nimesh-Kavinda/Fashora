@@ -61,11 +61,23 @@
         list-style: none;
       }
 
+      #box-content-search-mobile li{
+        list-style: none;
+      }
+
       #box-content-search .divider{
         list-style: none;
       }
 
+       #box-content-search-mobile .divider{
+        list-style: none;
+      }
+
       #box-content-search .product-item{
+        margin-bottom: 10px;
+      }
+
+       #box-content-search-mobile .product-item{
         margin-bottom: 10px;
       }
         
@@ -367,8 +379,8 @@
       <div class="container">
         <form action="#" method="GET" class="search-field position-relative mt-4 mb-3">
           <div class="position-relative">
-            <input class="search-field__input w-100 border rounded-1" type="text" id="search-input" name="search-keyword"
-              placeholder="Search products" />
+            <input class="search-field__input w-100 border rounded-1" type="text" id="search-input-mobile" name="search-keyword"
+              placeholder="Search products" autocomplete="off" />
             <button class="btn-icon search-popup__submit pb-0 me-2" type="submit">
               <svg class="d-block" width="20" height="20" viewBox="0 0 20 20" fill="none"
                 xmlns="http://www.w3.org/2000/svg">
@@ -379,7 +391,7 @@
           </div>
 
           <div class="search-popup__results">
-            <ul id="box-content-search"></ul>
+            <ul id="box-content-search-mobile"></ul>
           </div>
         </form>
       </div>
@@ -528,7 +540,7 @@
               <form action="#" method="GET" class="search-field container">
                 <p class="text-uppercase text-secondary fw-medium mb-4">What are you looking for?</p>
                 <div class="position-relative">
-                  <input class="search-field__input search-popup__input w-100 fw-medium" type="text" id="search-input" name="search-keyword" placeholder="Search products" />
+                  <input class="search-field__input search-popup__input w-100 fw-medium" type="text" id="search-input" name="search-keyword" placeholder="Search products" autocomplete="off" />
                   <button class="btn-icon search-popup__submit" type="submit">
                     <svg class="d-block" width="20" height="20" viewBox="0 0 20 20" fill="none"
                       xmlns="http://www.w3.org/2000/svg">
@@ -830,6 +842,50 @@
         }
       });
     });
+
+
+
+      $(function () {
+      $("#search-input-mobile").on("input", function () {
+        var SearchQuery = $(this).val();
+        if(SearchQuery.length > 2){
+          $.ajax({
+            type:"GET",
+            url:"{{route('home.search')}}",
+            data:{query: SearchQuery},
+            dataType: 'json',
+            success:function(data){
+              $("#box-content-search-mobile").html('');
+              $.each(data, function(index, item){
+                var url = "{{route('shop.product.details', ['product_slug' => 'product_slug_pls'])}}";
+                var link = url.replace('product_slug_pls', item.slug);
+                $("#box-content-search-mobile").append(`
+                 <li>
+                    <ul>
+                       <li class = "product-item gap14 mb-10">
+                          <div class = "image no-bg">
+                            <img src = "{{ asset('uploads/products/thumbnails')}}/${item.image}" alt = "${item.name}">
+                          </div>
+                          <div class = "flex item-center justify-between gap20 flex-grow">
+                            <div class = "name">
+                              <a href = "${link}" class = "body-text">${item.name}</a>
+                            </div>
+                          </div>
+                        </li>
+                        <li class="mb-10">
+                          <div class="divider"></div>
+                        </li>
+                    </ul>
+                 </li> 
+                `);
+              });
+            }
+          });
+        }
+      });
+    });
+
+
   </script>
 
   <script src="{{ asset('assets/js/theme.js') }}"></script>
