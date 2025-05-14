@@ -29,8 +29,47 @@
 
     <style>
       .text-danger {
-    color: #e91f0f !important;
+        color: #e91f0f !important;
         }
+
+      .product-item{
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        gap: 15px;
+        transition: all 0.3s ease;
+        padding-right: 5px;            
+      }
+
+      .product-item:hover{
+        background-color: #dddcdccd;
+      }
+
+      .product-item .image{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 70px;
+        height: 70px;
+        gap: 10px;
+        flex-shrink: 0;
+        border-radius: 10px;
+        background: #EFF4F8;
+      }
+
+      #box-content-search li{
+        list-style: none;
+      }
+
+      #box-content-search .divider{
+        list-style: none;
+      }
+
+      #box-content-search .product-item{
+        margin-bottom: 10px;
+      }
+        
+      
     </style>
 
       @stack("styles")
@@ -753,14 +792,14 @@
 
   <script>
     $(function () {
-      $("#seach-input").on("input", function () {
+      $("#search-input").on("input", function () {
         var SearchQuery = $(this).val();
         if(SearchQuery.length > 2){
           $.ajax({
             type:"GET",
             url:"{{route('home.search')}}",
             data:{query: SearchQuery},
-            dataType:"json",
+            dataType: 'json',
             success:function(data){
               $("#box-content-search").html('');
               $.each(data, function(index, item){
@@ -779,8 +818,8 @@
                             </div>
                           </div>
                         </li>
-                        <li class = "mb-10">
-                          <div class = "divider"></div>
+                        <li class="mb-10">
+                          <div class="divider"></div>
                         </li>
                     </ul>
                  </li> 
