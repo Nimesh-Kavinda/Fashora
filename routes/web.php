@@ -17,6 +17,7 @@ Route::get('/shop', [ShopController::class, 'index'])->name('shop.index');
 Route::get('/shop/{product_slug}', [ShopController::class, 'product_details'])->name('shop.product.details');
 Route::get('/about', [HomeController::class, 'about'])->name('about.index');
 Route::get('/contact', [HomeController::class, 'contact'])->name('contact.index');
+Route::post('/contact/store', [HomeController::class, 'contact_store'])->name('contact.store');
 Route::get('/privacy&policy', [HomeController::class, 'privacy'])->name('privacy.index');
 Route::get('/terms&condition', [HomeController::class, 'terms'])->name('terms.index');
 
