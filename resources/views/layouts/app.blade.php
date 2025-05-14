@@ -367,7 +367,7 @@
       <div class="container">
         <form action="#" method="GET" class="search-field position-relative mt-4 mb-3">
           <div class="position-relative">
-            <input class="search-field__input w-100 border rounded-1" type="text" name="search-keyword"
+            <input class="search-field__input w-100 border rounded-1" type="text" id="search-input" name="search-keyword"
               placeholder="Search products" />
             <button class="btn-icon search-popup__submit pb-0 me-2" type="submit">
               <svg class="d-block" width="20" height="20" viewBox="0 0 20 20" fill="none"
@@ -378,8 +378,8 @@
             <button class="btn-icon btn-close-lg search-popup__reset pb-0 me-2" type="reset"></button>
           </div>
 
-          <div class="position-absolute start-0 top-100 m-0 w-100">
-            <div class="search-result"></div>
+          <div class="search-popup__results">
+            <ul id="box-content-search"></ul>
           </div>
         </form>
       </div>
