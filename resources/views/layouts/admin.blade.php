@@ -32,7 +32,7 @@
         }
 
     .logo__image{
-        max-width: 180px;
+        max-width: 130px;
     }
     </style>
 

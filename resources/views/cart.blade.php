@@ -152,8 +152,10 @@
           <div>
             @if(Session::has('success'))
               <p class="text-success">{{ Session::get('success') }}</p>
+              <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
             @elseif(Session::has('error'))
             <p class="text-danger">{{ Session::get('error') }}</p>
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
             @endif
           </div>
       

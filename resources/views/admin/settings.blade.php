@@ -30,8 +30,10 @@
                                             <div class="my-3">
                                                 @if (Session::has('status'))
                                                     <p class="alert alert-success">{{ Session::get('status') }}</p>
+                                                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                                                 @elseif (session('status_fail'))
                                                     <p class="alert alert-danger">{{ Session::get('status_fail') }}</p>
+                                                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                                                 @endif
                                             </div> 
                                                 <form action="{{ route('admin.settings.update', Auth::id()) }}" method="POST" class="form-new-product form-style-1 needs-validation" novalidate>

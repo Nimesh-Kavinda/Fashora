@@ -30,6 +30,12 @@
                 </ul>
             </div>
             <div class="wg-box">
+                  @if(session()->has('status'))
+                            <div class="alert alert-success alert-dismissible fade show p-3 fs-4" role="alert">
+                                {{ session()->get('status') }}
+                                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                            </div>
+                            @endif
                 <form class="form-new-product form-style-1" method="POST" action="{{ route('admin.coupon.store') }}">
                     @csrf
                     <fieldset class="name">

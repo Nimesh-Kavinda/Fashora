@@ -47,6 +47,7 @@
             <div class="wg-table table-all-user">
                 @if (Session::has('status'))
                     <p class="alert alert-success">{{Session::get('status')}}</p>
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                     @endif
                 <table class="table table-striped table-bordered">
                     <thead>

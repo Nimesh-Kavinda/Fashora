@@ -121,14 +121,14 @@
           </div>
               <div class="col-md-12 d-flex justify-content-end gap-2 pt-1 pb-5">
     
-              <a href="{{ route('home.index') }}" class="btn btn-warning text-dark fw-bold" id="confirmBtn" style="border-radius: 8px">Confirm</a>
+              <a href="{{ route('home.index') }}" class="btn btn-warning text-dark rounded-pill" id="confirmBtn" style="border-radius: 8px">Confirm</a>
 
     
               <form action="{{ route('user.order.cancel') }}" method="POST">
                   @csrf
                   @method("PUT")
                   <input type="hidden" name="order_id" value="{{ $order->id }}">
-                  <button type="button" class="btn btn-danger cancel-order text-dark fw-bold" style="border-radius: 8px">Cancel</button>
+                  <button type="button" class="btn btn-danger cancel-order text-dark rounded-pill" style="border-radius: 8px">Cancel</button>
               </form>
               </div>
 
