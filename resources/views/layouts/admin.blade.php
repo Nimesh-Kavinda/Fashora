@@ -30,6 +30,10 @@
       .text-danger {
     color: #e91f0f !important;
         }
+
+    .logo__image{
+        max-width: 180px;
+    }
     </style>
 
 </head>
@@ -40,7 +44,7 @@
                 <div class="section-menu-left">
                     <div class="box-logo">
                         <a href="{{route('home.index')}}" id="site-logo-inner">
-                            <img class="" id="logo_header_1" alt="" src="{{ asset('images/logo/logo.png') }}"
+                            <img class="logo__image" id="logo_header_1" alt="" src="{{ asset('images/logo/logo.png') }}"
                                 data-light="{{ asset('images/logo/logo.png') }}" data-dark="{{ asset('images/logo/logo.png') }}">
                         </a>
                         <div class="button-show-hide">
