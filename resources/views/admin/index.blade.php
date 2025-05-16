@@ -2,12 +2,6 @@
 
 @section('content')
 
-   <div id="preload" class="preload-container">
-            <div class="preloading">
-        <span></span>
-            </div>
-    </div> 
-
 <div class="main-content-inner">
 
 <div class="main-content-wrap">
