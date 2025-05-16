@@ -318,7 +318,11 @@
     }
 
     .logo__image {
-      max-width: 220px;
+      max-width: 110px;
+    }
+
+     .logo__image_2 {
+      max-width: 200px;
     }
   </style>
   <div class="header-mobile header_sticky">
@@ -628,7 +632,7 @@
         <div class="footer-column footer-store-info col-12 mb-4 mb-lg-0">
           <div class="logo">
             <a href="{{route('home.index')}}">
-              <img src="{{ asset('assets/images/logo.png') }}" alt="SurfsideMedia" class="logo__image d-block" />
+              <img src="{{ asset('assets/images/logo.png') }}" alt="SurfsideMedia" class="logo__image_2 d-block" />
             </a>
           </div>
           <p class="footer-address">193/1, Colombo-Kandy Road, Kegalle</p>
