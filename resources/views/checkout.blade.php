@@ -200,7 +200,7 @@
               </div>
               <div class="checkout__payment-methods">
                 <div class="form-check">
-                  <input class="form-check-input form-check-input_fill" type="radio" name="mode" id="mode1" value="card">
+                  <input class="form-check-input form-check-input_fill" type="radio" name="mode" id="mode1" value="card" disabled>
                   <label class="form-check-label" for="checkout_payment_method_2">
                     Debit or Credit Card
                     <p class="option-detail">
@@ -209,7 +209,7 @@
                   </label>
                 </div>
                 <div class="form-check">
-                  <input class="form-check-input form-check-input_fill" type="radio" name="mode" id="mode2" value="paypal">
+                  <input class="form-check-input form-check-input_fill" type="radio" name="mode" id="mode2" value="paypal" disabled>
                   <label class="form-check-label" for="checkout_payment_method_4">
                     Paypal
                     <p class="option-detail">
