@@ -714,9 +714,6 @@
   </div>
 </section>
 
-
-
-
 </main>
 
 @endsection
