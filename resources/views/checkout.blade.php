@@ -241,4 +241,18 @@
     </section>
   </main>
 
+ 
+@push('scripts')
+<script>
+     $(function () {
+        $(window).on('pageshow', function (event) {
+            if (event.originalEvent.persisted || performance.navigation.type === 2) {
+                window.location.href = "{{ route('cart.checkout') }}";
+            }
+        });
+    });
+</script>
+@endpush
+
+
 @endsection
