@@ -67,7 +67,7 @@
             <span>LKR {{ $order->total }}</span>
           </div>
           <div class="order-info__item">
-            <label>Paymetn Method</label>
+            <label>Payment Method</label>
             <span>{{ $order->transaction->mode }}</span>
           </div>
         </div>
