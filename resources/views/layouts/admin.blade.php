@@ -4,10 +4,10 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    
-                  
-    
-    <meta name="csrf-token" content="{{ csrf_token() }}">          
+
+
+
+    <meta name="csrf-token" content="{{ csrf_token() }}">
 
     <title>{{ config('app.name', 'Laravel') }}</title>
   <meta http-equiv="content-type" content="text/html; charset=utf-8" />
@@ -23,7 +23,7 @@
     <link rel="apple-touch-icon-precomposed" href="{{ asset('images/favicon.ico') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('css/sweetalert.min.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('css/custom.css') }}">
-  
+
       @stack("styles")
 
      <style>
@@ -162,7 +162,7 @@
                                 <li class="menu-item">
                                     <form method="POST" action="{{route('logout')}}" id="logout-form">
                                         @csrf
-                                        
+
                                     <a href="{{route('logout')}}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
                                         <div class="icon"><i class="icon-stop"></i></div>
                                         <div class="text">Logout</div>
@@ -197,81 +197,12 @@
                                         <button class="" type="submit"><i class="icon-search"></i></button>
                                     </div>
                                     <div class="box-content-search">
-                                        <ul id="box-content-search"></ul>                                       
+                                        <ul id="box-content-search"></ul>
                                     </div>
                                 </form>
 
                             </div>
                             <div class="header-grid">
-
-                                <div class="popup-wrap message type-header">
-                                    <div class="dropdown">
-                                        <button class="btn btn-secondary dropdown-toggle" type="button"
-                                            id="dropdownMenuButton2" data-bs-toggle="dropdown" aria-expanded="false">
-                                            <span class="header-item">
-                                                <span class="text-tiny">1</span>
-                                                <i class="icon-bell"></i>
-                                            </span>
-                                        </button>
-                                        <ul class="dropdown-menu dropdown-menu-end has-content"
-                                            aria-labelledby="dropdownMenuButton2">
-                                            <li>
-                                                <h6>Notifications</h6>
-                                            </li>
-                                            <li>
-                                                <div class="message-item item-1">
-                                                    <div class="image">
-                                                        <i class="icon-noti-1"></i>
-                                                    </div>
-                                                    <div>
-                                                        <div class="body-title-2">Discount available</div>
-                                                        <div class="text-tiny">Morbi sapien massa, ultricies at rhoncus
-                                                            at, ullamcorper nec diam</div>
-                                                    </div>
-                                                </div>
-                                            </li>
-                                            <li>
-                                                <div class="message-item item-2">
-                                                    <div class="image">
-                                                        <i class="icon-noti-2"></i>
-                                                    </div>
-                                                    <div>
-                                                        <div class="body-title-2">Account has been verified</div>
-                                                        <div class="text-tiny">Mauris libero ex, iaculis vitae rhoncus
-                                                            et</div>
-                                                    </div>
-                                                </div>
-                                            </li>
-                                            <li>
-                                                <div class="message-item item-3">
-                                                    <div class="image">
-                                                        <i class="icon-noti-3"></i>
-                                                    </div>
-                                                    <div>
-                                                        <div class="body-title-2">Order shipped successfully</div>
-                                                        <div class="text-tiny">Integer aliquam eros nec sollicitudin
-                                                            sollicitudin</div>
-                                                    </div>
-                                                </div>
-                                            </li>
-                                            <li>
-                                                <div class="message-item item-4">
-                                                    <div class="image">
-                                                        <i class="icon-noti-4"></i>
-                                                    </div>
-                                                    <div>
-                                                        <div class="body-title-2">Order pending: <span>ID 305830</span>
-                                                        </div>
-                                                        <div class="text-tiny">Ultricies at rhoncus at ullamcorper</div>
-                                                    </div>
-                                                </div>
-                                            </li>
-                                            <li><a href="#" class="tf-button w-full">View all</a></li>
-                                        </ul>
-                                    </div>
-                                </div>
-
-
 
 
                                 <div class="popup-wrap user type-header">
@@ -283,7 +214,7 @@
                                                     <img src="images/avatar/user-1.png" alt="">
                                                 </span>
                                                 <span class="flex flex-column">
-                                                    <span class="body-title mb-2">Kristin Watson</span>
+                                                    <span class="body-title mb-2">{{ Auth::user()->name }}</span>
                                                     <span class="text-tiny">Admin</span>
                                                 </span>
                                             </span>
@@ -291,45 +222,46 @@
                                         <ul class="dropdown-menu dropdown-menu-end has-content"
                                             aria-labelledby="dropdownMenuButton3">
                                             <li>
-                                                <a href="#" class="user-item">
+                                                <a href="{{ route('admin.products') }}" class="user-item">
                                                     <div class="icon">
                                                         <i class="icon-user"></i>
                                                     </div>
-                                                    <div class="body-title-2">Account</div>
+                                                    <div class="body-title-2">Products</div>
                                                 </a>
                                             </li>
                                             <li>
-                                                <a href="#" class="user-item">
+                                                <a href="{{ route('admin.brands') }}" class="user-item">
                                                     <div class="icon">
                                                         <i class="icon-mail"></i>
                                                     </div>
-                                                    <div class="body-title-2">Inbox</div>
-                                                    <div class="number">27</div>
+                                                    <div class="body-title-2">Brands</div>
+
                                                 </a>
                                             </li>
                                             <li>
-                                                <a href="#" class="user-item">
+                                                <a href="{{ route('admin.categories') }}" class="user-item">
                                                     <div class="icon">
                                                         <i class="icon-file-text"></i>
                                                     </div>
-                                                    <div class="body-title-2">Taskboard</div>
+                                                    <div class="body-title-2">Categories</div>
                                                 </a>
                                             </li>
                                             <li>
-                                                <a href="#" class="user-item">
+                                                <a href="{{ route('admin.slides') }}" class="user-item">
                                                     <div class="icon">
                                                         <i class="icon-headphones"></i>
                                                     </div>
-                                                    <div class="body-title-2">Support</div>
+                                                    <div class="body-title-2">Slides</div>
                                                 </a>
                                             </li>
                                             <li>
-                                                <a href="login.html" class="user-item">
+                                                <form action="{{ route('logout') }}" class="user-item" method="POST">
+                                                    @csrf
                                                     <div class="icon">
                                                         <i class="icon-log-out"></i>
                                                     </div>
-                                                    <div class="body-title-2">Log out</div>
-                                                </a>
+                                                    <button type="submit" class="body-title-2">Log out</button>
+                                                </form>
                                             </li>
                                         </ul>
                                     </div>
@@ -354,11 +286,11 @@
 
     <script src="{{ asset('js/jquery.min.js') }}"></script>
     <script src="{{ asset('js/bootstrap.min.js ') }}"></script>
-    <script src="{{ asset('js/bootstrap-select.min.js ') }}"></script>   
-    <script src="{{ asset('js/sweetalert.min.js ') }}"></script>    
+    <script src="{{ asset('js/bootstrap-select.min.js ') }}"></script>
+    <script src="{{ asset('js/sweetalert.min.js ') }}"></script>
     <script src="{{ asset('js/apexcharts/apexcharts.js ') }}"></script>
     <script src="{{ asset('js/main.js ') }}"></script>
-    
+
      <script>
     $(function () {
       $("#search-input").on("input", function () {
@@ -391,7 +323,7 @@
                           <div class="divider"></div>
                         </li>
                     </ul>
-                 </li> 
+                 </li>
                 `);
               });
             }
