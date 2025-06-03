@@ -35,7 +35,7 @@
                 <fieldset class="name">
                     <div class="body-title mb-10">Product name <span class="tf-color-1">*</span>
                     </div>
-                    <input class="mb-10" type="text" placeholder="Enter product name" name="name" tabindex="0" value="{{ old('name') }}" aria-required="true" required>
+                    <input class="mb-10" type="text" placeholder="Enter product name" name="name" tabindex="0" value="{{ old('name') }}" aria-required="true" required autocomplete="off">
                     <div class="text-tiny">Do not exceed 100 characters when entering the
                         product name.</div>
                 </fieldset>
@@ -57,7 +57,7 @@
                         <div class="select">
                             <select class="" name="category_id">
                                 <option>Choose category</option>
-                                @foreach ($categories as $category)                    
+                                @foreach ($categories as $category)
                                 <option value="{{ $category->id }}">{{ $category->name }}</option>
                                 @endforeach
                             </select>
@@ -115,7 +115,7 @@
                                     <i class="icon-upload-cloud"></i>
                                 </span>
                                 <span class="body-text">Drop your images here or select <span class="tf-color">click to browse</span></span>
-                                <input type="file" id="myFile" name="image" accept="image/*">
+                                <input type="file" id="myFile" name="image" accept="image/*" autocomplete="off">
                             </label>
                         </div>
                     </div>
@@ -132,7 +132,7 @@
                                     <i class="icon-upload-cloud"></i>
                                 </span>
                                 <span class="text-tiny">Drop your images here or select <span class="tf-color">click to browse</span></span>
-                                <input type="file" id="gFile" name="images[]" accept="image/*" multiple="">
+                                <input type="file" id="gFile" name="images[]" accept="image/*" multiple="" autocomplete="off">
                             </label>
                         </div>
                     </div>
@@ -143,14 +143,14 @@
                 <div class="cols gap22">
                     <fieldset class="name">
                         <div class="body-title mb-10">Regular Price <span class="tf-color-1">*</span></div>
-                        <input class="mb-10" type="text" placeholder="Enter regular price" name="regular_price" tabindex="0" value="{{ old('regular_price') }}" aria-required="true" required>
+                        <input class="mb-10" type="text" placeholder="Enter regular price" name="regular_price" tabindex="0" value="{{ old('regular_price') }}" aria-required="true" required autocomplete="off">
                     </fieldset>
                 @error('regular_price') <span class="alert alert-danger text-center">{{ $message }}</span> @enderror
 
                     <fieldset class="name">
                         <div class="body-title mb-10">Sale Price <span
                                 class="tf-color-1">*</span></div>
-                        <input class="mb-10" type="text" placeholder="Enter sale price" name="sale_price" tabindex="0" value="{{ old('sale_price') }}" aria-required="true" required>
+                        <input class="mb-10" type="text" placeholder="Enter sale price" name="sale_price" tabindex="0" value="{{ old('sale_price') }}" aria-required="true" required autocomplete="off">
                     </fieldset>
                 @error('sale_price') <span class="alert alert-danger text-center">{{ $message }}</span> @enderror
 
@@ -161,14 +161,14 @@
                     <fieldset class="name">
                         <div class="body-title mb-10">SKU <span class="tf-color-1">*</span>
                         </div>
-                        <input class="mb-10" type="text" placeholder="Enter SKU" name="SKU" tabindex="0" value="{{ old('SKU') }}" aria-required="true" required>
+                        <input class="mb-10" type="text" placeholder="Enter SKU" name="SKU" tabindex="0" value="{{ old('SKU') }}" aria-required="true" required autocomplete="off">
                     </fieldset>
                 @error('SKU') <span class="alert alert-danger text-center">{{ $message }}</span> @enderror
 
                     <fieldset class="name">
                         <div class="body-title mb-10">Quantity <span class="tf-color-1">*</span>
                         </div>
-                        <input class="mb-10" type="text" placeholder="Enter quantity" name="quantity" tabindex="0" value="{{ old('quantity') }}" aria-required="true" required>
+                        <input class="mb-10" type="text" placeholder="Enter quantity" name="quantity" tabindex="0" value="{{ old('quantity') }}" aria-required="true" required autocomplete="off">
                     </fieldset>
                 @error('quantity') <span class="alert alert-danger text-center">{{ $message }}</span> @enderror
 
@@ -200,7 +200,7 @@
                 </div>
 
                 <div class="cols gap22">
-                    
+
                     <fieldset class="name">
                         <div class="body-title mb-10">Size <span class="tf-color-1">*</span></div>
                         <select class="mb-10" name="size" required>
@@ -213,7 +213,7 @@
                         </select>
                         <div class="text-tiny">Choose a size from the options.</div>
                     </fieldset>
-                    
+
                 @error('size') <span class="alert alert-danger text-center">{{ $message }}</span> @enderror
                 </div>
 
@@ -246,7 +246,7 @@
             const gphotos = this.files;
             $.each(gphotos,function(key,val){
                 $("#galUpload").prepend(`<div class ="item gitem"><img src="${URL.createObjectURL(val)}"/><div/>`);
-            });           
+            });
         });
 
         $("input[name ='name']").on("change", function() {

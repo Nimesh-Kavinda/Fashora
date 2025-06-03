@@ -1,6 +1,6 @@
 @extends('layouts.admin')
 @section('content')
-    
+
 <div class="main-content-inner">
     <!-- main-content-wrap -->
     <div class="main-content-wrap">
@@ -32,12 +32,12 @@
         <form class="tf-section-2 form-add-product" method="POST" enctype="multipart/form-data" action="{{ route('admin.product.update') }}">
             @csrf
             @method('PUT')
-            <input type="hidden" name="id" value="{{ $product->id }}">
+            <input type="hidden" name="id" value="{{ $product->id }}" autocomplete="off">
             <div class="wg-box">
                 <fieldset class="name">
                     <div class="body-title mb-10">Product name <span class="tf-color-1">*</span>
                     </div>
-                    <input class="mb-10" type="text" placeholder="Enter product name" name="name" tabindex="0" value="{{ $product->name }}" aria-required="true" required>
+                    <input class="mb-10" type="text" placeholder="Enter product name" name="name" tabindex="0" value="{{ $product->name }}" aria-required="true" required autocomplete="off">
                     <div class="text-tiny">Do not exceed 100 characters when entering the
                         product name.</div>
                 </fieldset>
@@ -45,7 +45,7 @@
 
                 <fieldset class="name">
                     <div class="body-title mb-10">Slug <span class="tf-color-1">*</span></div>
-                    <input class="mb-10" type="text" placeholder="Enter product slug" name="slug" tabindex="0" value="{{ $product->slug }}" aria-required="true" required>
+                    <input class="mb-10" type="text" placeholder="Enter product slug" name="slug" tabindex="0" value="{{ $product->slug }}" aria-required="true" required autocomplete="off">
                     <div class="text-tiny">Do not exceed 100 characters when entering the
                         product name.</div>
                 </fieldset>
@@ -59,7 +59,7 @@
                         <div class="select">
                             <select class="" name="category_id">
                                 <option>Choose category</option>
-                                @foreach ($categories as $category)                    
+                                @foreach ($categories as $category)
                                 <option value="{{ $category->id }}" {{ $product ->category_id == $category->id ? "selected" : "" }}>{{ $category->name }}</option>
                                 @endforeach
                             </select>
@@ -119,11 +119,11 @@
                                     <i class="icon-upload-cloud"></i>
                                 </span>
                                 <span class="body-text">Drop your images here or select <span class="tf-color">click to browse</span></span>
-                                <input type="file" id="myFile" name="image" accept="image/*">
+                                <input type="file" id="myFile" name="image" accept="image/*" autocomplete="off">
                             </label>
                         </div>
                     </div>
-                </fieldset> 
+                </fieldset>
                 @error('image') <span class="alert alert-danger text-center">{{ $message }}</span> @enderror
 
 
@@ -138,14 +138,14 @@
                         </div>
                         @endforeach
                         @endif
-                        </div>                                               
+                        </div>
                         <div id="galUpload" class="item up-load">
                             <label class="uploadfile" for="gFile">
                                 <span class="icon">
                                     <i class="icon-upload-cloud"></i>
                                 </span>
                                 <span class="text-tiny">Drop your images here or select <span class="tf-color">click to browse</span></span>
-                                <input type="file" id="gFile" name="images[]" accept="image/*" multiple="">
+                                <input type="file" id="gFile" name="images[]" accept="image/*" multiple="" autocomplete="off">
                             </label>
                         </div>
                     </div>
@@ -156,14 +156,14 @@
                 <div class="cols gap22">
                     <fieldset class="name">
                         <div class="body-title mb-10">Regular Price <span class="tf-color-1">*</span></div>
-                        <input class="mb-10" type="text" placeholder="Enter regular price" name="regular_price" tabindex="0" value="{{ $product->regular_price }}" aria-required="true" required>
+                        <input class="mb-10" type="text" placeholder="Enter regular price" name="regular_price" tabindex="0" value="{{ $product->regular_price }}" aria-required="true" required autocomplete="off">
                     </fieldset>
                 @error('regular_price') <span class="alert alert-danger text-center">{{ $message }}</span> @enderror
 
                     <fieldset class="name">
                         <div class="body-title mb-10">Sale Price <span
                                 class="tf-color-1">*</span></div>
-                        <input class="mb-10" type="text" placeholder="Enter sale price" name="sale_price" tabindex="0" value="{{ $product->sale_price }}" aria-required="true" required>
+                        <input class="mb-10" type="text" placeholder="Enter sale price" name="sale_price" tabindex="0" value="{{ $product->sale_price }}" aria-required="true" required autocomplete="off">
                     </fieldset>
                 @error('sale_price') <span class="alert alert-danger text-center">{{ $message }}</span> @enderror
 
@@ -174,14 +174,14 @@
                     <fieldset class="name">
                         <div class="body-title mb-10">SKU <span class="tf-color-1">*</span>
                         </div>
-                        <input class="mb-10" type="text" placeholder="Enter SKU" name="SKU" tabindex="0" value="{{ $product->SKU }}" aria-required="true" required>
+                        <input class="mb-10" type="text" placeholder="Enter SKU" name="SKU" tabindex="0" value="{{ $product->SKU }}" aria-required="true" required autocomplete="off">
                     </fieldset>
                 @error('SKU') <span class="alert alert-danger text-center">{{ $message }}</span> @enderror
 
                     <fieldset class="name">
                         <div class="body-title mb-10">Quantity <span class="tf-color-1">*</span>
                         </div>
-                        <input class="mb-10" type="text" placeholder="Enter quantity" name="quantity" tabindex="0" value="{{ $product->quantity }}" aria-required="true" required>
+                        <input class="mb-10" type="text" placeholder="Enter quantity" name="quantity" tabindex="0" value="{{ $product->quantity }}" aria-required="true" required autocomplete="off">
                     </fieldset>
                 @error('quantity') <span class="alert alert-danger text-center">{{ $message }}</span> @enderror
 
@@ -211,9 +211,9 @@
                 @error('featured') <span class="alert alert-danger text-center">{{ $message }}</span> @enderror
                 </div>
 
-                
+
                 <div class="cols gap22">
-                    
+
                     <fieldset class="name">
                         <div class="body-title mb-10">Size <span class="tf-color-1">*</span></div>
                         <select class="mb-10" name="size" required>
@@ -226,7 +226,7 @@
                         </select>
                         <div class="text-tiny">Choose a size from the options.</div>
                     </fieldset>
-                    
+
                 @error('size') <span class="alert alert-danger text-center">{{ $message }}</span> @enderror
                 </div>
 
@@ -260,7 +260,7 @@
             $("#gimgpreview").empty();
             $.each(gphotos,function(key,val){
                 $("#gimgpreview").append(`<div class ="item gitem"><img src="${URL.createObjectURL(val)}"/><div/>`);
-            });           
+            });
         });
 
 
