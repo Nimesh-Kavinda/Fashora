@@ -17,7 +17,7 @@
         border-radius: 5px;
     }
 </style>
-    
+
 <div class="main-content-inner">
     <div class="main-content-wrap">
         <div class="flex items-center flex-wrap justify-between gap20 mb-27">
@@ -47,7 +47,6 @@
             <div class="wg-table table-all-user">
                 @if (Session::has('status'))
                     <p class="alert alert-success">{{Session::get('status')}}</p>
-                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                     @endif
                 <table class="table table-striped table-bordered">
                     <thead>
@@ -76,13 +75,13 @@
                             <td>{{ $slide->subtitle }}</td>
                             <td class="text-wrap" style="word-break: break-word;">{{ $slide->link }}</td>
                             @if($slide->status == "1")
-                            
+
                             <td class="text-center"><span class="status_active">Active</span></td>
-                            
+
                             @else
-                            
+
                             <td class="text-center"><span class="status_inactive">Inactive</span></td>
-                            
+
                             @endif
                             <td>
                                 <div class="list-icon-function">
