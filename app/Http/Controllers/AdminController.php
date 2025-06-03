@@ -183,7 +183,7 @@ class AdminController extends Controller
         $request->validate([
             'name' => 'required',
             'slug' => 'required|unique:categories,slug',
-            'image' => 'mimes:png,jpg,jpeg,webp|max:2048'
+            'image' => 'required|mimes:png,jpg,jpeg,webp|max:2048'
         ]);
 
         $category = new Category();
@@ -285,6 +285,8 @@ class AdminController extends Controller
             'category_id' => 'required',
             'brand_id' => 'required',
             'size' => 'required|in:S,M,L,XL,XXL',
+            'image' => 'required|mimes:png,jpg,jpeg,webp|max:2048',
+            'images.*' => 'mimes:png,jpg,jpeg,webp|max:2048',
 
         ]);
 
