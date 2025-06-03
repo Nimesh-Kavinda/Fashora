@@ -35,12 +35,12 @@
                 <input type="hidden" name="id" value="{{$category->id}}">
                 <fieldset class="name">
                     <div class="body-title">Category Name <span class="tf-color-1">*</span></div>
-                    <input class="flex-grow" type="text" placeholder="Category name" name="name" tabindex="0" value="{{$category->name}}" aria-required="true" required="">
+                    <input class="flex-grow" type="text" placeholder="Category name" name="name" tabindex="0" value="{{$category->name}}" aria-required="true" required="" autocomplete="off">
                 </fieldset>
                 @error('name') <span class="alert alert-danger text-center">{{$message}}</span>@enderror
                 <fieldset class="name">
                     <div class="body-title">Category Slug <span class="tf-color-1">*</span></div>
-                    <input class="flex-grow" type="text" placeholder="Category Slug" name="slug" tabindex="0" value="{{$category->slug}}" aria-required="true" required="">
+                    <input class="flex-grow" type="text" placeholder="Category Slug" name="slug" tabindex="0" value="{{$category->slug}}" aria-required="true" required="" autocomplete="off">
                 </fieldset>
                 @error('slug') <span class="alert alert-danger text-center">{{$message}}</span>@enderror
                 <fieldset>
