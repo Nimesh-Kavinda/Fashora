@@ -3,13 +3,13 @@
 
 
 <style>
- 
+
     .coupon-wrapper {
       position: relative;
       margin-bottom: 15px;
       padding: 10px 0;
     }
-    
+
 
     .scissors-top, .scissors-bottom {
       position: absolute;
@@ -19,15 +19,15 @@
       transform: rotate(-90deg);
       z-index: 2;
     }
-    
+
     .scissors-top {
       top: -8px;
     }
-    
+
     .scissors-bottom {
       bottom: -8px;
     }
-    
+
 
     .coupon-card {
       border-radius: 12px;
@@ -37,12 +37,12 @@
       position: relative;
       background: #fff;
     }
-    
+
     .coupon-card:hover {
       transform: translateY(-6px);
       box-shadow: 0 14px 30px rgba(0, 0, 0, 0.15);
     }
-    
+
 
     .coupon-tag {
       position: absolute;
@@ -57,11 +57,11 @@
       color: white;
       z-index: 2;
     }
-    
+
     .coupon-tag span {
       margin-top: 8px;
     }
-    
+
 
     .coupon-header {
       border-radius: 0 0 50% 0;
@@ -69,11 +69,11 @@
       margin-right: -50px;
       clip-path: polygon(0 0, 100% 0, 100% 60%, 80% 100%, 0 100%);
     }
-    
+
     .letter-spacing-1 {
       letter-spacing: 1px;
     }
-    
+
 
     .value-pill {
       display: inline-block;
@@ -84,14 +84,14 @@
       font-size: 1.1rem;
       box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
     }
-    
- 
+
+
     .code-container {
       width: 80%;
       margin-top: 15px;
       position: relative;
     }
-    
+
     .coupon-code-display {
       background: #f8f9fa;
       padding: 10px 15px;
@@ -100,13 +100,13 @@
       position: relative;
       overflow: hidden;
     }
-    
+
     .code-text {
       font-size: 1.3rem;
       letter-spacing: 2px;
       color: #333;
     }
-    
+
     .scissors-icon {
       top: -13px;
       right: -15px;
@@ -114,12 +114,12 @@
       transform: rotate(90deg);
       opacity: 0.5;
     }
-    
+
 
     .detail-item {
       margin-bottom: 12px;
     }
-    
+
     .detail-icon {
       display: flex;
       align-items: center;
@@ -129,24 +129,24 @@
       border-radius: 50%;
       margin-right: 15px;
     }
-    
+
     .detail-text {
       display: flex;
       flex-direction: column;
     }
-    
+
     .detail-label {
       font-size: 0.8rem;
       color: #6c757d;
       margin-bottom: 3px;
     }
-    
+
     .detail-value {
       font-weight: 600;
       color: #333;
     }
-    
-  
+
+
     .copy-btn {
       border: none;
       background: linear-gradient(135deg, #FF4C61, #FF8181);
@@ -163,12 +163,12 @@
       justify-content: center;
       box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
     }
-    
+
     .copy-btn:hover {
       transform: translateY(-2px);
       box-shadow: 0 8px 15px rgba(0, 0, 0, 0.15);
     }
-    
+
 
     .circle-left, .circle-right {
       position: absolute;
@@ -180,68 +180,68 @@
       border-radius: 50%;
       z-index: 3;
     }
-    
+
     .circle-left {
       left: -10px;
       box-shadow: inset 3px 0 5px rgba(0,0,0,0.06);
     }
-    
+
     .circle-right {
       right: -10px;
       box-shadow: inset -3px 0 5px rgba(0,0,0,0.06);
     }
-    
+
 
     .row {
       display: flex;
       flex-wrap: wrap;
       margin: 0 -15px;
     }
-    
+
     .col {
       flex: 0 0 33.333%;
       max-width: 33.333%;
       padding: 0 15px;
       margin-bottom: 30px;
     }
-    
- 
+
+
     @media (max-width: 992px) {
       .col {
         flex: 0 0 50%;
         max-width: 50%;
       }
     }
-    
+
     @media (max-width: 768px) {
       .col {
         flex: 0 0 100%;
         max-width: 100%;
       }
-      
+
       .scissors-top, .scissors-bottom {
         display: none;
       }
-      
+
       .coupon-code-display {
         padding: 8px 12px;
       }
-      
+
       .code-text {
         font-size: 1.1rem;
       }
-      
+
       .value-pill {
         font-size: 1rem;
         padding: 6px 16px;
       }
     }
-    
+
     .text-center {
       text-align: center;
     }
 </style>
-    
+
 
 <main>
 
@@ -543,13 +543,13 @@
             style="background-color: {{ $color }}; margin: 0px 0; z-index: 2;">
             {{ $categoryName }}
             </div>
-          
+
             <a href="{{ route('shop.product.details', ['product_slug' => $fproduct->slug]) }}">
               <img loading="lazy" src="{{ asset('uploads/products') }}/{{ $fproduct->image }}" width="330" height="400"
                 alt="Cropped Faux leather Jacket" class="pc__img">
             </a>
           </div>
-          
+
 
           <div class="pc__info position-relative">
             <h6 class="pc__title"><a href="details.html">{{ $fproduct->name }}</a></h6>
@@ -719,10 +719,10 @@
 @endsection
 
 @push('scripts')
-    
+
 <script>
   function copyCouponCode(code, btn) {
-    
+
     const tempInput = document.createElement("input");
     tempInput.value = code;
     document.body.appendChild(tempInput);
@@ -730,7 +730,7 @@
     document.execCommand("copy");
     document.body.removeChild(tempInput);
 
-   
+
     const originalHTML = btn.innerHTML;
     btn.innerHTML = '<span class = "text-white">Copied!</span> <i class="bi bi-check-circle ms-2 text-white"></i>';
     btn.classList.add('btn-success');
@@ -742,7 +742,7 @@
   }
 
 
-        
+
 
 
 </script>
