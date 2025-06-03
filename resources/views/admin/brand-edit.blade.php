@@ -15,7 +15,7 @@
                     <i class="icon-chevron-right"></i>
                 </li>
                 <li>
-                    <a href="{{('admin.brands')}}">
+                    <a href="{{route('admin.brands')}}">
                         <div class="text-tiny">Brands</div>
                     </a>
                 </li>
@@ -35,12 +35,12 @@
                 <input type="hidden" name="id" value="{{$brand->id}}">
                 <fieldset class="name">
                     <div class="body-title">Brand Name <span class="tf-color-1">*</span></div>
-                    <input class="flex-grow" type="text" placeholder="Brand name" name="name" tabindex="0" value="{{$brand->name}}" aria-required="true" required="">
+                    <input class="flex-grow" type="text" placeholder="Brand name" name="name" tabindex="0" value="{{$brand->name}}" aria-required="true" required="" autocomplete="off">
                 </fieldset>
                 @error('name') <span class="alert alert-danger text-center">{{$message}}</span>@enderror
                 <fieldset class="name">
                     <div class="body-title">Brand Slug <span class="tf-color-1">*</span></div>
-                    <input class="flex-grow" type="text" placeholder="Brand Slug" name="slug" tabindex="0" value="{{$brand->slug}}" aria-required="true" required="">
+                    <input class="flex-grow" type="text" placeholder="Brand Slug" name="slug" tabindex="0" value="{{$brand->slug}}" aria-required="true" required="" autocomplete="off">
                 </fieldset>
                 @error('slug') <span class="alert alert-danger text-center">{{$message}}</span>@enderror
                 <fieldset>

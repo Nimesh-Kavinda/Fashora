@@ -1,7 +1,7 @@
 @extends('layouts.admin')
 
 @section('content')
-    
+
 <div class="main-content-inner">
     <!-- main-content-wrap -->
     <div class="main-content-wrap">
@@ -35,17 +35,17 @@
                 @csrf
                 <fieldset class="name">
                     <div class="body-title">Tagline <span class="tf-color-1">*</span></div>
-                    <input class="flex-grow" type="text" placeholder="Tagline" name="tagline" tabindex="0" value="{{ old('tagline') }}" aria-required="true" required="">
+                    <input class="flex-grow" type="text" placeholder="Tagline" name="tagline" tabindex="0" value="{{ old('tagline') }}" aria-required="true" required="" autocomplete="off">
                 </fieldset>
                 @error('tagline') <span class="alert alert-danger text-center">{{ $message }}</span> @enderror
                 <fieldset class="name">
                     <div class="body-title">Title <span class="tf-color-1">*</span></div>
-                    <input class="flex-grow" type="text" placeholder="Title" name="title" tabindex="0" value="{{ old('title') }}" aria-required="true" required="">
+                    <input class="flex-grow" type="text" placeholder="Title" name="title" tabindex="0" value="{{ old('title') }}" aria-required="true" required="" autocomplete="off">
                 </fieldset>
                 @error('title') <span class="alert alert-danger text-center">{{ $message }}</span> @enderror
                 <fieldset class="name">
                     <div class="body-title">Subtitle <span class="tf-color-1">*</span></div>
-                    <input class="flex-grow" type="text" placeholder="Subtitle" name="subtitle" tabindex="0" value="{{ old('subtitle') }}" aria-required="true" required="">
+                    <input class="flex-grow" type="text" placeholder="Subtitle" name="subtitle" tabindex="0" value="{{ old('subtitle') }}" aria-required="true" required="" autocomplete="off">
                 </fieldset>
                 @error('subtitle') <span class="alert alert-danger text-center">{{ $message }}</span> @enderror
                 <fieldset class="name">
@@ -76,7 +76,7 @@
                     <div class="body-title">Status</div>
                     <div class="select flex-grow">
                         <select class="" name="status">
-                            
+
                             <option value="1" @if(old('status') == "1") selected @endif>Active</option>
                             <option value="0" @if(old('status') == "0") selected @endif>Inactive</option>
                         </select>
