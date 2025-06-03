@@ -35,7 +35,7 @@
                     <input type="hidden" name="id" value="{{ $coupon->id }}">
                     <fieldset class="name">
                         <div class="body-title">Coupon Code <span class="tf-color-1">*</span></div>
-                        <input class="flex-grow" type="text" placeholder="Coupon Code" name="code" tabindex="0" value="{{ $coupon->code }}" aria-required="true" required="">
+                        <input class="flex-grow" type="text" placeholder="Coupon Code" name="code" tabindex="0" value="{{ $coupon->code }}" aria-required="true" required="" autocomplete="off">
                     </fieldset>
                     @error('code') <span class="alert alert-danger text-center">{{ $message }}</span> @enderror
 
@@ -53,19 +53,19 @@
 
                     <fieldset class="name">
                         <div class="body-title">Value <span class="tf-color-1">*</span></div>
-                        <input class="flex-grow" type="text" placeholder="Coupon Value" name="value" tabindex="0" value="{{ $coupon->value }}" aria-required="true" required="">
+                        <input class="flex-grow" type="text" placeholder="Coupon Value" name="value" tabindex="0" value="{{ $coupon->value }}" aria-required="true" required="" autocomplete="off">
                     </fieldset>
                     @error('value') <span class="alert alert-danger text-center">{{ $message }}</span> @enderror
 
                     <fieldset class="name">
                         <div class="body-title">Cart Value <span class="tf-color-1">*</span></div>
-                        <input class="flex-grow" type="text" placeholder="Cart Value" name="cart_value" tabindex="0" value="{{ $coupon->cart_value }}" aria-required="true" required="">
+                        <input class="flex-grow" type="text" placeholder="Cart Value" name="cart_value" tabindex="0" value="{{ $coupon->cart_value }}" aria-required="true" required="" autocomplete="off">
                     </fieldset>
                     @error('cart_value') <span class="alert alert-danger text-center">{{ $message }}</span> @enderror
 
                     <fieldset class="name">
                         <div class="body-title">Expiry Date <span class="tf-color-1">*</span></div>
-                        <input class="flex-grow" type="date" placeholder="Expiry Date" name="expiry_date" tabindex="0" value="{{ $coupon->expiry_date }}" aria-required="true" required="">
+                        <input class="flex-grow" type="date" placeholder="Expiry Date" name="expiry_date" tabindex="0" value="{{ $coupon->expiry_date }}" aria-required="true" required="" autocomplete="off">
                     </fieldset>
                     @error('expiry_date') <span class="alert alert-danger text-center">{{ $message }}</span> @enderror
 
