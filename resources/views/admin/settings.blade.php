@@ -1,6 +1,6 @@
 @extends('layouts.admin')
 
-@section('content') 
+@section('content')
 
  <div class="main-content-inner">
                             <div class="main-content-wrap">
@@ -35,24 +35,24 @@
                                                     <p class="alert alert-danger">{{ Session::get('status_fail') }}</p>
                                                     <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                                                 @endif
-                                            </div> 
+                                            </div>
                                                 <form action="{{ route('admin.settings.update', Auth::id()) }}" method="POST" class="form-new-product form-style-1 needs-validation" novalidate>
                                                     @csrf
                                                     @method('PUT')
 
                                                     <fieldset class="name">
                                                         <div class="body-title">Name <span class="tf-color-1">*</span></div>
-                                                        <input class="flex-grow" type="text" placeholder="Full Name" name="name" value="{{ old('name', $user->name) }}" required>
+                                                        <input class="flex-grow" type="text" placeholder="Full Name" name="name" value="{{ old('name', $user->name) }}" required autocomplete="off">
                                                     </fieldset>
 
                                                     <fieldset class="name">
                                                         <div class="body-title">Mobile Number <span class="tf-color-1">*</span></div>
-                                                        <input class="flex-grow" type="text" placeholder="Mobile Number" name="mobile" value="{{ old('mobile', $user->mobile) }}" required>
+                                                        <input class="flex-grow" type="text" placeholder="Mobile Number" name="mobile" value="{{ old('mobile', $user->mobile) }}" required autocomplete="off">
                                                     </fieldset>
 
                                                     <fieldset class="name">
                                                         <div class="body-title">Email Address <span class="tf-color-1">*</span></div>
-                                                        <input class="flex-grow" type="email" placeholder="Email Address" name="email" value="{{ old('email', $user->email) }}" required>
+                                                        <input class="flex-grow" type="email" placeholder="Email Address" name="email" value="{{ old('email', $user->email) }}" required readonly>
                                                     </fieldset>
 
                                                     <div class="my-3">
@@ -77,7 +77,7 @@
                                                     <div class="my-3">
                                                         <button type="submit" class="btn btn-primary tf-button w208">Save Changes</button>
                                                     </div>
-                                                    
+
                                                 </form>
 
                                             </div>
