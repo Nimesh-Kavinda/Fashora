@@ -90,6 +90,10 @@ class AdminController extends Controller
 
     public function brand_store(Request $request)
     {
+        $generatedSlug = Str::slug($request->name);
+
+        $request->merge(['slug' => $generatedSlug]);
+
         $request->validate([
             'name' => 'required',
             'slug' => 'required|unique:brands,slug',
@@ -98,7 +102,7 @@ class AdminController extends Controller
 
         $brand = new Brand();
         $brand->name = $request->name;
-        $brand->slug = Str::slug($request->name);
+        $brand->slug = $generatedSlug;
 
         $image = $request->file('image');
         $file_extention = $request->file('image')->extension();
@@ -180,6 +184,10 @@ class AdminController extends Controller
 
     public function category_store(Request $request)
     {
+        $generatedSlug = Str::slug($request->name);
+
+        $request->merge(['slug' => $generatedSlug]);
+
         $request->validate([
             'name' => 'required',
             'slug' => 'required|unique:categories,slug',
@@ -188,7 +196,7 @@ class AdminController extends Controller
 
         $category = new Category();
         $category->name = $request->name;
-        $category->slug = Str::slug($request->name);
+        $category->slug = $generatedSlug;
 
         $image = $request->file('image');
         $file_extention = $request->file('image')->extension();
