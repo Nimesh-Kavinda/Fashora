@@ -277,8 +277,8 @@
                             <option value="-1" {{ $order == -1 ? 'selected' : '' }}>Default</option>
                             <option value="1" {{ $order == 1 ? 'selected' : '' }}>Date, New to Old</option>
                             <option value="2" {{ $order == 2 ? 'selected' : '' }}>Date, Old to New</option>
-                            <option value="3" {{ $order == 3 ? 'selected' : '' }}>Price, Low to High</option>
-                            <option value="4" {{ $order == 4 ? 'selected' : '' }}>Price, High to Low</option>
+                            <option value="3" {{ $order == 3 ? 'selected' : '' }}>Price, High to Low</option>
+                            <option value="4" {{ $order == 4 ? 'selected' : '' }}>Price, Low to High</option>
                         </select>
 
                         <div class="shop-asc__seprator mx-3 bg-light d-none d-md-block order-md-0"></div>
