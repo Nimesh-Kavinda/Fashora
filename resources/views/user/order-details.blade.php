@@ -57,7 +57,7 @@
     .table> :not(caption)>tr>th {
       padding: 0.625rem 1.5rem .25rem !important;
       background-color: #3e3e3e !important;
-    
+
     }
 
     .table-bordered>:not(caption)>*>* {
@@ -89,7 +89,7 @@
       border-color: #7a79795d;
     }
   </style>
-    
+
 <main class="pt-90" style="padding-top: 0px;">
     <div class="mb-4 pb-4"></div>
     <section class="my-account container">
@@ -102,7 +102,7 @@
         <div class="col-lg-10">
             <div class="wg-box">
                 <div class="flex items-center justify-between gap10 flex-wrap">
-                    
+
                     <div class="row">
                         <div class="col-6">
                             <h5 class="fw-bold">Order Details</h5>
@@ -118,7 +118,7 @@
                     <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                     @endif
                     <table class="table table-bordered table-striped table-transaction">
-                       
+
                             <tr>
                                 <th class="text-center">Order No</th>
                                 <td class="text-center">{{ $order->id }}</td>
@@ -127,7 +127,7 @@
                                 <th class="text-center">Zip Code</th>
                                 <td class="text-center">{{ $order->zip }}</td>
                             </tr>
-    
+
                             <tr>
                                 <th class="text-center">Order Date</th>
                                 <td class="text-center">{{ $order->created_at }}</td>
@@ -136,7 +136,7 @@
                                 <th class="text-center">Canceled Date</th>
                                 <td class="text-center">{{ $order->canceled_date ?? '-' }}</td>
                             </tr>
-    
+
                             <tr>
                                 <th class="text-center">Order Status</th>
                                 <td colspan="5">
@@ -149,11 +149,11 @@
                                     @endif
                                 </td>
                             </tr>
-                                      
+
                     </table>
                 </div>
             </div>
-    
+
             <div class="wg-box">
                 <div class="flex items-center justify-between gap10 flex-wrap">
                     <div class="wg-filter flex-grow">
@@ -171,12 +171,12 @@
                                 <th class="text-center">Brand</th>
                                 <th class="text-center">Options</th>
                                 <th class="text-center">Return Status</th>
-                                <th class="text-center">Action</th>
+
                             </tr>
                         </thead>
                         <tbody>
                             @foreach ($orderItems as $item)
-                            
+
                             <tr>
                                 <td class="text-center align-center justify-content-center d-flex gap-4">
                                     <div class="image">
@@ -193,25 +193,19 @@
                                 <td class="text-center">{{ $item->product->brand->name}}</td>
                                 <td class="text-center">{{ $item->options ?? '-'}}</td>
                                 <td class="text-center">{{ $item->rstatus == 0 ? 'No' : "Yes" }}</td>
-                                <td class="text-center">
-                                    <div class="list-icon-function view-icon">
-                                        <div class="item eye">
-                                            <i class="icon-eye"></i>
-                                        </div>
-                                    </div>
-                                </td>
+
                             </tr>
                             @endforeach
                         </tbody>
                     </table>
                 </div>
-    
+
                 <div class="divider"></div>
                 <div class="flex items-center justify-between flex-wrap gap10 wgp-pagination">
                     {{ $orderItems->links('pagination::bootstrap-5') }}
                 </div>
             </div>
-    
+
             <div class="wg-box mt-5">
                 <h5 class="fw-bold">Shipping Address</h5>
                 <div class="my-account__address-item col-md-6">
@@ -227,7 +221,7 @@
                     </div>
                 </div>
             </div>
-    
+
             <div class="wg-box mt-5">
                 <h5 class="fw-bold">Transactions</h5>
                 <table class="table table-striped table-bordered table-transaction">
@@ -244,7 +238,7 @@
                             <th>Total</th>
                             <td>LKR {{ $order->total }}</td>
                             <th>Payment Mode</th>
-                            <td style="text-transform: capitalize">{{ $transaction->mode }}</td>
+                            <td style="text-transform: uppercase">{{ $transaction->mode }}</td>
                             <th>Status</th>
                             <td>
                                 @if($transaction->status == 'approved')
