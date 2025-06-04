@@ -223,7 +223,7 @@
                                     <div class="slideshow-text container p-3 p-xl-5">
                                         <h2
                                             class="text-uppercase section-title fw-normal mb-3 animate animate_fade animate_btt animate_delay-2">
-                                            Online <br /><strong>SHOPPING STORE</strong></h2>
+                                            Fashora <br /><strong>SHOPPING STORE</strong></h2>
                                         <p class="mb-0 animate animate_fade animate_btt animate_delay-5">Explore the latest
                                             trends and timeless classics in one place. Shop everything from fashion and
                                             electronics to home essentials—delivered right to your door.</p>
