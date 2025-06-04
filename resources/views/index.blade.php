@@ -432,7 +432,7 @@
 
                   @php
                   $categoryName = $sproduct->category->name;
-                  $hash = substr(md5($categoryName), 5, 8); // Use first 6 chars of hash as hex color
+                  $hash = substr(md5($categoryName), 8, 6); // Use first 6 chars of hash as hex color
                   $color = '#' . $hash;
                   @endphp
 
@@ -520,7 +520,7 @@
             <!-- Category Label -->
             @php
             $categoryName = $fproduct->category->name;
-            $hash = substr(md5($categoryName), 5, 8); // Use first 6 chars of hash as hex color
+            $hash = substr(md5($categoryName), 8, 6); // Use first 6 chars of hash as hex color
             $color = '#' . $hash;
             @endphp
 
