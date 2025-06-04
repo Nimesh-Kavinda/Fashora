@@ -270,7 +270,12 @@ class AdminController extends Controller
     }
 
     public function product_store(Request $request)
-    {   ;
+    {
+        $generatedSlug = Str::slug($request->name);
+
+        $request->merge(['slug' => $generatedSlug]);
+
+        ;
         $request->validate([
             'name' => 'required',
             'slug' => 'required|unique:products,slug',
@@ -292,7 +297,7 @@ class AdminController extends Controller
 
         $product = new Product();
         $product->name = $request->name;
-        $product->slug = Str::slug($request->name);
+        $product->slug = $generatedSlug;
         $product->short_description = $request->short_description;
         $product->description = $request->description;
         $product->regular_price = $request->regular_price;

@@ -47,7 +47,7 @@
                     <div class="text-tiny">Do not exceed 100 characters when entering the
                         product name.</div>
                 </fieldset>
-                @error('slug') <span class="alert alert-danger text-center">{{ $message }}</span> @enderror
+                @error('slug')<span class="alert alert-danger text-center">{{ $message }}</span> @enderror
 
 
                 <div class="gap22 cols">
@@ -56,7 +56,7 @@
                         </div>
                         <div class="select">
                             <select class="" name="category_id">
-                                <option>Choose category</option>
+                                <option value="">Choose category</option>
                                 @foreach ($categories as $category)
                                 <option value="{{ $category->id }}">{{ $category->name }}</option>
                                 @endforeach
@@ -70,7 +70,7 @@
                         </div>
                         <div class="select">
                             <select class="" name="brand_id">
-                                <option>Choose Brand</option>
+                                <option value="">Choose Brand</option>
                                 @foreach ($brands as $brand)
                                 <option value="{{ $brand->id }}">{{ $brand->name }}</option>
                                 @endforeach
